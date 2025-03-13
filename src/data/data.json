@@ -18,53 +18,6 @@
       "Lorem ipsum dolor"
     ]
   },
-  "Gallery": [
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/01-large.jpg",
-      "smallImage": "img/portfolio/01-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/02-large.jpg",
-      "smallImage": "img/portfolio/02-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/03-large.jpg",
-      "smallImage": "img/portfolio/03-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/04-large.jpg",
-      "smallImage": "img/portfolio/04-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/05-large.jpg",
-      "smallImage": "img/portfolio/05-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/06-large.jpg",
-      "smallImage": "img/portfolio/06-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/07-large.jpg",
-      "smallImage": "img/portfolio/07-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/08-large.jpg",
-      "smallImage": "img/portfolio/08-small.jpg"
-    },
-    {
-      "title": "Project Title",
-      "largeImage": "img/portfolio/09-large.jpg",
-      "smallImage": "img/portfolio/09-small.jpg"
-    }
-  ],
   "Contact": {
     "address": "4321 California St, San Francisco, CA 12345 ",
     "phone": "+1 123 456 1234",
@@ -77,12 +30,12 @@
     {
       "icon": "fa fa-comments-o",
       "title": "Look Up Tables",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "text": "Enhance your photos with professional-grade color transformations using Look Up Tables. Whether you're aiming for cinematic tones or vintage aesthetics, LUTs provide precise control over the mood and style of your images."
     },
     {
       "icon": "fa fa-bullhorn",
       "title": "Collages",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "text": "Easily combine multiple photos into stunning collages. Whether you want a structured grid or an artistic freeform arrangement, our intuitive tools help you create dynamic compositions that tell a richer visual story."
     },
     {
       "icon": "fa fa-group",
@@ -91,8 +44,8 @@
     },
     {
       "icon": "fa fa-magic",
-      "title": "Exports",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "Adjustments",
+      "text": "Make precise image adjustments to perfect your photos. From fine-tuning brightness and contrast to adjusting saturation, the effects tools allow you to refine every detail of your images with ease."
     }
   ]
 }
