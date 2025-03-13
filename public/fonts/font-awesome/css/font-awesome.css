@@ -558,7 +558,7 @@
 .fa-cogs:before {
   content: "\f085";
 }
-.fa-th:before {
+.fa-comments:before {
   content: "\f086";
 }
 .fa-thumbs-o-up:before {
@@ -685,7 +685,7 @@
 .fa-arrows-alt:before {
   content: "\f0b2";
 }
-.fa-image:before,
+.fa-group:before,
 .fa-users:before {
   content: "\f0c0";
 }
@@ -806,7 +806,7 @@
 .fa-comment-o:before {
   content: "\f0e5";
 }
-.fa-th-o:before {
+.fa-comments-o:before {
   content: "\f0e6";
 }
 .fa-flash:before,
