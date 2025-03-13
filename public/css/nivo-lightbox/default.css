@@ -29,7 +29,7 @@
 }
 .nivo-lightbox-theme-default .nivo-lightbox-nav:hover { 
 	opacity: 1; 
-	background-color: #374346;
+	background-color: transparent;
 }
 .nivo-lightbox-theme-default .nivo-lightbox-prev { 
 	background-image: url(prev.png); 
