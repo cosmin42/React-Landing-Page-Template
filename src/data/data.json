@@ -40,12 +40,12 @@
     {
       "icon": "fa fa-group",
       "title": "Effects",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "text": "Make precise image adjustments to perfect your photos. From fine-tuning brightness and contrast to adjusting saturation, the effects tools allow you to refine every detail of your images with ease."
     },
     {
       "icon": "fa fa-magic",
-      "title": "Adjustments",
-      "text": "Make precise image adjustments to perfect your photos. From fine-tuning brightness and contrast to adjusting saturation, the effects tools allow you to refine every detail of your images with ease."
+      "title": "Exports",
+      "text": "Seamlessly export your projects in high quality, whether for digital sharing or professional printing. Choose from multiple formats to ensure your photo book looks stunning on any platform or medium."
     }
   ]
 }
