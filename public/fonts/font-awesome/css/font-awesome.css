@@ -806,7 +806,7 @@
 .fa-comment-o:before {
   content: "\f0e5";
 }
-.fa-th-o:before {
+.fa-th:before {
   content: "\f0e6";
 }
 .fa-flash:before,
