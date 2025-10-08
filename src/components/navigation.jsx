@@ -1,6 +1,9 @@
 import React from "react";
+import { Link, useLocation } from 'react-router-dom';
 
 export const Navigation = (props) => {
+  const location = useLocation();
+  const onHome = location.pathname === '/';
   return (
     <nav id="menu" className="navbar navbar-default navbar-fixed-top">
       <div className="container">
@@ -17,9 +20,9 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
-          <a className="navbar-brand page-scroll" href="#page-top">
+          <Link className="navbar-brand" to="/">
             Photo Book Noir
-          </a>{" "}
+          </Link>{" "}
         </div>
 
         <div
@@ -27,21 +30,23 @@ export const Navigation = (props) => {
           id="bs-example-navbar-collapse-1"
         >
           <ul className="nav navbar-nav navbar-right">
-            <li>
-              <a href="#features" className="page-scroll">
-                Features
-              </a>
-            </li>
-            <li>
-              <a href="#about" className="page-scroll">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="page-scroll">
-                Contact
-              </a>
-            </li>
+            {onHome && (
+              <>
+                <li>
+                  <a href="#testflight" className="page-scroll">TestFlight</a>
+                </li>
+                <li>
+                  <a href="#features" className="page-scroll">Features</a>
+                </li>
+                <li>
+                  <a href="#about" className="page-scroll">About</a>
+                </li>
+                <li>
+                  <a href="#contact" className="page-scroll">Contact</a>
+                </li>
+              </>
+            )}
+            <li><Link to="/credits">Credits</Link></li>
           </ul>
         </div>
       </div>

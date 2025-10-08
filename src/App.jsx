@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
+import { TestFlight } from "./components/testflight";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import JsonData from "./data/data.json";
@@ -23,6 +24,7 @@ const App = () => {
     <div>
       <Navigation />
       <Header data={landingPageData.Header} />
+      <TestFlight data={landingPageData.TestFlight} />
       <Features data={landingPageData.Features} />
       <About data={landingPageData.About} />
       <Contact data={landingPageData.Contact} />
