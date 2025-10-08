@@ -22,7 +22,8 @@
     "email": "office@photobook-noir.com",
     "facebook": "fb.com",
     "twitter": "twitter.com",
-    "youtube": "youtube.com"
+    "youtube": "youtube.com",
+    "bluesky": "https://bsky.app/profile/photobook-noir.example" 
   },
   "Features": [
     {
@@ -45,5 +46,11 @@
       "title": "Exports",
       "text": "Seamlessly export your projects in high quality, whether for digital sharing or professional printing. Choose from multiple formats to ensure your photo book looks stunning on any platform or medium."
     }
-  ]
+  ],
+  "TestFlight": {
+    "title": "Join the iOS Beta",
+    "paragraph": "Get early access to Photo Book Noir on iPad and help us refine the experience. We value your feedback—install the TestFlight build and start creating today.",
+    "buttonText": "Join TestFlight",
+    "url": "https://testflight.apple.com/join/7NfeXSad"
+  }
 }
