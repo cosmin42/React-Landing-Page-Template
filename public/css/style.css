@@ -381,6 +381,48 @@ header .intro-text {
   background: var(--color-neutral-btn-bg);
   color: var(--color-dialog-text);
 }
+/* TestFlight Section */
+#testflight {
+  /* Further compact vertical padding */
+  padding: 40px 0 30px;
+  background: var(--color-primary-bg);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+#testflight .section-title {
+  /* Tighter bottom spacing */
+  margin-bottom: 25px;
+}
+#testflight .section-title h2 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  font-size: 30px; /* Slightly smaller heading */
+}
+#testflight .section-title h2::after {
+  background: var(--color-accent);
+}
+#testflight .lead-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--color-dialog-text);
+  max-width: 720px;
+  margin: 0 auto 18px;
+}
+#testflight .btn-custom {
+  box-shadow: 0 4px 12px rgba(var(--color-shadow-rgb) / 0.4);
+}
+#testflight .btn-custom:hover {
+  transform: translateY(-2px);
+}
+#testflight .beta-note {
+  margin-top: 12px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-font-secondary);
+  opacity: 0.85;
+}
 #contact .section-title {
   margin-bottom: 40px;
 }
@@ -499,6 +541,24 @@ label {
   background: var(--color-neutral-btn-bg);
 }
 #contact .social i.fa:hover {
+  color: var(--color-font-main);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+#contact .social .bluesky-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px; /* for consistency if text used */
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-border);
+  color: var(--color-font-secondary);
+  border-radius: 8px;
+  transition: all 0.3s;
+  background: var(--color-neutral-btn-bg);
+}
+#contact .social a:hover .bluesky-icon {
   color: var(--color-font-main);
   background: var(--color-accent);
   border-color: var(--color-accent);
