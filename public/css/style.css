@@ -1,24 +1,36 @@
 /* Theme Variables */
 :root {
-  /* Provided palette */
-  --color-primary-bg: #1E2527; /* PrimaryBackgroundColor */
-  --color-border: #2E3A3D; /* BorderColor */
-  --color-neutral-btn-bg: #3C4A4D; /* NeutralButtonBackgroundColor */
-  --color-neutral-btn-hover-selected: #5B6B6F; /* NeutralButtonPointerOverWhenSelected */
-  --color-confirm: #2E6B57; /* ConfirmationButtonBackground */
-  --color-danger: #8B2C2C; /* RemoveButtonBackground */
-  --color-appbar-btn-disabled: #555F60; /* AppBarButtonDisabled */
-  --color-textfield-bg: #111617; /* TextFieldBackgroundColor */
-  --color-font-main: #E4E4E4; /* MainFontColor */
-  --color-font-secondary: #C0C0C0; /* CommandBarMainColor */
-  --color-dialog-text: #A0A0A0; /* DialogTextColor */
+  /* Core palette (teal on graphite) */
+  --color-primary-bg: #0F1416; /* App background (graphite) */
+  --color-bg-alt: #171E22; /* Elevated surface */
+  --color-border: #263238; /* Subtle separators */
 
-  /* Derived tokens */
+  /* Surfaces */
+  --surface-1: #131A1D; /* lowest elevation */
+  --surface-2: #1B2428; /* section alt bg */
+  --surface-3: #232E33; /* prominent blocks */
+
+  /* Accents */
+  --color-confirm: #2EC4B6; /* Primary accent (teal) */
+  --color-accent: var(--color-confirm);
+  --color-accent-rgb: 46 196 182; /* for rgba() usage */
+  --color-accent-alt: #58D9CD; /* lighter accent */
+
+  /* Neutrals */
+  --color-neutral-btn-bg: #212B2F; /* subdued button/surface */
+  --color-neutral-btn-hover-selected: #2A363B; /* hover state */
+  --color-appbar-btn-disabled: #59676C; /* disabled */
+  --color-textfield-bg: #0B0F10; /* inputs */
+  --color-danger: #C75151; /* errors */
+
+  /* Typography */
+  --color-font-main: #E7ECEF; /* body text */
+  --color-font-secondary: #C5D1D6; /* headings/secondary */
+  --color-dialog-text: #AAB8BD; /* subtle text */
   --color-body-text: var(--color-font-main);
   --color-heading: var(--color-font-secondary);
-  --color-accent: var(--color-confirm);
-  --color-accent-alt: var(--color-neutral-btn-hover-selected);
-  --color-bg-alt: #20292B; /* Slight elevation */
+
+  /* Effects */
   --color-shadow-rgb: 0 0 0;
 }
 
@@ -75,6 +87,16 @@ a:hover,
 a:focus {
   text-decoration: none;
   color: var(--color-accent-alt);
+}
+/* Accessible focus ring */
+a:focus-visible,
+.btn:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 ul,
 ol {
@@ -148,7 +170,11 @@ hr {
   bottom: -1px !important;
   width: 100% !important;
   height: 2px !important;
-  background: linear-gradient(to right, #EF8126 0%, #FFC99C 100%) !important;
+  background: linear-gradient(
+      to right,
+      var(--color-accent) 0%,
+      var(--color-accent-alt) 100%
+    ) !important;
   content: "" !important;
   transition: width 0.2s !important;
 }
@@ -268,7 +294,9 @@ header .intro-text {
 }
 /* Features Section */
 #features {
-  background: var(--color-bg-alt);
+  background: var(--surface-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 #features i.fa {
   font-size: 38px;
@@ -282,9 +310,14 @@ header .intro-text {
   background: var(--color-neutral-btn-bg);
   box-shadow: 0 4px 12px rgba(var(--color-shadow-rgb) / 0.4);
 }
+#features i.fa:hover {
+  background: var(--color-accent);
+  color: #0b1616;
+}
 /* About Section */
 #about {
   padding: 100px 0;
+  background: var(--surface-1);
 }
 #about h3 {
   font-size: 22px;
@@ -332,6 +365,9 @@ header .intro-text {
 /* Portfolio Section */
 #portfolio {
   padding: 100px 0;
+  background: var(--surface-2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 .portfolio-item {
   margin: 1px -15px 0 -14px;
@@ -347,7 +383,9 @@ header .intro-text {
   text-align: center;
   margin: 0 auto;
   color: var(--color-font-main);
-  background: rgba(46, 107, 87, 0.85);
+  /* Fallback for browsers without CSS vars */
+  background: rgba(46, 196, 182, 0.85);
+  background: rgba(var(--color-accent-rgb) / 0.85);
   padding: 30% 0 0;
   height: 100%;
   width: 100%;
@@ -378,14 +416,15 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: var(--color-neutral-btn-bg);
-  color: var(--color-dialog-text);
+  background: var(--surface-3);
+  color: var(--color-body-text);
+  border-top: 1px solid var(--color-border);
 }
 /* TestFlight Section */
 #testflight {
   /* Further compact vertical padding */
   padding: 40px 0 30px;
-  background: var(--color-primary-bg);
+  background: var(--surface-1);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -565,8 +604,9 @@ label {
 }
 /* Footer Section*/
 #footer {
-  background: var(--color-bg-alt);
+  background: var(--surface-2);
   padding: 30px 0;
+  border-top: 1px solid var(--color-border);
 }
 #footer p {
   color: var(--color-dialog-text);
