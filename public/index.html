@@ -1,18 +1,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
-  <link
-    rel="apple-touch-icon"
-    sizes="72x72"
-    href="img/apple-touch-icon-72x72.png"
-  />
-  <link
-    rel="apple-touch-icon"
-    sizes="114x114"
-    href="img/apple-touch-icon-114x114.png"
-  />
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
+  <link rel="shortcut icon" href="/img/favicon.svg" />
+  <link rel="apple-touch-icon" href="/img/favicon.svg" />
 
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
   <link
@@ -39,12 +30,78 @@
     href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900"
     rel="stylesheet"
   />
-  <title>Photo Book Noir</title>
-  <meta name="description" content="" />
+  <title>Photo Book Noir — Free Photo Books App</title>
+  <meta name="description" content="Create beautiful, high-quality photo books and prints. " />
   <meta name="author" content="@Issaafalkattan" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="/" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Photo Book Noir — Premium Photo Books & Prints" />
+  <meta property="og:description" content="Create beautiful, high-quality photo books and prints." />
+  <meta property="og:url" content="/" />
+  <meta property="og:site_name" content="Photo Book Noir" />
+  <meta property="og:image" content="/img/intro-bg.jpg" />
+  <meta property="og:image:alt" content="Sample Photo Book" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@YourTwitterHandle" />
+  <meta name="twitter:title" content="Photo Book Noir — Premium Photo Books & Prints" />
+  <meta name="twitter:description" content="Create beautiful, high-quality photo books and prints." />
+  <meta name="twitter:image" content="/img/intro-bg.jpg" />
+
+  <meta name="theme-color" content="#0d6efd" />
+  <meta name="msapplication-TileImage" content="/img/logo.svg" />
+  <link rel="preload" as="image" href="/img/logo.svg" />
+
+  <!-- JSON-LD structured data (Organization + WebSite). Update to match your real URLs -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "#organization",
+        "name": "Photo Book Noir",
+        "url": "/",
+        "logo": "/img/logo.svg",
+        "sameAs": [
+          "https://www.facebook.com/yourpage",
+          "https://twitter.com/yourhandle",
+          "https://www.instagram.com/yourhandle"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "#website",
+        "url": "/",
+        "name": "Photo Book Noir",
+        "publisher": {
+          "@id": "#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+  <!-- Static fallback logo for crawlers and users with JS disabled -->
+  <noscript>
+    <div style="text-align:center; padding:20px 0; background:#fff;">
+      <img src="/img/logo.svg" alt="Photo Book Noir" style="height:48px;" />
+    </div>
+  </noscript>
   <div id="root"></div>
   <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
