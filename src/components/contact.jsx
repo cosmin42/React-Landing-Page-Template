@@ -141,6 +141,17 @@ export const Contact = (props) => {
                   </li>
                   <li>
                     <a
+                      href={props.data ? props.data.linkedin : "/"}
+                      aria-label="LinkedIn"
+                      title="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <i className="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a
                       href={props.data ? props.data.bluesky : "/"}
                       aria-label="Bluesky"
                       title="Bluesky"
