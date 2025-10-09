@@ -47,6 +47,18 @@
       "text": "Seamlessly export your projects in high quality, whether for digital sharing or professional printing. Choose from multiple formats to ensure your photo book looks stunning on any platform or medium."
     }
   ],
+  "Screenshots": {
+    "title": "Screenshots",
+    "paragraph": "Explore some UI highlights from Photo Book Noir.",
+    "images": [
+      { "src": "/img/screenshots/screenshot01.jpg", "title": "Gallery View" },
+      { "src": "/img/screenshots/screenshot02.jpg", "title": "Editing Tools" },
+      { "src": "/img/screenshots/screenshot03.jpg", "title": "Export Options" },
+      { "src": "/img/screenshots/screenshot04.jpg", "title": "Screenshot 4" },
+      { "src": "/img/screenshots/screenshot05.jpg", "title": "Screenshot 5" },
+      { "src": "/img/screenshots/screenshot06.jpg", "title": "Screenshot 6" }
+    ]
+  },
   "TestFlight": {
     "title": "Join the iOS Beta",
     "paragraph": "Get early access to Photo Book Noir on iPad and help us refine the experience. We value your feedback—install the TestFlight build and start creating today.",

@@ -32,6 +32,14 @@
 
   /* Effects */
   --color-shadow-rgb: 0 0 0;
+
+  /* Section backgrounds (subtle accent-tinted layering on surfaces) */
+  --section-features-bg: var(--surface-1);
+  --section-portfolio-bg: var(--surface-1);
+  --section-about-bg: var(--surface-1);
+  --section-testflight-bg: var(--surface-1);
+  --section-contact-bg: var(--surface-1);
+  --section-footer-bg: var(--surface-1);
 }
 
 body,
@@ -294,9 +302,9 @@ header .intro-text {
 }
 /* Features Section */
 #features {
-  background: var(--surface-2);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  /* Unified background to reduce visible separation between sections */
+  background-color: var(--surface-1);
+  background: var(--section-features-bg);
 }
 #features i.fa {
   font-size: 38px;
@@ -317,7 +325,8 @@ header .intro-text {
 /* About Section */
 #about {
   padding: 100px 0;
-  background: var(--surface-1);
+  background-color: var(--surface-1);
+  background: var(--section-about-bg);
 }
 #about h3 {
   font-size: 22px;
@@ -365,13 +374,117 @@ header .intro-text {
 /* Portfolio Section */
 #portfolio {
   padding: 100px 0;
-  background: var(--surface-2);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--surface-1);
+  background: var(--section-portfolio-bg);
+}
+/* Screenshots tweaks (more compact vertically, horizontal scroll) */
+#portfolio.screenshots-section {
+  padding: 48px 0 36px; /* compact vertical space */
+}
+.screenshots-section .section-title {
+  margin-bottom: 22px; /* tighter spacing under title */
+}
+.screenshots-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 360px);
+  gap: 28px; /* more horizontal space between images */
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 8px 4px 6px; /* small inner padding for scroll area */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* Hide scrollbar (Firefox/IE/Edge legacy) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+.screenshots-scroll::-webkit-scrollbar { display: none; }
+.screenshot-card {
+  scroll-snap-align: start;
+}
+.screenshot-card .portfolio-item {
+  margin: 0; /* remove default negative margins from grid cards */
+}
+.screenshot-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+/* Remove hover overlay effects in screenshots section */
+.screenshots-section .hover-bg,
+.screenshots-section .hover-text {
+  display: none !important;
+}
+.screenshot-img-wrap {
+  background: transparent;
+}
+.screenshot-img-button {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  cursor: zoom-in;
+  border-radius: 10px;
+}
+.screenshot-img-button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Modal for enlarged screenshot */
+.screenshot-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 24px;
+}
+.screenshot-modal-content {
+  position: relative;
+  max-width: min(96vw, 1200px);
+  max-height: 90vh;
+  background: var(--surface-1);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(var(--color-shadow-rgb) / 0.6);
+  padding: 16px;
+}
+.screenshot-modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+.screenshot-modal-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: var(--color-neutral-btn-bg);
+  color: var(--color-font-main);
+  border: 1px solid var(--color-border);
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  line-height: 32px;
+  text-align: center;
+  font-size: 22px;
+  cursor: pointer;
+}
+.screenshot-modal-close:hover {
+  background: var(--color-neutral-btn-hover-selected);
 }
 .portfolio-item {
   margin: 1px -15px 0 -14px;
   padding: 0;
+}
+.screenshots-section .portfolio-item {
+  margin: 0; /* override for horizontal cards */
 }
 .portfolio-item .hover-bg {
   overflow: hidden;
@@ -416,17 +529,16 @@ header .intro-text {
 /* Contact Section */
 #contact {
   padding: 100px 0 60px;
-  background: var(--surface-3);
+  background-color: var(--surface-1);
+  background: var(--section-contact-bg);
   color: var(--color-body-text);
-  border-top: 1px solid var(--color-border);
 }
 /* TestFlight Section */
 #testflight {
   /* Further compact vertical padding */
   padding: 40px 0 30px;
-  background: var(--surface-1);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
+  background-color: var(--surface-1);
+  background: var(--section-testflight-bg);
 }
 #testflight .section-title {
   /* Tighter bottom spacing */
@@ -604,9 +716,9 @@ label {
 }
 /* Footer Section*/
 #footer {
-  background: var(--surface-2);
+  background-color: var(--surface-1);
+  background: var(--section-footer-bg);
   padding: 30px 0;
-  border-top: 1px solid var(--color-border);
 }
 #footer p {
   color: var(--color-dialog-text);

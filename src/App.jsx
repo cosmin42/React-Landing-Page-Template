@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Navigation } from "./components/navigation";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
+import { Screenshots } from "./components/screenshots";
 import { TestFlight } from "./components/testflight";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
@@ -25,6 +26,7 @@ const App = () => {
       <Navigation />
       <Header data={landingPageData.Header} />
       <TestFlight data={landingPageData.TestFlight} />
+      <Screenshots data={landingPageData.Screenshots} />
       <Features data={landingPageData.Features} />
       <About data={landingPageData.About} />
       <Contact data={landingPageData.Contact} />
