@@ -11,9 +11,9 @@
   --surface-3: #232E33; /* prominent blocks */
 
   /* Accents */
-  --color-confirm: #2EC4B6; /* Primary accent (teal) */
+  --color-confirm: #2E6B57; /* Primary accent (updated) */
   --color-accent: var(--color-confirm);
-  --color-accent-rgb: 46 196 182; /* for rgba() usage */
+  --color-accent-rgb: 46 107 87; /* for rgba() usage */
   --color-accent-alt: #58D9CD; /* lighter accent */
 
   /* Neutrals */
@@ -384,7 +384,7 @@ header .intro-text {
   margin: 0 auto;
   color: var(--color-font-main);
   /* Fallback for browsers without CSS vars */
-  background: rgba(46, 196, 182, 0.85);
+  background: rgba(46, 107, 87, 0.85);
   background: rgba(var(--color-accent-rgb) / 0.85);
   padding: 30% 0 0;
   height: 100%;
