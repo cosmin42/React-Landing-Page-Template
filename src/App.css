@@ -1,15 +1,18 @@
 @media screen and (max-width: 400px) {
-  #features {
-    padding: 20px;
-    width: 111%;
-  }
+  /* Avoid forcing sections wider than the viewport which caused horizontal scroll */
+  #features,
   #about,
   #contact,
-  #footer {
-    width: 111%;
+  #footer,
+  #portfolio {
+    padding-left: 12px;
+    padding-right: 12px;
+    width: auto;
+    box-sizing: border-box;
   }
 
-  #portfolio {
-    width: 110%;
+  #features {
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 }

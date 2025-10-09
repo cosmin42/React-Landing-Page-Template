@@ -624,3 +624,41 @@ label {
     margin: 50px 0;
   }
 }
+
+/* Mobile tweaks for the Features section */
+@media (max-width: 576px) {
+  /* add breathing room */
+  #features {
+    padding: 40px 0;
+  }
+
+  /* stack feature columns full-width for clarity on small screens */
+  #features .row > [class*="col-"] {
+    width: 100% !important;
+    float: none !important;
+    display: block !important;
+    padding: 0 15px !important;
+    margin-bottom: 28px !important;
+    text-align: center;
+  }
+
+  /* reduce icon footprint so items fit comfortably */
+  #features i.fa {
+    width: 72px;
+    height: 72px;
+    padding: 14px 0;
+    font-size: 26px;
+    margin: 0 auto 12px;
+  }
+
+  #features h3 {
+    font-size: 18px;
+    margin-top: 6px;
+  }
+
+  #features p {
+    font-size: 14px;
+    color: var(--color-dialog-text);
+    margin: 6px 0 0;
+  }
+}
