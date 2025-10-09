@@ -3,7 +3,29 @@ import React, { useEffect, useState } from "react";
 // Screenshots section reusing the existing #portfolio styling
 export const Screenshots = (props) => {
   const images = props.data?.images || [];
+  // Deduplicate images by src to avoid accidental double-rendering
+  const [uniqueImages, setUniqueImages] = useState(images);
   const [activeIndex, setActiveIndex] = useState(null);
+
+  useEffect(() => {
+    if (!images || images.length === 0) {
+      setUniqueImages([]);
+      return;
+    }
+    const map = new Map();
+    images.forEach((img) => {
+      if (!map.has(img.src)) map.set(img.src, img);
+    });
+    const deduped = Array.from(map.values());
+    if (deduped.length !== images.length) {
+      // Helpful for debugging in development
+      // eslint-disable-next-line no-console
+      console.warn(
+        `Screenshots: removed ${images.length - deduped.length} duplicate image(s)`
+      );
+    }
+    setUniqueImages(deduped);
+  }, [images]);
 
   const closeModal = () => setActiveIndex(null);
   const openModal = (i) => setActiveIndex(i);
@@ -29,8 +51,8 @@ export const Screenshots = (props) => {
           aria-label="Screenshots gallery"
           tabIndex={0}
         >
-          {images.map((item, i) => (
-            <div className="screenshot-card" key={i}>
+          {uniqueImages.map((item, i) => (
+            <div className="screenshot-card" key={item.src || i}>
               <div className="portfolio-item">
                 <button
                   type="button"
@@ -57,7 +79,7 @@ export const Screenshots = (props) => {
           className="screenshot-modal"
           role="dialog"
           aria-modal="true"
-          aria-label={images[activeIndex]?.title || `Screenshot ${activeIndex + 1}`}
+          aria-label={uniqueImages[activeIndex]?.title || `Screenshot ${activeIndex + 1}`}
           onClick={closeModal}
         >
           <div className="screenshot-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -70,8 +92,8 @@ export const Screenshots = (props) => {
               ×
             </button>
             <img
-              src={images[activeIndex]?.src}
-              alt={images[activeIndex]?.title || `Screenshot ${activeIndex + 1}`}
+              src={uniqueImages[activeIndex]?.src}
+              alt={uniqueImages[activeIndex]?.title || `Screenshot ${activeIndex + 1}`}
             />
           </div>
         </div>
