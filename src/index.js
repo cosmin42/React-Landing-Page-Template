@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import CreditsPage from './pages/CreditsPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +13,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/credits" element={<CreditsPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,

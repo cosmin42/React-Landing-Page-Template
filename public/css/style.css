@@ -133,6 +133,13 @@ hr {
   border-color: var(--color-border);
   box-shadow: 0 0 10px rgba(var(--color-shadow-rgb) / 0.4);
 }
+/* Compact, elevated style once the page is scrolled a bit */
+#menu.navbar-scrolled {
+  padding: 8px 12px;
+  background: var(--color-bg-alt);
+  box-shadow: 0 6px 18px rgba(var(--color-shadow-rgb) / 0.55);
+  backdrop-filter: saturate(140%) blur(6px);
+}
 #menu a.navbar-brand {
   font-family: "Raleway", sans-serif;
   font-size: 24px;
@@ -144,11 +151,11 @@ hr {
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   color: var(--color-font-secondary);
-  font-size: 15px;
+  font-size: 14px; /* slightly smaller to keep one-line layout */
   font-weight: 400;
-  padding: 8px 2px;
+  padding: 8px 4px; /* tighter vertical padding */
   border-radius: 0;
-  margin: 9px 20px 0;
+  margin: 6px 12px 0; /* reduce horizontal gap */
 }
 #menu.navbar-default .navbar-nav > li > a:after {
   display: block;
@@ -196,6 +203,33 @@ hr {
 }
 .navbar-default .navbar-toggle:hover > .icon-bar {
   background-color: var(--color-accent);
+}
+
+/* When scrolled, make nav even tighter to avoid wrapping */
+#menu.navbar-scrolled .navbar-nav > li > a {
+  padding: 6px 2px;
+  margin: 4px 10px 0;
+  font-size: 13.5px;
+}
+
+/* Slightly tighter nav when on mobile */
+@media (max-width: 767px) {
+  #menu { padding: 10px 12px; }
+  #menu a.navbar-brand { font-size: 20px; }
+  #menu.navbar-default .navbar-nav > li > a {
+    margin: 6px 6px 0;
+    padding: 10px 6px;
+  }
+}
+
+/* Compact spacing for medium widths where items tend to wrap */
+@media (min-width: 768px) and (max-width: 991px) {
+  #menu a.navbar-brand { font-size: 20px; }
+  #menu.navbar-default .navbar-nav > li > a {
+    font-size: 13px;
+    margin: 6px 8px 0;
+    padding: 6px 2px;
+  }
 }
 .section-title {
   margin-bottom: 70px;
@@ -773,4 +807,9 @@ label {
     color: var(--color-dialog-text);
     margin: 6px 0 0;
   }
+}
+
+/* Privacy Policy page spacing */
+#privacy .section-title {
+  padding-top: 24px; /* add top padding so title breathes under the navbar */
 }
