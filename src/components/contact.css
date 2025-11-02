@@ -1,0 +1,91 @@
+/* Minimal, non-invasive tweaks for the Get In Touch / Contact section
+   This file intentionally makes small spacing and alignment improvements
+   while leaving the site's existing Bootstrap/font-awesome styling intact. */
+
+#contact {
+  padding: 36px 0;
+}
+
+.section-title h2 {
+  font-size: 28px; /* slightly larger but consistent with template */
+  margin-bottom: 6px;
+}
+
+.section-subtitle p {
+  margin: 0 0 12px 0;
+  color: #6c788b; /* subtle muted color, respects template palette */
+}
+
+/* Keep actions area layout but avoid overriding background or heavy shadows */
+.contact-actions {
+  padding: 6px 0;
+  margin-bottom: 6px;
+}
+
+.contact-bullets {
+  /* use traditional vertical list with visible bullets (white) */
+  list-style: disc;
+  list-style-position: outside;
+  padding-left: 1.2rem; /* space for markers */
+  margin: 8px 0 0 0;
+  display: block;
+}
+
+.contact-bullets li {
+  display: list-item; /* ensure marker appears */
+  background: transparent;
+  padding: 6px 0;
+  margin: 6px 0;
+  color: #ffffff; /* white text */
+  font-weight: 800;
+  font-size: 1.6rem; /* increased per user request */
+  border: none;
+}
+
+/* Explicitly style the list marker (bullet) color where supported */
+.contact-bullets li::marker {
+  color: #ffffff;
+  font-size: 1.6rem;
+}
+
+/* Contact info: make items compact and aligned with template spacing */
+.contact-info .contact-item {
+  background: transparent;
+  padding: 6px 0;
+  border: none;
+  box-shadow: none;
+}
+
+.contact-item h3 {
+  margin: 0 0 6px 0;
+  font-size: 1rem;
+}
+
+.contact-item p {
+  margin: 0;
+  color: #495867;
+}
+
+.social ul {
+  display: flex;
+  gap: 8px;
+  padding: 0;
+  margin: 10px 0 0 0;
+  list-style: none;
+}
+
+.social ul li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 4px;
+  color: inherit;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+@media (max-width: 768px) {
+  #contact { padding: 28px 0; }
+  .section-title h2 { font-size: 22px; }
+}
