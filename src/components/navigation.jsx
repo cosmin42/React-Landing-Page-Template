@@ -24,6 +24,7 @@ export const Navigation = (props) => {
 
   const isCredits = location.pathname === '/credits';
   const isPrivacy = location.pathname === '/privacy-policy';
+  const isInfo = isCredits || isPrivacy;
   return (
     <nav
       id="menu"
@@ -75,8 +76,27 @@ export const Navigation = (props) => {
                 </li>
               </>
             )}
-            <li className={isCredits ? 'active' : ''}><Link to="/credits" onClick={closeMobileMenu}>Credits</Link></li>
-            <li className={isPrivacy ? 'active' : ''}><Link to="/privacy-policy" onClick={closeMobileMenu}>Privacy Policy</Link></li>
+            <li className={`dropdown ${isInfo ? 'active' : ''}`}>
+              <a
+                href="#"
+                className="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                onClick={(e) => e.preventDefault()}
+              >
+                More <span className="caret"></span>
+              </a>
+              <ul className="dropdown-menu">
+                <li className={isCredits ? 'active' : ''}>
+                  <Link to="/credits" onClick={closeMobileMenu}>Credits</Link>
+                </li>
+                <li className={isPrivacy ? 'active' : ''}>
+                  <Link to="/privacy-policy" onClick={closeMobileMenu}>Privacy Policy</Link>
+                </li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
