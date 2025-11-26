@@ -608,6 +608,43 @@ header .intro-text {
   color: var(--color-font-secondary);
   opacity: 0.85;
 }
+/* Video and layout tweaks for TestFlight */
+#testflight .testflight-video {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: block;
+  margin: 0 auto 18px;
+}
+/* Align text left on medium+ screens while keeping mobile centered */
+#testflight .section-title {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #testflight .section-title {
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+}
+
+/* App Store link under TestFlight */
+#testflight .appstore-link {
+  margin-top: 10px;
+}
+#testflight .appstore-link a {
+  color: var(--color-accent);
+  font-size: 14px;
+  text-decoration: none;
+}
+#testflight .appstore-link a:hover {
+  text-decoration: underline;
+}
+@media (min-width: 768px) {
+  #testflight .appstore-link { text-align: left; }
+}
 #contact .section-title {
   margin-bottom: 40px;
 }

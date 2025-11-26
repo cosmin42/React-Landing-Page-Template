@@ -13,6 +13,7 @@ export const About = (props) => {
             <div className="about-text">
               <h2>About Me</h2>
               <p>{props.data ? props.data.paragraph : "loading..."}</p>
+              {/* App Store badge moved to header */}
               <p>
                 {props.data
                   ? props.data.philosophy
