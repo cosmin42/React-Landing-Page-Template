@@ -70,6 +70,29 @@ export const Contact = (props) => {
                   </li>
                 </ul>
               </div>
+              {/* Discord embed: invite link + widget iframe (replace YOUR_SERVER_ID) */}
+              <div className="discord-embed">
+                <h4>Join us on Discord</h4>
+                <p>
+                  <a
+                    href="https://discord.gg/WJPDWy3Sfh"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Join our Discord"
+                  >
+                    Click to join  Discord server
+                  </a>
+                </p>
+                <div className="discord-widget">
+                  <iframe
+                    width="200"
+                    height="300"
+                    allowTransparency="true"
+                    frameBorder="0"
+                    title="Discord widget"
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
           <div className="col-md-3 col-md-offset-1 contact-info">
