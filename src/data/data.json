@@ -53,6 +53,7 @@
     "title": "Screenshots",
     "paragraph": "Explore some UI highlights from Photo Book Noir.",
     "images": [
+      { "src": "/img/screenshots/screenshot0.avif", "title": "Gallery View" },
       { "src": "/img/screenshots/screenshot01.avif", "title": "Gallery View" },
       { "src": "/img/screenshots/screenshot02.avif", "title": "Editing Tools" },
       { "src": "/img/screenshots/screenshot03.avif", "title": "Export Options" },
