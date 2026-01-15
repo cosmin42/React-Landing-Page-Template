@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        // For GitHub Pages project sites, set this to 1 (default):
+        //   https://user.github.io/<repo>/...
+        // For custom domains or root deployments, set to 0.
+        var segmentCount = 1;
+
+        var l = window.location;
+        var pathSegments = l.pathname.split('/');
+        var base = pathSegments.slice(0, 1 + segmentCount).join('/');
+        if (!base) base = '/';
+
+        var intended = l.pathname + l.search + l.hash;
+        var target = base.replace(/\/$/, '') + '/?p=' + encodeURIComponent(intended);
+        window.location.replace(target);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

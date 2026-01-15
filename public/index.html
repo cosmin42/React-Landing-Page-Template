@@ -98,6 +98,21 @@
     ]
   }
   </script>
+
+  <!-- SPA redirect support (e.g. GitHub Pages): restore the original path after 404.html redirects to /?p=... -->
+  <script>
+    (function () {
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (p) {
+          window.history.replaceState(null, '', decodeURIComponent(p));
+        }
+      } catch (e) {
+        // ignore
+      }
+    })();
+  </script>
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">

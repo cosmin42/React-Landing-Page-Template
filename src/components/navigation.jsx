@@ -23,7 +23,7 @@ export const Navigation = (props) => {
   }, []);
 
   const isCredits = location.pathname === '/credits';
-  const isPrivacy = location.pathname === '/privacy-policy';
+  const isPrivacy = location.pathname === '/privacy' || location.pathname === '/privacy-policy';
   const isInfo = isCredits || isPrivacy;
   return (
     <nav
@@ -93,7 +93,7 @@ export const Navigation = (props) => {
                   <Link to="/credits" onClick={closeMobileMenu}>Credits</Link>
                 </li>
                 <li className={isPrivacy ? 'active' : ''}>
-                  <Link to="/privacy-policy" onClick={closeMobileMenu}>Privacy Policy</Link>
+                  <Link to="/privacy" onClick={closeMobileMenu}>Privacy Policy</Link>
                 </li>
               </ul>
             </li>

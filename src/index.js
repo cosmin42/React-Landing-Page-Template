@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import CreditsPage from './pages/CreditsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
@@ -13,7 +13,9 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/credits" element={<CreditsPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+        <Route path="/privacy" element={<PrivacyPolicyPage />} />
+        <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
