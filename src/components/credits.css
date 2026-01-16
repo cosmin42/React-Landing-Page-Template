@@ -1,0 +1,44 @@
+/* Credits page helpers (kept minimal and Bootstrap-friendly). */
+
+.credits-page {
+  margin-top: 70px; /* clear fixed navbar */
+}
+
+#credits .credits-section {
+  margin: 18px 0 26px;
+}
+
+#credits .credits-section h3,
+#credits .credits-section h4 {
+  margin-top: 0;
+}
+
+#credits .credits-hint {
+  margin: 6px 0 0;
+  opacity: 0.85;
+}
+
+#credits .credits-details {
+  margin-top: 10px;
+}
+
+#credits .credits-details summary {
+  cursor: pointer;
+  user-select: none;
+}
+
+#credits .credits-item {
+  margin: 10px 0;
+}
+
+#credits .credits-meta {
+  opacity: 0.85;
+}
+
+#credits .credits-links a {
+  margin-right: 10px;
+}
+
+#credits .credits-links a:last-child {
+  margin-right: 0;
+}
