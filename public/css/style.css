@@ -1,32 +1,32 @@
 /* Theme Variables */
 :root {
-  /* Core palette (teal on graphite) */
-  --color-primary-bg: #0F1416; /* App background (graphite) */
-  --color-bg-alt: #171E22; /* Elevated surface */
-  --color-border: #263238; /* Subtle separators */
+  /* Core palette (teal on deep slate) */
+  --color-primary-bg: #0B1115; /* App background */
+  --color-bg-alt: #101922; /* Elevated surface */
+  --color-border: #22303A; /* Subtle separators */
 
   /* Surfaces */
-  --surface-1: #131A1D; /* lowest elevation */
-  --surface-2: #1B2428; /* section alt bg */
-  --surface-3: #232E33; /* prominent blocks */
+  --surface-1: #0F171D; /* lowest elevation */
+  --surface-2: #131F27; /* section alt bg */
+  --surface-3: #172630; /* prominent blocks */
 
   /* Accents */
-  --color-confirm: #2E6B57; /* Primary accent (updated) */
+  --color-confirm: #2DD4BF; /* Primary accent */
   --color-accent: var(--color-confirm);
-  --color-accent-rgb: 46 107 87; /* for rgba() usage */
-  --color-accent-alt: #58D9CD; /* lighter accent */
+  --color-accent-rgb: 45 212 191; /* for rgba() usage */
+  --color-accent-alt: #5EEAD4; /* lighter accent */
 
   /* Neutrals */
-  --color-neutral-btn-bg: #212B2F; /* subdued button/surface */
-  --color-neutral-btn-hover-selected: #2A363B; /* hover state */
-  --color-appbar-btn-disabled: #59676C; /* disabled */
-  --color-textfield-bg: #0B0F10; /* inputs */
-  --color-danger: #C75151; /* errors */
+  --color-neutral-btn-bg: #1A242C; /* subdued button/surface */
+  --color-neutral-btn-hover-selected: #22303A; /* hover state */
+  --color-appbar-btn-disabled: #5F717A; /* disabled */
+  --color-textfield-bg: #0A0F14; /* inputs */
+  --color-danger: #EF4444; /* errors */
 
   /* Typography */
-  --color-font-main: #E7ECEF; /* body text */
-  --color-font-secondary: #C5D1D6; /* headings/secondary */
-  --color-dialog-text: #AAB8BD; /* subtle text */
+  --color-font-main: #E6EEF3; /* body text */
+  --color-font-secondary: #CFE0E7; /* headings/secondary */
+  --color-dialog-text: #A8BDC7; /* subtle text */
   --color-body-text: var(--color-font-main);
   --color-heading: var(--color-font-secondary);
 

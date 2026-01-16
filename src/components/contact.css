@@ -13,7 +13,7 @@
 
 .section-subtitle p {
   margin: 0 0 12px 0;
-  color: #6c788b; /* subtle muted color, respects template palette */
+  color: var(--color-dialog-text);
 }
 
 /* Keep actions area layout but avoid overriding background or heavy shadows */
@@ -23,29 +23,60 @@
 }
 
 .contact-bullets {
-  /* use traditional vertical list with visible bullets (white) */
-  list-style: disc;
-  list-style-position: outside;
-  padding-left: 1.2rem; /* space for markers */
-  margin: 8px 0 0 0;
-  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+  display: grid;
+  gap: 10px;
 }
 
 .contact-bullets li {
-  display: list-item; /* ensure marker appears */
-  background: transparent;
-  padding: 6px 0;
-  margin: 6px 0;
-  color: #ffffff; /* white text */
-  font-weight: 800;
-  font-size: 1.6rem; /* increased per user request */
-  border: none;
+  position: relative;
+  display: block;
+  padding: 12px 14px 12px 44px;
+  margin: 0;
+  color: var(--color-font-main);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--color-accent-rgb) / 0.10) 0%,
+    rgba(var(--color-accent-rgb) / 0.04) 35%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  transition: transform 140ms ease, background-color 140ms ease, border-color 140ms ease;
 }
 
-/* Explicitly style the list marker (bullet) color where supported */
-.contact-bullets li::marker {
-  color: #ffffff;
-  font-size: 1.6rem;
+.contact-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-alt));
+  box-shadow: 0 6px 18px rgba(var(--color-shadow-rgb) / 0.35);
+}
+
+.contact-bullets li:hover {
+  transform: translateX(4px);
+  border-color: rgba(var(--color-accent-rgb) / 0.55);
+}
+
+.contact-bullets a {
+  color: var(--color-accent-alt);
+  font-weight: 700;
+}
+
+.contact-bullets a:hover,
+.contact-bullets a:focus {
+  color: var(--color-accent);
+  text-decoration: underline;
 }
 
 /* Contact info: make items compact and aligned with template spacing */
@@ -63,7 +94,7 @@
 
 .contact-item p {
   margin: 0;
-  color: #495867;
+  color: var(--color-dialog-text);
 }
 
 .social ul {
@@ -82,7 +113,16 @@
   border-radius: 4px;
   color: inherit;
   background: transparent;
-  border: 1px solid rgba(0,0,0,0.04);
+  border: 1px solid var(--color-border);
+  color: var(--color-font-main);
+  transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.social ul li a:hover,
+.social ul li a:focus {
+  background: var(--surface-3);
+  border-color: rgba(var(--color-accent-rgb) / 0.55);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
@@ -93,11 +133,12 @@
 /* Discord embed styles */
 .discord-embed {
   margin-top: 16px;
-  color: #ffffff;
+  color: var(--color-font-main);
 }
 .discord-embed h4 {
   margin: 8px 0;
   font-size: 1.1rem;
+  color: var(--color-heading);
 }
 .discord-embed p {
   margin: 6px 0 10px;

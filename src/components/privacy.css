@@ -1,0 +1,84 @@
+/* Privacy Policy layout helpers
+   Kept scoped and non-invasive to avoid affecting other pages.
+*/
+
+#privacy .privacy-article {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+#privacy .privacy-toc {
+  margin: 14px 0 20px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.10);
+}
+
+#privacy .privacy-toc-title {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+}
+
+#privacy .privacy-toc-list {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+}
+
+#privacy .privacy-toc a {
+  text-decoration: none;
+}
+
+#privacy .privacy-toc a:hover,
+#privacy .privacy-toc a:focus {
+  text-decoration: underline;
+}
+
+#privacy .privacy-section {
+  padding: 2px 0;
+}
+
+#privacy .privacy-section-title {
+  margin: 0 0 10px 0;
+  line-height: 1.25;
+}
+
+/* Anchor handling: keep headers visible below fixed nav */
+#privacy .privacy-anchor {
+  display: inline-block;
+  scroll-margin-top: 96px;
+}
+
+#privacy .privacy-section-content p {
+  margin: 0 0 10px 0;
+}
+
+#privacy .privacy-section-content ul {
+  margin: 0 0 10px 0;
+}
+
+#privacy .privacy-callout {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-left: 4px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+}
+
+#privacy .privacy-divider {
+  margin: 18px 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@media (max-width: 768px) {
+  #privacy .privacy-toc {
+    padding: 12px 14px;
+  }
+
+  #privacy .privacy-toc-list {
+    padding-left: 18px;
+  }
+}
