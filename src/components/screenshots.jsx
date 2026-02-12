@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 // Screenshots section reusing the existing #portfolio styling
 export const Screenshots = (props) => {
   const images = props.data?.images || [];
+  const title = props.data?.title || "Screenshots";
+  const paragraph = props.data?.paragraph;
   // Deduplicate images by src to avoid accidental double-rendering
   const [uniqueImages, setUniqueImages] = useState(images);
   const [activeIndex, setActiveIndex] = useState(null);
@@ -45,10 +47,16 @@ export const Screenshots = (props) => {
   return (
     <div id="portfolio" className="screenshots-section">
       <div className="container">
+        <div className="row">
+          <div className="col-md-12 section-title text-center">
+            <h2 id="screenshots-title">{title}</h2>
+            {paragraph ? <p className="small">{paragraph}</p> : null}
+          </div>
+        </div>
         <div
           className="screenshots-scroll"
           role="region"
-          aria-label="Screenshots gallery"
+          aria-labelledby="screenshots-title"
           tabIndex={0}
         >
           {uniqueImages.map((item, i) => (
