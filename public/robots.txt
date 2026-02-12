@@ -1,9 +1,7 @@
 User-agent: *
-Disallow: /admin/
-Allow: /
-
-Sitemap: https://example.com/sitemap.xml
-Host: https://example.com
-# https://www.robotstxt.org/robotstxt.html
-User-agent: *
 Disallow:
+
+Sitemap: https://photobook-noir.com/sitemap.xml
+Host: https://photobook-noir.com
+
+# https://www.robotstxt.org/robotstxt.html
