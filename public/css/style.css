@@ -14,7 +14,7 @@
   --color-confirm: #ebbd53; /* Primary button/surface accent */
   --color-accent: var(--color-confirm);
   /* Text accent (links/highlight text). Defaults to UI accent; overridden below where supported. */
-  --color-accent-text: #1c6085; /* Link/highlight text (do not use surface accent) */
+  --color-accent-text: #000000; /* Link/highlight text (do not use surface accent) */
   /* Keep the RGB token aligned with --color-accent for consistent glows/borders */
   --color-accent-rgb: 28 96 133; /* #1c6085 */
   --color-accent-alt: #0F2F3E; /* darker accent for hover/contrast */
