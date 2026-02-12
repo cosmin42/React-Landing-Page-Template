@@ -11,6 +11,9 @@
 }
 
 .pbs-tile {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
   display: block;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -19,6 +22,22 @@
   border-radius: 10px;
   overflow: hidden;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+  padding: 0;
+  text-align: inherit;
+}
+
+.pbs-tile:focus {
+  outline: none;
+}
+
+.pbs-tile:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.28);
+  outline-offset: 2px;
+}
+
+.pbs-tile.is-active {
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.07);
 }
 
 .pbs-tile:hover {
@@ -41,6 +60,19 @@
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px dashed rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  display: flex;
+}
+
+.pbs-media:has(.pbs-media-img) {
+  border-style: solid;
+}
+
+.pbs-media-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .pbs-title {
@@ -55,6 +87,37 @@
 .pbs-title .pbs-number {
   opacity: 0.7;
   margin-right: 6px;
+}
+
+.pbs-details {
+  margin-top: 10px;
+}
+
+.pbs-details-hint {
+  opacity: 0.75;
+  margin-top: 4px;
+}
+
+.pbs-details-panel {
+  background: var(--surface-1);
+  border-color: var(--color-border);
+}
+
+.pbs-details-panel .panel-heading {
+  background: var(--surface-2);
+  border-color: var(--color-border);
+}
+
+.pbs-details-box {
+  border: 1px solid rgba(var(--color-accent-rgb) / 0.22);
+  border-radius: 10px;
+  background: rgba(var(--color-accent-rgb) / 0.06);
+  padding: 12px 14px;
+}
+
+.pbs-details-list {
+  margin: 0;
+  padding-left: 18px;
 }
 
 @media (max-width: 767px) {
