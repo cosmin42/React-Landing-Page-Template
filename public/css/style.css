@@ -11,10 +11,10 @@
   --surface-3: #EAF0F6; /* prominent blocks */
 
   /* Accents */
-  --color-confirm: #1c6085; /* Primary button/surface accent */
+  --color-confirm: #ebbd53; /* Primary button/surface accent */
   --color-accent: var(--color-confirm);
   /* Text accent (links/highlight text). Defaults to UI accent; overridden below where supported. */
-  --color-accent-text: var(--color-accent);
+  --color-accent-text: #1c6085; /* Link/highlight text (do not use surface accent) */
   /* Keep the RGB token aligned with --color-accent for consistent glows/borders */
   --color-accent-rgb: 28 96 133; /* #1c6085 */
   --color-accent-alt: #0F2F3E; /* darker accent for hover/contrast */
@@ -849,12 +849,7 @@ label {
   border-bottom: 2px solid var(--color-accent-text);
 }
 
-/* Prefer a lighter text-accent where supported (keeps buttons/surfaces unchanged). */
-@supports (color: color-mix(in srgb, black 50%, white)) {
-  :root {
-    --color-accent-text: color-mix(in srgb, var(--color-accent) 70%, white);
-  }
-}
+
 
 @media (max-width: 768px) {
   #about img {
