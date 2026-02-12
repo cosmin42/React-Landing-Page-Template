@@ -61,7 +61,7 @@ export const Navigation = (props) => {
             {onHome && (
               <>
                 <li>
-                  <a href="#testflight" className="page-scroll" onClick={closeMobileMenu}>TestFlight</a>
+                  <a href="#photo-book-steps" className="page-scroll" onClick={closeMobileMenu}>7 Steps</a>
                 </li>
                 <li>
                   <a href="#features" className="page-scroll" onClick={closeMobileMenu}>Features</a>

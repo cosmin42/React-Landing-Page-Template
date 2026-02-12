@@ -61,11 +61,5 @@
       { "src": "/img/screenshots/screenshot05.avif", "title": "Screenshot 5" },
       { "src": "/img/screenshots/screenshot06.avif", "title": "Screenshot 6" }
     ]
-  },
-  "TestFlight": {
-    "title": "Join the iOS Beta",
-    "paragraph": "Get early access to Photo Book Noir on iPad and help us refine the experience. We value your feedback—install the TestFlight build and start creating today.",
-    "buttonText": "Join TestFlight",
-    "url": "https://testflight.apple.com/join/7NfeXSad"
   }
 }

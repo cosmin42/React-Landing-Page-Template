@@ -1,0 +1,64 @@
+.pbs-grid {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Bootstrap v3 columns are floated; flex layout centers better when floats are removed */
+.pbs-grid > [class*="col-"] {
+  float: none;
+}
+
+.pbs-tile {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.pbs-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pbs-tile-inner {
+  height: 100%;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pbs-media {
+  flex: 1;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+}
+
+.pbs-title {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+.pbs-title .pbs-number {
+  opacity: 0.7;
+  margin-right: 6px;
+}
+
+@media (max-width: 767px) {
+  .pbs-title {
+    font-size: 14px;
+  }
+}
