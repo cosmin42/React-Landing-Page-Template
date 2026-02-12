@@ -109,7 +109,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 6px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border-radius: 4px;
   color: inherit;
   background: transparent;
@@ -118,11 +120,32 @@
   transition: background-color 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
 
+.social ul li a i {
+  font-size: 20px;
+  line-height: 1;
+}
+
 .social ul li a:hover,
 .social ul li a:focus {
   background: var(--surface-3);
   border-color: rgba(var(--color-accent-rgb) / 0.55);
   transform: translateY(-1px);
+}
+
+.bluesky-icon,
+.tiktok-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.bluesky-icon svg,
+.tiktok-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
 }
 
 @media (max-width: 768px) {

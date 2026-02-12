@@ -127,16 +127,6 @@ export const Contact = (props) => {
               <div className="social">
                 <ul>
                   <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.twitter : "/"}>
-                      <i className="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
                     <a
                       href={props.data ? props.data.linkedin : "/"}
                       aria-label="LinkedIn"
@@ -165,6 +155,30 @@ export const Contact = (props) => {
                           <path
                             fill="currentColor"
                             d="M128 146.6c15.9 31.2 44.8 63.2 73 79.8 9.4 5.5 21.2 2 26.6-7.4 4.8-8.3 7.3-22 1.1-41.1-2.5-7.7-6.9-16.1-13.4-25.5-11.4-16.3-26.5-31.8-42.2-43.5 17.6-13.7 35.3-33.5 45.9-51.4 6-10.1 9.5-19.1 10.9-26.9 1.9-10.7-.7-19.2-6.7-24.1-6.1-4.9-15.4-5.5-25.5-1.3-8.2 3.4-17.2 9.6-26.8 18.8-13.6 13-27.3 30.9-37.9 48.5-10.6-17.6-24.3-35.6-37.9-48.5-9.6-9.2-18.6-15.4-26.8-18.8-10.1-4.2-19.4-3.6-25.5 1.3-6 4.9-8.6 13.4-6.7 24.1 1.4 7.8 4.9 16.8 10.9 26.9 10.6 17.9 28.3 37.7 45.9 51.4-15.7 11.7-30.8 27.2-42.2 43.5-6.5 9.4-10.9 17.8-13.4 25.5-6.2 19.1-3.7 32.8 1.1 41.1 5.4 9.4 17.2 12.9 26.6 7.4 28.2-16.6 57.1-48.6 73-79.8Z"
+                          />
+                        </svg>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={props.data ? props.data.tiktok : "/"}
+                      aria-label="TikTok"
+                      title="TikTok"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="tiktok-icon" aria-hidden="true">
+                        <svg
+                          width="22"
+                          height="22"
+                          viewBox="0 0 24 24"
+                          role="img"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M14 3c.3 2.7 2.4 4.8 5 5.1V11c-1.9-.1-3.5-.8-5-2v6.1c0 3-2.4 5.4-5.4 5.4S3.2 18.1 3.2 15.1s2.4-5.4 5.4-5.4c.5 0 1 .1 1.4.2V13c-.4-.2-.9-.4-1.4-.4-1.4 0-2.5 1.1-2.5 2.5S7.2 17.6 8.6 17.6s2.5-1.1 2.5-2.5V3h2.9Z"
                           />
                         </svg>
                       </span>
