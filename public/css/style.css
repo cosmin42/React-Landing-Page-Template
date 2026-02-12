@@ -467,17 +467,25 @@ header .intro-text {
   margin-bottom: 22px; /* tighter spacing under title */
 }
 .screenshots-scroll {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
   gap: 28px; /* space between screenshots */
-  padding: 8px 4px 6px;
+  padding: 8px 0 6px;
   overflow: visible; /* no scrolling */
 }
 .screenshot-card {
-  scroll-snap-align: start;
+  flex: 0 1 260px;
+  width: 100%;
+  max-width: 520px;
 }
 .screenshot-card .portfolio-item {
   margin: 0; /* remove default negative margins from grid cards */
+}
+.screenshot-img-button {
+  display: block;
+  width: 100%;
 }
 .screenshot-card img {
   width: 100%;
