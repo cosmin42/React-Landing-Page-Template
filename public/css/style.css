@@ -461,25 +461,18 @@ header .intro-text {
 /* Screenshots tweaks (more compact vertically, horizontal scroll) */
 #portfolio.screenshots-section {
   padding: 48px 0 36px; /* compact vertical space */
+  overflow-x: hidden; /* avoid page-level horizontal scrollbar */
 }
 .screenshots-section .section-title {
   margin-bottom: 22px; /* tighter spacing under title */
 }
 .screenshots-scroll {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 360px);
-  gap: 28px; /* more horizontal space between images */
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding: 8px 4px 6px; /* small inner padding for scroll area */
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  /* Hide scrollbar (Firefox/IE/Edge legacy) */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE 10+ */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px; /* space between screenshots */
+  padding: 8px 4px 6px;
+  overflow: visible; /* no scrolling */
 }
-.screenshots-scroll::-webkit-scrollbar { display: none; }
 .screenshot-card {
   scroll-snap-align: start;
 }
