@@ -24,7 +24,8 @@ export const Navigation = (props) => {
 
   const isCredits = location.pathname === '/credits';
   const isPrivacy = location.pathname === '/privacy' || location.pathname === '/privacy-policy';
-  const isInfo = isCredits || isPrivacy;
+  const isSteps = location.pathname === '/photo-book-steps';
+  const isInfo = isCredits || isPrivacy || isSteps;
   return (
     <nav
       id="menu"
@@ -89,6 +90,9 @@ export const Navigation = (props) => {
                 More <span className="caret"></span>
               </a>
               <ul className="dropdown-menu">
+                <li className={isSteps ? 'active' : ''}>
+                  <Link to="/photo-book-steps" onClick={closeMobileMenu}>7 Steps</Link>
+                </li>
                 <li className={isCredits ? 'active' : ''}>
                   <Link to="/credits" onClick={closeMobileMenu}>Credits</Link>
                 </li>

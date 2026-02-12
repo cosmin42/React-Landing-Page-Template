@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import CreditsPage from './pages/CreditsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import PhotoBookStepsPage from './pages/PhotoBookStepsPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +16,7 @@ ReactDOM.render(
         <Route path="/credits" element={<CreditsPage />} />
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
+        <Route path="/photo-book-steps" element={<PhotoBookStepsPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

@@ -1,45 +1,52 @@
 /* Theme Variables */
 :root {
-  /* Core palette (teal on deep slate) */
-  --color-primary-bg: #0B1115; /* App background */
-  --color-bg-alt: #101922; /* Elevated surface */
-  --color-border: #22303A; /* Subtle separators */
+  /* Core palette (light slate) */
+  --color-primary-bg: #F8FAFC; /* App background */
+  --color-bg-alt: #FFFFFF; /* Elevated surface */
+  --color-border: #E2E8F0; /* Subtle separators */
 
   /* Surfaces */
-  --surface-1: #0F171D; /* lowest elevation */
-  --surface-2: #131F27; /* section alt bg */
-  --surface-3: #172630; /* prominent blocks */
+  --surface-1: #FFFFFF; /* lowest elevation */
+  --surface-2: #F1F5F9; /* section alt bg */
+  --surface-3: #EAF0F6; /* prominent blocks */
 
   /* Accents */
-  --color-confirm: #2DD4BF; /* Primary accent */
+  --color-confirm: #1c6085; /* Primary button/surface accent */
   --color-accent: var(--color-confirm);
-  --color-accent-rgb: 45 212 191; /* for rgba() usage */
-  --color-accent-alt: #5EEAD4; /* lighter accent */
+  /* Text accent (links/highlight text). Defaults to UI accent; overridden below where supported. */
+  --color-accent-text: var(--color-accent);
+  /* Keep the RGB token aligned with --color-accent for consistent glows/borders */
+  --color-accent-rgb: 28 96 133; /* #1c6085 */
+  --color-accent-alt: #0F2F3E; /* darker accent for hover/contrast */
 
   /* Neutrals */
-  --color-neutral-btn-bg: #1A242C; /* subdued button/surface */
-  --color-neutral-btn-hover-selected: #22303A; /* hover state */
-  --color-appbar-btn-disabled: #5F717A; /* disabled */
-  --color-textfield-bg: #0A0F14; /* inputs */
-  --color-danger: #EF4444; /* errors */
+  --color-neutral-btn-bg: #F1F5F9; /* subdued button/surface */
+  --color-neutral-btn-hover-selected: #E2E8F0; /* hover state */
+  --color-appbar-btn-disabled: #94A3B8; /* disabled */
+  --color-textfield-bg: #FFFFFF; /* inputs */
+  --color-danger: #DC2626; /* errors */
 
   /* Typography */
-  --color-font-main: #E6EEF3; /* body text */
-  --color-font-secondary: #CFE0E7; /* headings/secondary */
-  --color-dialog-text: #A8BDC7; /* subtle text */
+  --color-font-main: #0F172A; /* body text */
+  --color-font-secondary: #0B2230; /* headings/secondary */
+  --color-dialog-text: #475569; /* subtle text */
   --color-body-text: var(--color-font-main);
   --color-heading: var(--color-font-secondary);
 
   /* Effects */
-  --color-shadow-rgb: 0 0 0;
+  --color-shadow-rgb: 15 23 42;
 
-  /* Section backgrounds (subtle accent-tinted layering on surfaces) */
-  --section-features-bg: var(--surface-1);
-  --section-portfolio-bg: var(--surface-1);
-  --section-about-bg: var(--surface-1);
-  --section-testflight-bg: var(--surface-1);
-  --section-contact-bg: var(--surface-1);
-  --section-footer-bg: var(--surface-1);
+  /* Alternating section backgrounds (solid, no gradients) */
+  --section-band-a: #FFFFFF;
+  --section-band-b: #F1F5F9;
+
+  /* Assign bands per section to create an alternating rhythm */
+  --section-features-bg: var(--section-band-a);
+  --section-about-bg: var(--section-band-b);
+  --section-portfolio-bg: var(--section-band-a);
+  --section-testflight-bg: var(--section-band-b);
+  --section-contact-bg: var(--section-band-a);
+  --section-footer-bg: var(--section-band-b);
 }
 
 body,
@@ -50,6 +57,7 @@ html {
   color: var(--color-body-text);
   background: var(--color-primary-bg);
   font-weight: 400;
+  line-height: 1.6;
   width: 100% !important;
   height: 100% !important;
 }
@@ -88,7 +96,7 @@ p.intro {
   line-height: 24px;
 }
 a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 400;
 }
 a:hover,
@@ -138,7 +146,7 @@ hr {
   padding: 8px 12px;
   background: var(--color-bg-alt);
   box-shadow: 0 6px 18px rgba(var(--color-shadow-rgb) / 0.55);
-  backdrop-filter: saturate(140%) blur(6px);
+  backdrop-filter: saturate(140%) blur(6px) ;
 }
 #menu a.navbar-brand {
   font-family: "Raleway", sans-serif;
@@ -266,7 +274,7 @@ hr {
   font-weight: 500;
   border-radius: 8px;
   transition: all 0.3s ease;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgb(var(--color-accent-rgb) / 0.45);
 }
 .btn-custom:hover,
 .btn-custom:focus,
@@ -274,7 +282,13 @@ hr {
 .btn-custom:active,
 .btn-custom.active {
   color: var(--color-font-main);
-  background-color: var(--color-neutral-btn-hover-selected);
+  /* Keep hover state premium: same hue, slightly brighter + elevated */
+  background-color: var(--color-confirm);
+  filter: brightness(1.12);
+  background-image: none;
+  border-color: rgb(var(--color-accent-rgb) / 0.8);
+  box-shadow: 0 8px 22px rgba(var(--color-shadow-rgb) / 0.45);
+  transform: translateY(-1px);
 }
 .btn:active,
 .btn.active {
@@ -306,12 +320,16 @@ a:focus,
   -o-background-size: cover;
 }
 .intro .overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(var(--color-accent-rgb) / 0.12),
+    rgba(255, 255, 255, 0.82)
+  );
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
   color: var(--color-font-main);
-  font-size: 82px;
+  font-size: clamp(40px, 6.2vw, 82px);
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 0;
@@ -319,26 +337,53 @@ a:focus,
 }
 .intro h1 span {
   font-weight: 800;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 .intro p {
   color: var(--color-dialog-text);
-  font-size: 22px;
+  font-size: clamp(16px, 2.0vw, 22px);
   font-weight: 300;
-  line-height: 30px;
+  line-height: 1.55;
   margin: 0 auto;
   margin-bottom: 60px;
+  max-width: 62ch;
 }
 header .intro-text {
-  padding-top: 350px;
-  padding-bottom: 200px;
+  padding-top: clamp(140px, 24vh, 340px);
+  padding-bottom: clamp(96px, 18vh, 210px);
   text-align: center;
+}
+
+/* Dark theme dropdown styling (Bootstrap defaults are bright/flat) */
+#menu .dropdown-menu {
+  background: var(--surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 14px 30px rgba(var(--color-shadow-rgb) / 0.55);
+}
+#menu .dropdown-menu > li > a {
+  color: var(--color-font-secondary);
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+#menu .dropdown-menu > li > a:hover,
+#menu .dropdown-menu > li > a:focus {
+  background: var(--color-neutral-btn-hover-selected);
+  color: var(--color-font-main);
+}
+#menu .dropdown-menu > .active > a,
+#menu .dropdown-menu > .active > a:hover,
+#menu .dropdown-menu > .active > a:focus {
+  background: rgb(var(--color-accent-rgb) / 0.18);
+  color: var(--color-font-main);
 }
 /* Features Section */
 #features {
   /* Unified background to reduce visible separation between sections */
   background-color: var(--surface-1);
   background: var(--section-features-bg);
+  padding: 100px 0;
 }
 #features i.fa {
   font-size: 38px;
@@ -354,7 +399,7 @@ header .intro-text {
 }
 #features i.fa:hover {
   background: var(--color-accent);
-  color: #0b1616;
+  color: var(--color-primary-bg);
 }
 /* About Section */
 #about {
@@ -395,11 +440,13 @@ header .intro-text {
   padding-right: 8px;
 }
 #about img {
-  width: 520px;
+  width: 100%;
+  max-width: 520px;
   margin-top: 10px;
   background: var(--color-bg-alt);
   border-right: 0;
   box-shadow: 0 0 50px rgba(var(--color-shadow-rgb) / 0.4);
+  border-radius: 12px;
 }
 #about p {
   line-height: 24px;
@@ -472,7 +519,7 @@ header .intro-text {
 .screenshot-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(var(--color-shadow-rgb) / 0.55);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -541,7 +588,7 @@ header .intro-text {
 }
 .hover-bg .hover-text > h4 {
   opacity: 0;
-  color: #fff;
+  color: var(--color-primary-bg);
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
   transition: all 0.3s;
@@ -614,7 +661,7 @@ header .intro-text {
   max-width: 320px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 30px rgba(var(--color-shadow-rgb) / 0.35);
   display: block;
   margin: 0 auto 18px;
 }
@@ -635,7 +682,7 @@ header .intro-text {
   margin-top: 10px;
 }
 #testflight .appstore-link a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-size: 14px;
   text-decoration: none;
 }
@@ -715,8 +762,8 @@ label {
 #contact .form-control:focus {
   border-color: var(--color-accent);
   outline: 0;
-  -webkit-box-shadow: 0 0 0 2px rgba(46, 107, 87, 0.3);
-  box-shadow: 0 0 0 2px rgba(46, 107, 87, 0.3);
+  -webkit-box-shadow: 0 0 0 2px rgb(var(--color-accent-rgb) / 0.25);
+  box-shadow: 0 0 0 2px rgb(var(--color-accent-rgb) / 0.25);
 }
 .form-control::-webkit-input-placeholder {
   color: var(--color-dialog-text);
@@ -734,7 +781,7 @@ label {
   margin: 20px 0;
 }
 #contact .contact-item span {
-  color: rgba(255, 255, 255, 1);
+  color: var(--color-heading);
   margin-bottom: 10px;
   display: block;
 }
@@ -796,10 +843,17 @@ label {
   font-size: 14px;
 }
 #footer a {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 #footer a:hover {
-  border-bottom: 2px solid var(--color-accent);
+  border-bottom: 2px solid var(--color-accent-text);
+}
+
+/* Prefer a lighter text-accent where supported (keeps buttons/surfaces unchanged). */
+@supports (color: color-mix(in srgb, black 50%, white)) {
+  :root {
+    --color-accent-text: color-mix(in srgb, var(--color-accent) 70%, white);
+  }
 }
 
 @media (max-width: 768px) {
