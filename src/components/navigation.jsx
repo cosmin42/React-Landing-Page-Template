@@ -64,7 +64,7 @@ export const Navigation = (props) => {
                   <a href="#photo-book-steps" className="page-scroll" onClick={closeMobileMenu}>7 Steps</a>
                 </li>
                 <li>
-                  <a href="#features" className="page-scroll" onClick={closeMobileMenu}>Features</a>
+                  <a href="#features" className="page-scroll" onClick={closeMobileMenu}>What you get</a>
                 </li>
                 <li>
                   <a href="#portfolio" className="page-scroll" onClick={closeMobileMenu}>Screenshots</a>
@@ -79,7 +79,7 @@ export const Navigation = (props) => {
             )}
             <li className={`dropdown ${isInfo ? 'active' : ''}`}>
               <a
-                href="#"
+                href="#more"
                 className="dropdown-toggle"
                 data-toggle="dropdown"
                 role="button"

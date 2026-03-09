@@ -29,23 +29,23 @@
   "Features": [
     {
       "icon": "fa fa-camera-retro",
-      "title": "Look Up Tables",
-      "text": "Enhance your photos with professional-grade color transformations using Look Up Tables. Whether you're aiming for cinematic tones or vintage aesthetics, LUTs provide precise control over the mood and style of your images."
+      "title": "A cohesive look",
+      "text": "A photo book where every page feels like the same story — apply LUTs and consistent adjustments so the album has one intentional mood from start to finish."
     },
     {
       "icon": "fa fa-table",
-      "title": "Collages",
-      "text": "Easily combine multiple photos into stunning collages. Whether you want a structured grid or an artistic freeform arrangement, our intuitive tools help you create dynamic compositions that tell a richer visual story."
+      "title": "Pages that tell the story",
+      "text": "Clean layouts and collages that make your moments readable at a glance — from simple grids to expressive compositions, without fighting the tool."
     },
     {
       "icon": "fa fa-picture-o",
-      "title": "Effects",
-      "text": "Make precise image adjustments to perfect your photos. From fine-tuning brightness and contrast to adjusting saturation, the effects tools allow you to refine every detail of your images with ease."
+      "title": "Photos that feel finished",
+      "text": "Print-friendly corrections like brightness, contrast, and saturation so your images look deliberate (and consistent) instead of “almost there”."
     },
     {
       "icon": "fa fa-file-pdf-o",
-      "title": "Exports",
-      "text": "Seamlessly export your projects in high quality, whether for digital sharing or professional printing. Choose from multiple formats to ensure your photo book looks stunning on any platform or medium."
+      "title": "A print-ready export",
+      "text": "A high-quality ZIP archive you can share, back up, or send to your preferred printing service — so the end result isn’t stuck inside an app."
     }
   ],
   "Screenshots": {

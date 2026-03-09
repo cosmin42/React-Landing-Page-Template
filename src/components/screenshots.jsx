@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 // Screenshots section reusing the existing #portfolio styling
 export const Screenshots = (props) => {
-  const images = props.data?.images || [];
+  const images = useMemo(() => props.data?.images || [], [props.data?.images]);
   const title = props.data?.title || "Screenshots";
   const paragraph = props.data?.paragraph;
   // Deduplicate images by src to avoid accidental double-rendering
