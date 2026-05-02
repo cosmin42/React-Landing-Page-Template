@@ -6,7 +6,7 @@ export const Features = (props) => {
       <div className="container">
         <div className="col-md-10 col-md-offset-1 section-title">
           <h2>What you get</h2>
-          <p className="small">Practical outcomes you can export, share, and print.</p>
+          <p className="small">Create, Export, Print</p>
         </div>
         <div className="row">
           {props.data
