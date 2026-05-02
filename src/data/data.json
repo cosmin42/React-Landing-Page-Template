@@ -26,28 +26,6 @@
     "youtube": "https://www.youtube.com/@PhotoBookNoir",
     "bluesky": "https://bsky.app/profile/cosmin42.bsky.social" 
   },
-  "Features": [
-    {
-      "icon": "fa fa-camera-retro",
-      "title": "A cohesive look",
-      "text": "A photo book where every page feels like the same story — apply LUTs and consistent adjustments so the album has one intentional mood from start to finish."
-    },
-    {
-      "icon": "fa fa-table",
-      "title": "Pages that tell the story",
-      "text": "Clean layouts and collages that make your moments readable at a glance — from simple grids to expressive compositions, without fighting the tool."
-    },
-    {
-      "icon": "fa fa-picture-o",
-      "title": "Photos that feel finished",
-      "text": "Print-friendly corrections like brightness, contrast, and saturation so your images look deliberate (and consistent) instead of “almost there”."
-    },
-    {
-      "icon": "fa fa-file-pdf-o",
-      "title": "A print-ready export",
-      "text": "A high-quality ZIP archive you can share, back up, or send to your preferred printing service — so the end result isn’t stuck inside an app."
-    }
-  ],
   "Screenshots": {
     "title": "Screenshots",
     "paragraph": "Explore some UI highlights from Photo Book Noir.",

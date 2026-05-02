@@ -336,9 +336,10 @@ a:focus,
 
 .intro .overlay {
   background: linear-gradient(
-    135deg,
-    rgba(var(--color-accent-rgb) / 0.12),
-    rgba(255, 255, 255, 0.82)
+    to bottom,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(255, 255, 255, 0.72) 45%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 .intro h1 {
@@ -392,28 +393,6 @@ header .intro-text {
 #menu .dropdown-menu > .active > a:focus {
   background: rgb(var(--color-accent-rgb) / 0.18);
   color: var(--color-font-main);
-}
-/* Features Section */
-#features {
-  background-color: transparent;
-  background: transparent;
-  padding: 100px 0;
-}
-#features i.fa {
-  font-size: 38px;
-  margin-bottom: 20px;
-  transition: all 0.5s;
-  color: var(--color-font-main);
-  width: 100px;
-  height: 100px;
-  padding: 30px 0;
-  border-radius: 16px;
-  background: var(--color-neutral-btn-bg);
-  box-shadow: 0 4px 12px rgba(var(--color-shadow-rgb) / 0.4);
-}
-#features i.fa:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-bg);
 }
 /* About Section */
 #about {
@@ -883,43 +862,6 @@ label {
 }
 
 /* Mobile tweaks for the Features section */
-@media (max-width: 576px) {
-  /* add breathing room */
-  #features {
-    padding: 40px 0;
-  }
-
-  /* stack feature columns full-width for clarity on small screens */
-  #features .row > [class*="col-"] {
-    width: 100% !important;
-    float: none !important;
-    display: block !important;
-    padding: 0 15px !important;
-    margin-bottom: 28px !important;
-    text-align: center;
-  }
-
-  /* reduce icon footprint so items fit comfortably */
-  #features i.fa {
-    width: 72px;
-    height: 72px;
-    padding: 14px 0;
-    font-size: 26px;
-    margin: 0 auto 12px;
-  }
-
-  #features h3 {
-    font-size: 18px;
-    margin-top: 6px;
-  }
-
-  #features p {
-    font-size: 14px;
-    color: var(--color-dialog-text);
-    margin: 6px 0 0;
-  }
-}
-
 /* Privacy Policy page spacing */
 #privacy .section-title {
   padding-top: 24px; /* add top padding so title breathes under the navbar */

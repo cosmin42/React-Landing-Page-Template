@@ -60,9 +60,6 @@ export const Navigation = (props) => {
             {onHome && (
               <>
                 <li>
-                  <a href="#features" className="page-scroll" onClick={closeMobileMenu}>What you get</a>
-                </li>
-                <li>
                   <a href="#portfolio" className="page-scroll" onClick={closeMobileMenu}>Screenshots</a>
                 </li>
                 <li>
