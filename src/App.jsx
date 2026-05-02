@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Header } from "./components/header";
 import { Features } from "./components/features";
 import { Screenshots } from "./components/screenshots";
-import { PhotoBookSteps } from "./components/photoBookSteps";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
@@ -25,7 +24,6 @@ const App = () => {
     <div>
       <Header data={landingPageData.Header} />
       <Features data={landingPageData.Features} />
-      <PhotoBookSteps />
       <Screenshots data={landingPageData.Screenshots} />
       <About data={landingPageData.About} />
       <Contact data={landingPageData.Contact} />

@@ -24,8 +24,7 @@ export const Navigation = (props) => {
 
   const isCredits = location.pathname === '/credits';
   const isPrivacy = location.pathname === '/privacy' || location.pathname === '/privacy-policy';
-  const isSteps = location.pathname === '/photo-book-steps';
-  const isInfo = isCredits || isPrivacy || isSteps;
+  const isInfo = isCredits || isPrivacy;
   return (
     <nav
       id="menu"
@@ -61,9 +60,6 @@ export const Navigation = (props) => {
             {onHome && (
               <>
                 <li>
-                  <a href="#photo-book-steps" className="page-scroll" onClick={closeMobileMenu}>7 Steps</a>
-                </li>
-                <li>
                   <a href="#features" className="page-scroll" onClick={closeMobileMenu}>What you get</a>
                 </li>
                 <li>
@@ -90,9 +86,6 @@ export const Navigation = (props) => {
                 More <span className="caret"></span>
               </a>
               <ul className="dropdown-menu">
-                <li className={isSteps ? 'active' : ''}>
-                  <Link to="/photo-book-steps" onClick={closeMobileMenu}>7 Steps</Link>
-                </li>
                 <li className={isCredits ? 'active' : ''}>
                   <Link to="/credits" onClick={closeMobileMenu}>Credits</Link>
                 </li>
