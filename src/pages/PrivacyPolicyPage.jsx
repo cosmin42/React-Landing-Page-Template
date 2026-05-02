@@ -1,15 +1,13 @@
 import React from 'react';
-import { Navigation } from '../components/navigation';
+import { Footer } from '../components/footer';
 import { Privacy } from '../components/privacy';
 
 // Page wrapper for dedicated /privacy-policy route
 const PrivacyPolicyPage = () => {
   return (
     <div>
-      <Navigation />
-      <div style={{ marginTop: '70px' }}>
-        <Privacy />
-      </div>
+      <Privacy />
+      <Footer />
     </div>
   );
 };

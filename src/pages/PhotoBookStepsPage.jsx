@@ -1,14 +1,12 @@
 import React from "react";
-import { Navigation } from "../components/navigation";
+import { Footer } from "../components/footer";
 import { PhotoBookSteps } from "../components/photoBookSteps";
 
 const PhotoBookStepsPage = () => {
   return (
     <div>
-      <Navigation />
-      <div style={{ marginTop: "70px" }}>
-        <PhotoBookSteps />
-      </div>
+      <PhotoBookSteps />
+      <Footer />
     </div>
   );
 };

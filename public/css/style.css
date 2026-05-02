@@ -843,6 +843,14 @@ label {
   color: var(--color-dialog-text);
   font-size: 14px;
 }
+#footer .footer-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
 #footer a {
   color: var(--color-accent-text);
 }
