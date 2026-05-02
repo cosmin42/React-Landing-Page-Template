@@ -29,10 +29,11 @@ export const Header = (props) => {
                 </h1>
                 <p style={{ marginTop: 20 }}>{props.data ? props.data.paragraph : "Loading"}</p>
                 <a
-                  href="#features"
+                  href={`${process.env.PUBLIC_URL}/PhotoBook.dmg`}
+                  download="PhotoBook.dmg"
                   className="btn btn-custom btn-lg page-scroll"
                 >
-                  What you get
+                  Download DMG
                 </a>{" "}
               </div>
             </div>
