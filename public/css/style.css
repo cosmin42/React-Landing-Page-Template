@@ -314,11 +314,19 @@ a:focus,
   padding: 0;
   background: url(../img/intro-bg.jpg) center center no-repeat;
   background-color: var(--color-primary-bg);
+  background-attachment: fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .intro {
+    background-attachment: scroll;
+  }
+}
+
 .intro .overlay {
   background: linear-gradient(
     135deg,
