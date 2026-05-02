@@ -2,6 +2,20 @@
 
 .credits-page {
   margin-top: 70px; /* clear fixed navbar */
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.credits-page #footer {
+  background: #ffffff;
+}
+
+#credits .section-title {
+  float: none;
+}
+
+#credits .credits-actions {
+  margin-top: 24px;
 }
 
 #credits .credits-section {

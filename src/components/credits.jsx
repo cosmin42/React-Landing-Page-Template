@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { creditsData } from "../data/creditsData";
 import "./credits.css";
 
@@ -62,6 +63,11 @@ export const Credits = () => {
           <div className="col-md-12 section-title text-center">
             <h2>{creditsData.intro.title}</h2>
             <p>{creditsData.intro.description}</p>
+            <div className="credits-actions">
+              <Link to="/" className="btn btn-custom btn-lg">
+                Back Home
+              </Link>
+            </div>
           </div>
         </div>
 
