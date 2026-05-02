@@ -5,7 +5,7 @@ import { Privacy } from '../components/privacy';
 // Page wrapper for dedicated /privacy-policy route
 const PrivacyPolicyPage = () => {
   return (
-    <div>
+    <div className="privacy-page">
       <Privacy />
       <Footer />
     </div>

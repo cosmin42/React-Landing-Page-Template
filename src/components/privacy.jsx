@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./privacy.css";
 
 const SECTIONS = [
@@ -241,6 +242,11 @@ export const Privacy = () => {
               mobile and desktop application ("App"), in accordance with the General Data Protection Regulation (GDPR)
               and the California Consumer Privacy Act (CCPA).
             </p>
+            <div className="privacy-actions">
+              <Link to="/" className="btn btn-custom btn-lg">
+                Back Home
+              </Link>
+            </div>
           </div>
         </div>
 
