@@ -1,20 +1,20 @@
 {
   "Header": {
     "title": "Photo Book Noir",
-    "paragraph": "Transforming ordinary moments into timeless narratives."
+    "paragraph": "Create minimalist photo books, photo albums, and collage layouts on iPhone and iPad with captions, LUT filters, and export-ready files."
   },
   "About": {
-    "paragraph": "Photo Book Noir was born from the desire to create a comprehensive and intuitive software for designing photo books. Preserving memories should be a seamless and enjoyable experience, not a technical challenge.",
+    "paragraph": "Photo Book Noir is a photo book app built for designing photo albums and collage layouts without a complicated workflow. Organize memories, add text, and prepare clean export files for print or sharing.",
     "philosophy": "App addiction has become more and more of a problem — many apps today are built to keep us hooked rather than to help us. I built this app with the belief that technology should enrich life, not consume it.",
     "Why": [
-      "Thousands pages albums",
-      "Diverse image/exports formats",
-      "A variety of Look Up Tables",
-      "Easy imports"
+      "Large photo books and albums",
+      "Multiple export formats",
+      "LUT filters and creative looks",
+      "Fast photo import workflow"
     ],
     "Why2": [
-      "Tell the story with captions and text",
-      "Creative minimalism"
+      "Add captions, text, and visual storytelling",
+      "Minimalist scrapbook and collage design"
     ]
   },
   "Contact": {
@@ -28,15 +28,15 @@
   },
   "Screenshots": {
     "title": "Screenshots",
-    "paragraph": "Explore some UI highlights from Photo Book Noir.",
+    "paragraph": "Preview the photo book maker, album editor, collage tools, and export workflow inside Photo Book Noir.",
     "images": [
-      { "src": "/img/screenshots/screenshot0.avif", "title": "Gallery View" },
-      { "src": "/img/screenshots/screenshot01.avif", "title": "Gallery View" },
-      { "src": "/img/screenshots/screenshot02.avif", "title": "Editing Tools" },
-      { "src": "/img/screenshots/screenshot03.avif", "title": "Export Options" },
-      { "src": "/img/screenshots/screenshot04.avif", "title": "Screenshot 4" },
-      { "src": "/img/screenshots/screenshot05.avif", "title": "Screenshot 5" },
-      { "src": "/img/screenshots/screenshot06.avif", "title": "Screenshot 6" }
+      { "src": "/img/screenshots/screenshot0.avif", "title": "Photo Book Gallery" },
+      { "src": "/img/screenshots/screenshot01.avif", "title": "Photo Album Layouts" },
+      { "src": "/img/screenshots/screenshot02.avif", "title": "Collage and Editing Tools" },
+      { "src": "/img/screenshots/screenshot03.avif", "title": "Export for Print or Sharing" },
+      { "src": "/img/screenshots/screenshot04.avif", "title": "Caption and Text Styling" },
+      { "src": "/img/screenshots/screenshot05.avif", "title": "LUT Filter Presets" },
+      { "src": "/img/screenshots/screenshot06.avif", "title": "Minimalist Scrapbook Workflow" }
     ]
   }
 }
