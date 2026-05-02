@@ -90,7 +90,7 @@ export const Screenshots = (props) => {
         <div className="row">
           <div className="col-md-12 section-title text-center">
             <h2 id="screenshots-title">{title}</h2>
-            {paragraph ? <p className="small">{paragraph}</p> : null}
+            {paragraph ? <p className="small screenshots-intro">{paragraph}</p> : null}
           </div>
         </div>
         {featuredScreenshot ? (
@@ -121,14 +121,7 @@ export const Screenshots = (props) => {
                   />
                 </div>
               </button>
-              <div className="screenshots-stage-footer">
-                <div>
-                  <h3>{featuredScreenshot.title || `Screenshot ${currentIndex + 1}`}</h3>
-                  <p>
-                    Select a frame from the rail to inspect a different part of the app,
-                    or open the featured view for a closer look.
-                  </p>
-                </div>
+              <div className="screenshots-stage-footer" align="center">
                 <div className="screenshots-stage-actions" aria-label="Featured screenshot navigation">
                   <button type="button" onClick={showPrevious} aria-label="Show previous screenshot">
                     Prev

@@ -469,6 +469,12 @@ header .intro-text {
 .screenshots-section .section-title p {
   opacity: 0.8;
 }
+.screenshots-section .section-title h2 {
+  text-shadow: 0 4px 18px rgba(0 0 0 / 0.55), 0 2px 4px rgba(0 0 0 / 0.9);
+}
+.screenshots-section .section-title .screenshots-intro {
+  text-shadow: 0 4px 18px rgba(0 0 0 / 0.55), 0 2px 4px rgba(0 0 0 / 0.9);
+}
 .screenshots-showcase {
   position: relative;
   display: grid;
