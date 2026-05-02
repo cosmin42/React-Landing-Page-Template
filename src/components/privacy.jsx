@@ -166,8 +166,33 @@ const SECTIONS = [
     ),
   },
   {
-    id: "changes-to-policy",
+    id: "website-cookies",
     number: "10",
+    title: "Website Cookies",
+    content: (
+      <>
+        <p>
+          Our website uses a small cookie to remember whether you accepted cookies or chose essential-only storage.
+          This cookie does not track you across other websites and is only used to avoid showing the consent banner on
+          every visit.
+        </p>
+        <ul>
+          <li>
+            <strong>Cookie name:</strong> photobook_cookie_consent
+          </li>
+          <li>
+            <strong>Purpose:</strong> Store your cookie preference
+          </li>
+          <li>
+            <strong>Duration:</strong> Up to 180 days
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "changes-to-policy",
+    number: "11",
     title: "Changes to This Policy",
     content: (
       <>
@@ -180,7 +205,7 @@ const SECTIONS = [
   },
   {
     id: "contact-us",
-    number: "11",
+    number: "12",
     title: "Contact Us",
     content: (
       <>

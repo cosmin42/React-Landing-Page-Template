@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import CreditsPage from './pages/CreditsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import CookieBanner from './components/cookieBanner';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
         <Route path="/privacy-policy" element={<Navigate to="/privacy" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
+      <CookieBanner />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
