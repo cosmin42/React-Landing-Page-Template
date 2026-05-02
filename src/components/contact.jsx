@@ -2,160 +2,170 @@ import React from "react";
 import "./contact.css";
 
 export const Contact = (props) => {
+  const email = props.data?.email || "office@photobook-noir.com";
+  const phone = props.data?.phone?.trim();
+  const address = props.data?.address?.trim();
+
+  const contactCards = [
+    {
+      eyebrow: "Support",
+      title: "Need help with a project?",
+      body: "Ask about the app, export workflow, or anything blocking your next photo book.",
+      href: `mailto:${email}`,
+      cta: "Email support",
+    },
+    {
+      eyebrow: "Feedback",
+      title: "Have an idea worth building?",
+      body: "Send feature requests, rough concepts, or friction points you want improved next.",
+      href: `mailto:${email}?subject=Feature%20Suggestion`,
+      cta: "Share a feature idea",
+    },
+    {
+      eyebrow: "Community",
+      title: "Join the Discord room",
+      body: "Follow product updates, ask quick questions, and stay close to the roadmap.",
+      href: "https://discord.gg/WJPDWy3Sfh",
+      cta: "Open Discord",
+      external: true,
+    },
+  ];
+
+  const contactDetails = [
+    address
+      ? {
+          icon: "fa-map-marker",
+          label: "Based in",
+          value: address,
+          href: null,
+        }
+      : null,
+    phone
+      ? {
+          icon: "fa-phone",
+          label: "Phone",
+          value: phone,
+          href: `tel:${phone}`,
+        }
+      : null,
+    {
+      icon: "fa-envelope-o",
+      label: "Email",
+      value: email,
+      href: `mailto:${email}`,
+    },
+  ].filter(Boolean);
+
+  const socialLinks = [
+    {
+      name: "LinkedIn",
+      note: "Product updates and professional context",
+      href: props.data?.linkedin,
+    },
+    {
+      name: "Bluesky",
+      note: "Quick notes, previews, and experiments",
+      href: props.data?.bluesky,
+    },
+    {
+      name: "TikTok",
+      note: "Short-form process clips and walkthroughs",
+      href: props.data?.tiktok,
+    },
+    {
+      name: "YouTube",
+      note: "Longer demos, guides, and feature tours",
+      href: props.data?.youtube,
+    },
+  ].filter((item) => item.href);
+
   return (
     <div>
       <div id="contact">
         <div className="container">
-          <div className="col-md-8">
-            <div className="row">
-              <div className="section-title">
+          <div className="row contact-layout">
+            <div className="col-md-7">
+              <div className="contact-intro section-title">
+                <p className="contact-kicker">Start a conversation</p>
                 <h2>Get In Touch</h2>
-              </div>
-              <div className="contact-actions">
-                <ul className="contact-bullets" aria-label="Contact options">
-                  <li>
-                    Get support{" "}
-                    <a href="mailto:office@photobook-noir.com" aria-label="Email support">
-                      office@photobook-noir.com
-                    </a>
-                  </li>
-                  <li>
-                    Suggest a feature{" "}
-                    <a
-                      href="mailto:office@photobook-noir.com?subject=Feature%20Suggestion"
-                      aria-label="Email feature suggestion"
-                    >
-                      office@photobook-noir.com
-                    </a>
-                  </li>
-                  <li>
-                    Give feedback{" "}
-                    <a href="mailto:office@photobook-noir.com?subject=Feedback" aria-label="Email feedback">
-                      office@photobook-noir.com
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              {/* Discord embed: invite link + widget iframe (replace YOUR_SERVER_ID) */}
-              <div className="discord-embed">
-                <h4>Join us on Discord</h4>
-                <p>
-                  <a
-                    href="https://discord.gg/WJPDWy3Sfh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Join our Discord"
-                  >
-                    Click to join  Discord server
-                  </a>
+                <p className="contact-lead">
+                  Choose the fastest path depending on what you need: direct support, product feedback, or a
+                  quick chat with the community.
                 </p>
-                <div className="discord-widget">
-                  <iframe
-                    width="200"
-                    height="300"
-                    allowTransparency="true"
-                    frameBorder="0"
-                    title="Discord widget"
-                  ></iframe>
-                </div>
+              </div>
+
+              <div className="contact-card-grid" aria-label="Primary contact actions">
+                {contactCards.map((card) => (
+                  <a
+                    key={card.title}
+                    className="contact-card"
+                    href={card.href}
+                    target={card.external ? "_blank" : undefined}
+                    rel={card.external ? "noopener noreferrer" : undefined}
+                  >
+                    <span className="contact-card-eyebrow">{card.eyebrow}</span>
+                    <h3>{card.title}</h3>
+                    <p>{card.body}</p>
+                    <span className="contact-card-link">{card.cta}</span>
+                  </a>
+                ))}
+              </div>
+
+              <div className="contact-note">
+                <span className="contact-note-label">Best for longer questions</span>
+                <p>
+                  Email is the right channel for support threads, detailed bug reports, or requests that need
+                  screenshots and context.
+                </p>
               </div>
             </div>
-          </div>
-          <div className="col-md-3 col-md-offset-1 contact-info">
-            <div className="contact-item">
-              <h3>Contact & Support</h3>
-              <p>
-                <span>
-                  <i className="fa fa-map-marker"></i> Address
-                </span>
-                {props.data ? props.data.address : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-phone"></i> Phone
-                </span>{" "}
-                {props.data ? props.data.phone : "loading"}
-              </p>
-            </div>
-            <div className="contact-item">
-              <p>
-                <span>
-                  <i className="fa fa-envelope-o"></i> Email
-                </span>{" "}
-                {props.data ? props.data.email : "loading"}
-              </p>
-            </div>
-          </div>
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a
-                      href={props.data ? props.data.linkedin : "/"}
-                      aria-label="LinkedIn"
-                      title="LinkedIn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i className="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={props.data ? props.data.bluesky : "/"}
-                      aria-label="Bluesky"
-                      title="Bluesky"
-                    >
-                      <span className="bluesky-icon" aria-hidden="true">
-                        {/* Bluesky butterfly-like logo (simplified) */}
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 256 256"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M128 146.6c15.9 31.2 44.8 63.2 73 79.8 9.4 5.5 21.2 2 26.6-7.4 4.8-8.3 7.3-22 1.1-41.1-2.5-7.7-6.9-16.1-13.4-25.5-11.4-16.3-26.5-31.8-42.2-43.5 17.6-13.7 35.3-33.5 45.9-51.4 6-10.1 9.5-19.1 10.9-26.9 1.9-10.7-.7-19.2-6.7-24.1-6.1-4.9-15.4-5.5-25.5-1.3-8.2 3.4-17.2 9.6-26.8 18.8-13.6 13-27.3 30.9-37.9 48.5-10.6-17.6-24.3-35.6-37.9-48.5-9.6-9.2-18.6-15.4-26.8-18.8-10.1-4.2-19.4-3.6-25.5 1.3-6 4.9-8.6 13.4-6.7 24.1 1.4 7.8 4.9 16.8 10.9 26.9 10.6 17.9 28.3 37.7 45.9 51.4-15.7 11.7-30.8 27.2-42.2 43.5-6.5 9.4-10.9 17.8-13.4 25.5-6.2 19.1-3.7 32.8 1.1 41.1 5.4 9.4 17.2 12.9 26.6 7.4 28.2-16.6 57.1-48.6 73-79.8Z"
-                          />
-                        </svg>
+
+            <div className="col-md-5">
+              <div className="contact-panel contact-info">
+                <div className="contact-panel-header">
+                  <p className="contact-panel-kicker">Direct details</p>
+                  <h3>Reach Photo Book Noir directly</h3>
+                </div>
+
+                <div className="contact-detail-list">
+                  {contactDetails.map((item) => (
+                    <div className="contact-item" key={item.label}>
+                      <span className="contact-item-label">
+                        <i className={`fa ${item.icon}`}></i>
+                        {item.label}
                       </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={props.data ? props.data.tiktok : "/"}
-                      aria-label="TikTok"
-                      title="TikTok"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span className="tiktok-icon" aria-hidden="true">
-                        <svg
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          role="img"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill="currentColor"
-                            d="M14 3c.3 2.7 2.4 4.8 5 5.1V11c-1.9-.1-3.5-.8-5-2v6.1c0 3-2.4 5.4-5.4 5.4S3.2 18.1 3.2 15.1s2.4-5.4 5.4-5.4c.5 0 1 .1 1.4.2V13c-.4-.2-.9-.4-1.4-.4-1.4 0-2.5 1.1-2.5 2.5S7.2 17.6 8.6 17.6s2.5-1.1 2.5-2.5V3h2.9Z"
-                          />
-                        </svg>
-                      </span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
-                    </a>
-                  </li>
-                </ul>
+                      {item.href ? (
+                        <a href={item.href}>{item.value}</a>
+                      ) : (
+                        <p>{item.value}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="contact-response-time">
+                  <span>Response rhythm</span>
+                  <p>Messages are reviewed regularly, with Discord best for quick check-ins and email best for deeper follow-up.</p>
+                </div>
+
+                <div className="social social-links-wrap">
+                  <div className="social-links-header">
+                    <p className="contact-panel-kicker">Elsewhere</p>
+                    <p className="social-links-intro">Find Photo Book Noir across the channels best suited for quick updates, deep dives, and behind-the-scenes notes.</p>
+                  </div>
+                  <ul aria-label="Social links">
+                    {socialLinks.map((item) => (
+                      <li key={item.name}>
+                        <a href={item.href} aria-label={item.name} title={item.name} target="_blank" rel="noopener noreferrer">
+                          <span className="social-link-copy">
+                            <span className="social-link-name">{item.name}</span>
+                            <span className="social-link-note">{item.note}</span>
+                          </span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
