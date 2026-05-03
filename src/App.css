@@ -41,7 +41,7 @@
 }
 
 .floating-language-switcher {
-  position: fixed;
+  position: absolute;
   top: 18px;
   right: 18px;
   display: flex;
