@@ -1,6 +1,8 @@
 import React from "react";
 
 export const Header = (props) => {
+  const data = props.data || {};
+
   return (
     <header id="header">
       <div className="intro">
@@ -11,29 +13,29 @@ export const Header = (props) => {
                 <div style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}>
                   <div className="appstore-link">
                     <a
-                      href="https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB"
+                      href={data.appStoreHref}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <img
                         src="/img/AppStoreBadge.svg"
-                        alt="View on the App Store"
+                        alt={data.appStoreAlt}
                         style={{ height: 64 }}
                       />
                     </a>
                   </div>
                 </div>
                 <h1>
-                  {props.data ? props.data.title : "Loading"}
+                  {data.title}
                   <span></span>
                 </h1>
-                <p style={{ marginTop: 20 }}>{props.data ? props.data.paragraph : "Loading"}</p>
+                <p style={{ marginTop: 20 }}>{data.paragraph}</p>
                 <a
                   href={`${process.env.PUBLIC_URL}/PhotoBook.dmg`}
                   download="PhotoBook.dmg"
                   className="btn btn-custom btn-lg page-scroll"
                 >
-                  Download DMG
+                  {data.downloadLabel}
                 </a>{" "}
               </div>
             </div>

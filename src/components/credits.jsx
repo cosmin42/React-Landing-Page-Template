@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { creditsData } from "../data/creditsData";
+import { useLanguage } from "../i18n/LanguageContext";
 import "./credits.css";
 
 const ExternalLink = ({ href, children }) => (
@@ -22,7 +23,7 @@ const CreditsLinks = ({ links }) => {
   );
 };
 
-const CreditsComponentItem = ({ item }) => {
+const CreditsComponentItem = ({ item, versionLabel, licenseLabel }) => {
   return (
     <li className="credits-item">
       <div>
@@ -31,8 +32,8 @@ const CreditsComponentItem = ({ item }) => {
       </div>
       {(item.version || item.license || (item.links && item.links.length > 0)) && (
         <div className="credits-meta small">
-          {item.version ? <span>Version: {item.version}. </span> : null}
-          {item.license ? <span>License: {item.license}. </span> : null}
+          {item.version ? <span>{versionLabel}: {item.version}. </span> : null}
+          {item.license ? <span>{licenseLabel}: {item.license}. </span> : null}
           <CreditsLinks links={item.links} />
         </div>
       )}
@@ -56,22 +57,25 @@ const CreditsPeopleItem = ({ item }) => {
 };
 
 export const Credits = () => {
+  const { language } = useLanguage();
+  const content = creditsData[language] || creditsData.en;
+
   return (
     <div id="credits">
       <div className="container">
         <div className="row">
           <div className="col-md-12 section-title text-center">
-            <h2>{creditsData.intro.title}</h2>
-            <p>{creditsData.intro.description}</p>
+            <h2>{content.intro.title}</h2>
+            <p>{content.intro.description}</p>
             <div className="credits-actions">
               <Link to="/" className="btn btn-custom btn-lg">
-                Back Home
+                {content.backHome}
               </Link>
             </div>
           </div>
         </div>
 
-        {creditsData.sections.map((section) => (
+        {content.sections.map((section) => (
           <section key={section.id} className="credits-section" aria-labelledby={section.id}>
             <hr />
             <div className="row">
@@ -81,10 +85,15 @@ export const Credits = () => {
 
                 {section.type === "components" && (
                   <details className="credits-details" open>
-                    <summary className="small">Show / hide list</summary>
+                    <summary className="small">{content.showHide}</summary>
                     <ul className="list-unstyled small">
                       {section.items.map((item) => (
-                        <CreditsComponentItem key={item.name} item={item} />
+                        <CreditsComponentItem
+                          key={item.name}
+                          item={item}
+                          versionLabel={content.versionLabel}
+                          licenseLabel={content.licenseLabel}
+                        />
                       ))}
                     </ul>
                   </details>

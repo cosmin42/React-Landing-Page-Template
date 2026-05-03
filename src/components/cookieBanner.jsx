@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getSiteContent } from "../data/siteContent";
+import { useLanguage } from "../i18n/LanguageContext";
 
 const CONSENT_COOKIE_NAME = "photobook_cookie_consent";
 const CONSENT_MAX_AGE = 60 * 60 * 24 * 180;
@@ -28,6 +30,8 @@ const setConsentCookie = (value) => {
 
 export const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { language } = useLanguage();
+  const cookie = getSiteContent(language).cookie;
 
   useEffect(() => {
     setIsVisible(!getCookieValue(CONSENT_COOKIE_NAME));
@@ -43,22 +47,23 @@ export const CookieBanner = () => {
   }
 
   return (
-    <aside className="cookie-banner" aria-live="polite" aria-label="Cookie consent">
+    <aside className="cookie-banner" aria-live="polite" aria-label={cookie.ariaLabel}>
       <div className="cookie-banner__content">
         <p className="cookie-banner__text">
-          We use a small cookie to remember your privacy choice and keep the site working as expected. You can read
-          more in our <Link to="/privacy#website-cookies">Privacy Policy</Link>.
+          {cookie.textBefore}
+          <Link to="/privacy#website-cookies">{cookie.linkLabel}</Link>
+          {cookie.textAfter}
         </p>
         <div className="cookie-banner__actions">
           <button type="button" className="btn btn-custom cookie-banner__button" onClick={() => handleConsent("accepted")}>
-            Accept cookies
+            {cookie.accept}
           </button>
           <button
             type="button"
             className="cookie-banner__button cookie-banner__button--secondary"
             onClick={() => handleConsent("essential")}
           >
-            Essential only
+            {cookie.essential}
           </button>
         </div>
       </div>

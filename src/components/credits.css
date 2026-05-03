@@ -1,7 +1,6 @@
 /* Credits page helpers (kept minimal and Bootstrap-friendly). */
 
 .credits-page {
-  margin-top: 70px; /* clear fixed navbar */
   min-height: 100vh;
   background: #ffffff;
 }

@@ -2,40 +2,16 @@ import React from "react";
 import "./contact.css";
 
 export const Contact = (props) => {
-  const email = props.data?.email || "office@photobook-noir.com";
+  const data = props.data || {};
+  const email = data.email || "office@photobook-noir.com";
   const phone = props.data?.phone?.trim();
   const address = props.data?.address?.trim();
-
-  const contactCards = [
-    {
-      eyebrow: "Support",
-      title: "Need help with a project?",
-      body: "Ask about the app, export workflow, or anything blocking your next photo book.",
-      href: `mailto:${email}`,
-      cta: "Email support",
-    },
-    {
-      eyebrow: "Feedback",
-      title: "Have an idea worth building?",
-      body: "Send feature requests, rough concepts, or friction points you want improved next.",
-      href: `mailto:${email}?subject=Feature%20Suggestion`,
-      cta: "Share a feature idea",
-    },
-    {
-      eyebrow: "Community",
-      title: "Join the Discord room",
-      body: "Follow product updates, ask quick questions, and stay close to the roadmap.",
-      href: "https://discord.gg/WJPDWy3Sfh",
-      cta: "Open Discord",
-      external: true,
-    },
-  ];
 
   const contactDetails = [
     address
       ? {
           icon: "fa-map-marker",
-          label: "Based in",
+          label: data.details?.address,
           value: address,
           href: null,
         }
@@ -43,41 +19,19 @@ export const Contact = (props) => {
     phone
       ? {
           icon: "fa-phone",
-          label: "Phone",
+          label: data.details?.phone,
           value: phone,
           href: `tel:${phone}`,
         }
       : null,
     {
       icon: "fa-envelope-o",
-      label: "Email",
+      label: data.details?.email,
       value: email,
       href: `mailto:${email}`,
     },
   ].filter(Boolean);
-
-  const socialLinks = [
-    {
-      name: "LinkedIn",
-      note: "Product updates and professional context",
-      href: props.data?.linkedin,
-    },
-    {
-      name: "Bluesky",
-      note: "Quick notes, previews, and experiments",
-      href: props.data?.bluesky,
-    },
-    {
-      name: "TikTok",
-      note: "Short-form process clips and walkthroughs",
-      href: props.data?.tiktok,
-    },
-    {
-      name: "YouTube",
-      note: "Longer demos, guides, and feature tours",
-      href: props.data?.youtube,
-    },
-  ].filter((item) => item.href);
+  const socialLinks = data.socialLinks?.filter((item) => item.href) || [];
 
   return (
     <div>
@@ -86,16 +40,13 @@ export const Contact = (props) => {
           <div className="row contact-layout">
             <div className="col-md-7">
               <div className="contact-intro section-title">
-                <p className="contact-kicker">Start a conversation</p>
-                <h2>Get In Touch</h2>
-                <p className="contact-lead">
-                  Choose the fastest path depending on what you need: direct support, product feedback, or a
-                  quick chat with the community.
-                </p>
+                <p className="contact-kicker">{data.kicker}</p>
+                <h2>{data.title}</h2>
+                <p className="contact-lead">{data.lead}</p>
               </div>
 
-              <div className="contact-card-grid" aria-label="Primary contact actions">
-                {contactCards.map((card) => (
+              <div className="contact-card-grid" aria-label={data.actionsAria}>
+                {data.cards?.map((card) => (
                   <a
                     key={card.title}
                     className="contact-card"
@@ -112,19 +63,16 @@ export const Contact = (props) => {
               </div>
 
               <div className="contact-note">
-                <span className="contact-note-label">Best for longer questions</span>
-                <p>
-                  Email is the right channel for support threads, detailed bug reports, or requests that need
-                  screenshots and context.
-                </p>
+                <span className="contact-note-label">{data.noteLabel}</span>
+                <p>{data.noteBody}</p>
               </div>
             </div>
 
             <div className="col-md-5">
               <div className="contact-panel contact-info">
                 <div className="contact-panel-header">
-                  <p className="contact-panel-kicker">Direct details</p>
-                  <h3>Reach Photo Book Noir directly</h3>
+                  <p className="contact-panel-kicker">{data.directDetailsKicker}</p>
+                  <h3>{data.directDetailsTitle}</h3>
                 </div>
 
                 <div className="contact-detail-list">
@@ -144,16 +92,16 @@ export const Contact = (props) => {
                 </div>
 
                 <div className="contact-response-time">
-                  <span>Response rhythm</span>
-                  <p>Messages are reviewed regularly, with Discord best for quick check-ins and email best for deeper follow-up.</p>
+                  <span>{data.responseTitle}</span>
+                  <p>{data.responseBody}</p>
                 </div>
 
                 <div className="social social-links-wrap">
                   <div className="social-links-header">
-                    <p className="contact-panel-kicker">Elsewhere</p>
-                    <p className="social-links-intro">Find Photo Book Noir across the channels best suited for quick updates, deep dives, and behind-the-scenes notes.</p>
+                    <p className="contact-panel-kicker">{data.elsewhereKicker}</p>
+                    <p className="social-links-intro">{data.elsewhereIntro}</p>
                   </div>
-                  <ul aria-label="Social links">
+                  <ul aria-label={data.socialLinksAria}>
                     {socialLinks.map((item) => (
                       <li key={item.name}>
                         <a href={item.href} aria-label={item.name} title={item.name} target="_blank" rel="noopener noreferrer">

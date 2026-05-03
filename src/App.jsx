@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Header } from "./components/header";
 import { Screenshots } from "./components/screenshots";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
-import JsonData from "./data/data.json";
+import { getSiteContent } from "./data/siteContent";
 import SmoothScroll from "smooth-scroll";
+import { useLanguage } from "./i18n/LanguageContext";
 import "./App.css";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
@@ -14,17 +15,15 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 });
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []);
+  const { language } = useLanguage();
+  const content = getSiteContent(language);
 
   return (
     <div>
-      <Header data={landingPageData.Header} />
-      <Screenshots data={landingPageData.Screenshots} />
-      <About data={landingPageData.About} />
-      <Contact data={landingPageData.Contact} />
+      <Header data={content.home.header} />
+      <Screenshots data={content.home.screenshots} />
+      <About data={content.home.about} />
+      <Contact data={content.home.contact} />
       <Footer />
     </div>
   );

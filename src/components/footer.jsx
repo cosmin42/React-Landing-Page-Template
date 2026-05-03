@@ -1,19 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { getSiteContent } from "../data/siteContent";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export const Footer = () => {
+  const { language } = useLanguage();
+  const footer = getSiteContent(language).footer;
+
   return (
     <div id="footer">
       <div className="container text-center">
         <p>
-          &copy; 2023 Issaaf Kattan React Land Page Template. Design by{" "}
+          {footer.creditLine} {footer.designBy}{" "}
           <a href="http://www.templatewire.com" rel="nofollow">
             TemplateWire
           </a>
         </p>
-        <div className="footer-links" aria-label="Footer links">
-          <Link to="/credits">Credits</Link>
-          <Link to="/privacy">Privacy Policy</Link>
+        <div className="footer-links" aria-label={footer.linksAria}>
+          <Link to="/credits">{footer.credits}</Link>
+          <Link to="/privacy">{footer.privacy}</Link>
         </div>
       </div>
     </div>

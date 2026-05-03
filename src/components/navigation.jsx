@@ -1,8 +1,13 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Link, useLocation } from 'react-router-dom';
+import { languageOptions, getSiteContent } from '../data/siteContent';
+import { useLanguage } from '../i18n/LanguageContext';
 
 export const Navigation = (props) => {
   const location = useLocation();
+  const { language, setLanguage } = useLanguage();
+  const content = getSiteContent(language);
+  const navigation = content.navigation;
   const onHome = location.pathname === '/';
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,16 +44,16 @@ export const Navigation = (props) => {
             data-target="#bs-example-navbar-collapse-1"
             aria-controls="bs-example-navbar-collapse-1"
             aria-expanded="false"
-            aria-label="Toggle navigation"
+            aria-label={navigation.toggleLabel}
           >
             {" "}
-            <span className="sr-only">Toggle navigation</span>{" "}
+            <span className="sr-only">{navigation.toggleLabel}</span>{" "}
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
             <span className="icon-bar"></span>{" "}
           </button>
           <Link className="navbar-brand" to="/" onClick={closeMobileMenu}>
-            Photo Book Noir
+            {navigation.brand}
           </Link>{" "}
         </div>
 
@@ -60,13 +65,13 @@ export const Navigation = (props) => {
             {onHome && (
               <>
                 <li>
-                  <a href="#portfolio" className="page-scroll" onClick={closeMobileMenu}>Screenshots</a>
+                  <a href="#portfolio" className="page-scroll" onClick={closeMobileMenu}>{navigation.screenshots}</a>
                 </li>
                 <li>
-                  <a href="#about" className="page-scroll" onClick={closeMobileMenu}>About</a>
+                  <a href="#about" className="page-scroll" onClick={closeMobileMenu}>{navigation.about}</a>
                 </li>
                 <li>
-                  <a href="#contact" className="page-scroll" onClick={closeMobileMenu}>Contact & Support</a>
+                  <a href="#contact" className="page-scroll" onClick={closeMobileMenu}>{navigation.contact}</a>
                 </li>
               </>
             )}
@@ -80,16 +85,34 @@ export const Navigation = (props) => {
                 aria-expanded="false"
                 onClick={(e) => e.preventDefault()}
               >
-                More <span className="caret"></span>
+                {navigation.more} <span className="caret"></span>
               </a>
               <ul className="dropdown-menu">
                 <li className={isCredits ? 'active' : ''}>
-                  <Link to="/credits" onClick={closeMobileMenu}>Credits</Link>
+                  <Link to="/credits" onClick={closeMobileMenu}>{navigation.credits}</Link>
                 </li>
                 <li className={isPrivacy ? 'active' : ''}>
-                  <Link to="/privacy" onClick={closeMobileMenu}>Privacy Policy</Link>
+                  <Link to="/privacy" onClick={closeMobileMenu}>{navigation.privacy}</Link>
                 </li>
               </ul>
+            </li>
+            <li className="navbar-language-item" aria-label={navigation.languageLabel}>
+              <div className="language-switcher" role="group" aria-label={navigation.languageLabel}>
+                {languageOptions.map((option) => (
+                  <button
+                    key={option.code}
+                    type="button"
+                    className={`language-switcher__button${language === option.code ? ' is-active' : ''}`}
+                    aria-pressed={language === option.code}
+                    onClick={() => {
+                      setLanguage(option.code);
+                      closeMobileMenu();
+                    }}
+                  >
+                    {option.shortLabel}
+                  </button>
+                ))}
+              </div>
             </li>
           </ul>
         </div>

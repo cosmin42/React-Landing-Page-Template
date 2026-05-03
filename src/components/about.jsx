@@ -1,6 +1,8 @@
 import React from "react";
 
 export const About = (props) => {
+  const data = props.data || {};
+
   return (
     <div id="about">
       <div className="container">
@@ -11,32 +13,24 @@ export const About = (props) => {
           </div>
           <div className="col-xs-12 col-md-6">
             <div className="about-text">
-              <h2>About Me</h2>
-              <p>{props.data ? props.data.paragraph : "loading..."}</p>
+              <h2>{data.title}</h2>
+              <p>{data.paragraph}</p>
               {/* App Store badge moved to header */}
-              <p>
-                {props.data
-                  ? props.data.philosophy
-                  : "loading..."}
-              </p>
-              <h3>What are the goals?</h3>
+              <p>{data.philosophy}</p>
+              <h3>{data.goalsTitle}</h3>
               <div className="list-style">
                 <div className="col-lg-6 col-sm-6 col-xs-12">
                   <ul>
-                    {props.data
-                      ? props.data.Why.map((d, i) => (
-                          <li key={`${d}-${i}`}>{d}</li>
-                        ))
-                      : "loading"}
+                    {data.primaryGoals?.map((goal, index) => (
+                      <li key={`${goal}-${index}`}>{goal}</li>
+                    ))}
                   </ul>
                 </div>
                 <div className="col-lg-6 col-sm-6 col-xs-12">
                   <ul>
-                    {props.data
-                      ? props.data.Why2.map((d, i) => (
-                          <li key={`${d}-${i}`}> {d}</li>
-                        ))
-                      : "loading"}
+                    {data.secondaryGoals?.map((goal, index) => (
+                      <li key={`${goal}-${index}`}>{goal}</li>
+                    ))}
                   </ul>
                 </div>
               </div>

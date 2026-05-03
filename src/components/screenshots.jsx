@@ -5,6 +5,7 @@ export const Screenshots = (props) => {
   const images = useMemo(() => props.data?.images || [], [props.data?.images]);
   const title = props.data?.title || "Screenshots";
   const paragraph = props.data?.paragraph;
+  const fallbackLabel = props.data?.fallbackLabel || "Screenshot";
   // Deduplicate images by src to avoid accidental double-rendering
   const [uniqueImages, setUniqueImages] = useState(images);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -101,7 +102,7 @@ export const Screenshots = (props) => {
           >
             <div className="screenshots-stage-panel">
               <div className="screenshots-stage-copy">
-                <span className="screenshots-kicker">Product tour</span>
+                <span className="screenshots-kicker">{props.data?.kicker}</span>
                 <span className="screenshots-counter">
                   {String(currentIndex + 1).padStart(2, "0")} / {String(uniqueImages.length).padStart(2, "0")}
                 </span>
@@ -109,30 +110,30 @@ export const Screenshots = (props) => {
               <button
                 type="button"
                 className="screenshot-stage-button"
-                aria-label={(featuredScreenshot.title || `Screenshot ${currentIndex + 1}`) + ", enlarge"}
+                aria-label={(featuredScreenshot.title || `${fallbackLabel} ${currentIndex + 1}`) + `, ${props.data?.enlarge}`}
                 onClick={() => openModal(currentIndex)}
               >
                 <div className="screenshot-stage-frame" aria-hidden="true">
                   <img
                     src={featuredScreenshot.src}
                     className="img-responsive"
-                    alt={featuredScreenshot.title || `Screenshot ${currentIndex + 1}`}
+                    alt={featuredScreenshot.title || `${fallbackLabel} ${currentIndex + 1}`}
                     loading="lazy"
                   />
                 </div>
               </button>
               <div className="screenshots-stage-footer" align="center">
-                <div className="screenshots-stage-actions" aria-label="Featured screenshot navigation">
-                  <button type="button" onClick={showPrevious} aria-label="Show previous screenshot">
-                    Prev
+                <div className="screenshots-stage-actions" aria-label={props.data?.navLabel}>
+                  <button type="button" onClick={showPrevious} aria-label={props.data?.previousAria}>
+                    {props.data?.previous}
                   </button>
-                  <button type="button" onClick={showNext} aria-label="Show next screenshot">
-                    Next
+                  <button type="button" onClick={showNext} aria-label={props.data?.nextAria}>
+                    {props.data?.next}
                   </button>
                 </div>
               </div>
             </div>
-            <div className="screenshots-rail" aria-label="Choose a screenshot to feature">
+            <div className="screenshots-rail" aria-label={props.data?.railLabel}>
               {uniqueImages.map((item, i) => (
                 <button
                   type="button"
@@ -145,9 +146,9 @@ export const Screenshots = (props) => {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span className="screenshot-rail-copy">
-                    <strong>{item.title || `Screenshot ${i + 1}`}</strong>
+                    <strong>{item.title || `${fallbackLabel} ${i + 1}`}</strong>
                     <small>
-                      {i === currentIndex ? "Featured now" : "Click to preview"}
+                      {i === currentIndex ? props.data?.featuredNow : props.data?.clickToPreview}
                     </small>
                   </span>
                   <span className="screenshot-rail-thumb" aria-hidden="true">
@@ -169,14 +170,14 @@ export const Screenshots = (props) => {
           className="screenshot-modal"
           role="dialog"
           aria-modal="true"
-          aria-label={activeScreenshot?.title || `Screenshot ${activeIndex + 1}`}
+          aria-label={activeScreenshot?.title || `${fallbackLabel} ${activeIndex + 1}`}
           onClick={closeModal}
         >
           <div className="screenshot-modal-content" onClick={(e) => e.stopPropagation()}>
             <button
               type="button"
               className="screenshot-modal-close"
-              aria-label="Close"
+              aria-label={props.data?.close}
               onClick={closeModal}
             >
               ×
@@ -186,7 +187,7 @@ export const Screenshots = (props) => {
                 <button
                   type="button"
                   className="screenshot-modal-nav screenshot-modal-nav-prev"
-                  aria-label="Show previous screenshot"
+                  aria-label={props.data?.previousAria}
                   onClick={() =>
                     setActiveIndex((prev) =>
                       prev === 0 ? uniqueImages.length - 1 : prev - 1
@@ -198,7 +199,7 @@ export const Screenshots = (props) => {
                 <button
                   type="button"
                   className="screenshot-modal-nav screenshot-modal-nav-next"
-                  aria-label="Show next screenshot"
+                  aria-label={props.data?.nextAria}
                   onClick={() =>
                     setActiveIndex((prev) =>
                       prev === uniqueImages.length - 1 ? 0 : prev + 1
@@ -211,7 +212,7 @@ export const Screenshots = (props) => {
             ) : null}
             <img
               src={activeScreenshot?.src}
-              alt={activeScreenshot?.title || `Screenshot ${activeIndex + 1}`}
+              alt={activeScreenshot?.title || `${fallbackLabel} ${activeIndex + 1}`}
             />
           </div>
         </div>
