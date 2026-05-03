@@ -862,10 +862,12 @@ header .intro-text {
   #portfolio.screenshots-section {
     padding: 52px 0 40px;
   }
-  .screenshots-stage-panel,
-  .screenshots-rail {
+  .screenshots-stage-panel {
     border-radius: 22px;
     padding: 16px;
+  }
+  .screenshots-rail {
+    display: none;
   }
   .screenshots-stage-copy {
     align-items: flex-start;
