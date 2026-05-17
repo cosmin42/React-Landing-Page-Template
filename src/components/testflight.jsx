@@ -1,47 +1,53 @@
 import React from "react";
 
-// TestFlight beta invitation section expects data:
-// { title, paragraph, url, buttonText? }
+// Demo showcase section expects data:
+// { title, paragraph, note?, url?, buttonText?, videoSrc?, videoLabel? }
 export const TestFlight = ({ data }) => {
-  const title = data?.title || "TestFlight Beta";
-  const paragraph = data?.paragraph || "Loading...";
+  const title = data?.title || "Watch the app demo";
+  const paragraph =
+    data?.paragraph ||
+    "See how Photo Book Noir handles layouts, captions, and export-ready pages in a short in-app walkthrough.";
+  const note = data?.note;
   const url = data?.url;
-  const buttonText = data?.buttonText || "Join the iOS Beta";
+  const buttonText = data?.buttonText || "View on the App Store";
+  const videoSrc = data?.videoSrc || "/video/demo.mp4";
+  const videoLabel = data?.videoLabel || title;
 
   return (
     <div id="testflight">
       <div className="container">
-        <div className="row align-items-center">
-          <div className="col-md-6">
-            <video
-              className="testflight-video"
-              src="/video/appstore.mp4"
-              controls
-              loop
-              muted
-              playsInline
-            />
+        <div className="testflight-shell">
+          <div className="testflight-media">
+            <div className="testflight-video-frame">
+              <video
+                aria-label={videoLabel}
+                className="testflight-video"
+                src={videoSrc}
+                controls
+                loop
+                playsInline
+                preload="metadata"
+              />
+            </div>
           </div>
 
-          <div className="col-md-6">
-            <div className="col-md-10 col-md-offset-1 section-title">
+          <div className="testflight-copy">
+            <div className="section-title">
               <h2>{title}</h2>
               <p className="lead-text">{paragraph}</p>
-              <div className="beta-links d-flex align-items-center">
+              <div className="testflight-actions">
                 {url && (
-                  <div className="beta-cta">
-                    <a
-                      href={url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-custom btn-lg"
-                    >
-                      {buttonText}
-                    </a>
-                  </div>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-custom btn-lg"
+                  >
+                    {buttonText}
+                  </a>
                 )}
               </div>
-              <p className="beta-note">Requires iOS 15 or later • Limited seats</p>
+              {note ? <p className="beta-note">{note}</p> : null}
             </div>
           </div>
         </div>

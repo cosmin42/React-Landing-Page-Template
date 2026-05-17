@@ -1,5 +1,6 @@
 import React from "react";
 import { Header } from "./components/header";
+import { TestFlight } from "./components/testflight";
 import { Screenshots } from "./components/screenshots";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
@@ -21,6 +22,13 @@ const App = () => {
   return (
     <div>
       <Header data={content.home.header} />
+      <TestFlight
+        data={{
+          ...content.home.demo,
+          url: content.home.header.appStoreHref,
+          buttonText: content.home.header.appStoreAlt,
+        }}
+      />
       <Screenshots data={content.home.screenshots} />
       <About data={content.home.about} />
       <Contact data={content.home.contact} />

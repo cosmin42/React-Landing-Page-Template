@@ -36,6 +36,12 @@ export const siteContent = {
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB",
         downloadLabel: "Download DMG",
       },
+      demo: {
+        title: "Watch the app demo",
+        paragraph:
+          "A demo of the Auto Staging feature",
+        videoLabel: "Photo Book Noir demo video",
+      },
       screenshots: {
         title: "Screenshots",
         paragraph:
@@ -194,6 +200,12 @@ export const siteContent = {
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=nl-NL",
         downloadLabel: "Download DMG",
       },
+      demo: {
+        title: "Bekijk de app-demo",
+        paragraph:
+          "Een demo van de Auto Staging-functie",
+        videoLabel: "Photo Book Noir demo-video",
+      },
       screenshots: {
         title: "Screenshots",
         paragraph:
@@ -351,6 +363,12 @@ export const siteContent = {
         appStoreHref:
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=fr-FR",
         downloadLabel: "Telecharger le DMG",
+      },
+      demo: {
+        title: "Voir la demo de l'application",
+        paragraph:
+          "Une demo de la fonctionnalite Auto Staging",
+        videoLabel: "Video de demonstration Photo Book Noir",
       },
       screenshots: {
         title: "Captures",

@@ -969,30 +969,51 @@ header .intro-text {
 }
 /* TestFlight Section */
 #testflight {
-  /* Further compact vertical padding */
-  padding: 40px 0 30px;
+  padding: 56px 0 48px;
   background-color: var(--surface-1);
   background: var(--section-testflight-bg);
 }
+#testflight .testflight-shell {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+  border-radius: 28px;
+  background: transparent;
+}
+#testflight .testflight-media {
+  min-width: 0;
+}
+#testflight .testflight-video-frame {
+  border-radius: 24px;
+}
+#testflight .testflight-copy {
+  min-width: 0;
+}
 #testflight .section-title {
-  /* Tighter bottom spacing */
-  margin-bottom: 25px;
+  margin-bottom: 0;
+  text-align: center;
 }
 #testflight .section-title h2 {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  font-size: 30px; /* Slightly smaller heading */
+  margin-top: 0;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  font-size: 32px;
 }
 #testflight .section-title h2::after {
   background: var(--color-accent);
 }
 #testflight .lead-text {
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 17px;
+  line-height: 1.65;
   color: var(--color-dialog-text);
-  max-width: 720px;
-  margin: 0 auto 18px;
+  max-width: 34rem;
+  margin: 0 auto;
+}
+#testflight .testflight-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 22px;
 }
 #testflight .btn-custom {
   box-shadow: 0 4px 12px rgba(var(--color-shadow-rgb) / 0.4);
@@ -1008,42 +1029,41 @@ header .intro-text {
   color: var(--color-font-secondary);
   opacity: 0.85;
 }
-/* Video and layout tweaks for TestFlight */
 #testflight .testflight-video {
   width: 100%;
-  max-width: 320px;
+  max-width: none;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(var(--color-shadow-rgb) / 0.35);
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 1px solid rgba(15 23 42 / 0.08);
+  box-shadow: 0 14px 30px rgba(var(--color-shadow-rgb) / 0.14);
   display: block;
-  margin: 0 auto 18px;
-}
-/* Align text left on medium+ screens while keeping mobile centered */
-#testflight .section-title {
-  text-align: center;
+  margin: 0;
 }
 @media (min-width: 768px) {
+  #testflight {
+    padding: 72px 0 56px;
+  }
+  #testflight .testflight-shell {
+    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    gap: 40px;
+    padding: 34px;
+  }
   #testflight .section-title {
     text-align: left;
-    max-width: 100%;
-    margin: 0;
+  }
+  #testflight .lead-text {
+    margin-left: 0;
+  }
+  #testflight .testflight-actions {
+    justify-content: flex-start;
   }
 }
-
-/* App Store link under TestFlight */
-#testflight .appstore-link {
-  margin-top: 10px;
-}
-#testflight .appstore-link a {
-  color: var(--color-accent-text);
-  font-size: 14px;
-  text-decoration: none;
-}
-#testflight .appstore-link a:hover {
-  text-decoration: underline;
-}
-@media (min-width: 768px) {
-  #testflight .appstore-link { text-align: left; }
+@media (max-width: 767px) {
+  #testflight .testflight-shell {
+    padding: 22px;
+  }
 }
 #contact .section-title {
   margin-bottom: 40px;
