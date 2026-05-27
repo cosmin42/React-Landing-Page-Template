@@ -150,7 +150,7 @@ export const siteContent = {
       header: {
         title: "Photo Book Noir",
         paragraph:
-          "Maak minimalistische fotoboeken, fotoalbums en collage-layouts op iPhone en iPad met bijschriften, LUT-filters en exportbestanden die klaar zijn voor gebruik.",
+          "Maak minimalistische fotoboeken, fotoalbums en collage-layouts op macOS en iPad met bijschriften, LUT-filters en exportbestanden die klaar zijn voor gebruik.",
         appStoreAlt: "Bekijk in de App Store",
         appStoreHref:
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=nl-NL",
@@ -274,7 +274,7 @@ export const siteContent = {
       header: {
         title: "Photo Book Noir",
         paragraph:
-          "Creez des livres photo minimalistes, des albums photo et des mises en page de collage sur iPhone et iPad avec des legendes, des filtres LUT et des fichiers prets a exporter.",
+          "Creez des livres photo minimalistes, des albums photo et des mises en page de collage sur macOS et iPad avec des legendes, des filtres LUT et des fichiers prets a exporter.",
         appStoreAlt: "Voir dans l'App Store",
         appStoreHref:
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=fr-FR",

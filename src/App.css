@@ -79,11 +79,14 @@
   }
 
   .floating-language-switcher {
+    position: sticky;
     top: 10px;
-    right: 10px;
+    right: auto;
     left: auto;
     justify-content: flex-end;
     gap: 8px;
+    width: fit-content;
+    margin: 10px 10px 0 auto;
     padding: 6px;
     border-radius: 999px;
   }

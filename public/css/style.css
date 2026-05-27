@@ -1643,7 +1643,7 @@ p {
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;
-    padding-top: 116px;
+    padding-top: 48px;
     padding-bottom: 48px;
   }
 
