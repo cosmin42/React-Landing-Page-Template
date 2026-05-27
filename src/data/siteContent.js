@@ -7,10 +7,6 @@ export const languageOptions = [
 const contactLinks = {
   email: "office@photobook-noir.com",
   discord: "https://discord.gg/WJPDWy3Sfh",
-  linkedin: "https://www.linkedin.com/in/cosmin-mihai-46a7b147/",
-  bluesky: "https://bsky.app/profile/cosmin42.bsky.social",
-  tiktok: "https://www.tiktok.com/@photobooknoir",
-  youtube: "https://www.youtube.com/@PhotoBookNoir",
 };
 
 export const siteContent = {
@@ -30,7 +26,7 @@ export const siteContent = {
       header: {
         title: "Photo Book Noir",
         paragraph:
-          "Create minimalist photo books, photo albums, and collage layouts on iPhone and iPad with captions, LUT filters, and export-ready files.",
+          "Create minimalist photo books, photo albums, and collage layouts on macOS and iPad with captions, LUT filters, and export-ready files.",
         appStoreAlt: "View on the App Store",
         appStoreHref:
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB",
@@ -90,25 +86,18 @@ export const siteContent = {
         address: "Den Haag, Laan van Roos en Doorn 2514BC",
         phone: "",
         email: contactLinks.email,
-        kicker: "Start a conversation",
+        kicker: "Contact",
         title: "Get In Touch",
         lead:
-          "Choose the fastest path depending on what you need: direct support, product feedback, or a quick chat with the community.",
-        actionsAria: "Primary contact actions",
+          "Questions, support, or feature ideas? Send an email, or join Discord for quick community updates.",
+        actionsAria: "Contact options",
         cards: [
           {
             eyebrow: "Support",
-            title: "Need help with a project?",
+            title: "Email Photo Book Noir",
             body: "Ask about the app, export workflow, or anything blocking your next photo book.",
             href: `mailto:${contactLinks.email}`,
             cta: "Email support",
-          },
-          {
-            eyebrow: "Feedback",
-            title: "Have an idea worth building?",
-            body: "Send feature requests, rough concepts, or friction points you want improved next.",
-            href: `mailto:${contactLinks.email}?subject=Feature%20Suggestion`,
-            cta: "Share a feature idea",
           },
           {
             eyebrow: "Community",
@@ -119,45 +108,12 @@ export const siteContent = {
             external: true,
           },
         ],
-        noteLabel: "Best for longer questions",
-        noteBody:
-          "Email is the right channel for support threads, detailed bug reports, or requests that need screenshots and context.",
-        directDetailsKicker: "Direct details",
-        directDetailsTitle: "Reach Photo Book Noir directly",
+        directDetailsTitle: "Contact details",
         details: {
           address: "Based in",
           phone: "Phone",
           email: "Email",
         },
-        responseTitle: "Response rhythm",
-        responseBody:
-          "Messages are reviewed regularly, with Discord best for quick check-ins and email best for deeper follow-up.",
-        elsewhereKicker: "Elsewhere",
-        elsewhereIntro:
-          "Find Photo Book Noir across the channels best suited for quick updates, deep dives, and behind-the-scenes notes.",
-        socialLinksAria: "Social links",
-        socialLinks: [
-          {
-            name: "LinkedIn",
-            note: "Product updates and professional context",
-            href: contactLinks.linkedin,
-          },
-          {
-            name: "Bluesky",
-            note: "Quick notes, previews, and experiments",
-            href: contactLinks.bluesky,
-          },
-          {
-            name: "TikTok",
-            note: "Short-form process clips and walkthroughs",
-            href: contactLinks.tiktok,
-          },
-          {
-            name: "YouTube",
-            note: "Longer demos, guides, and feature tours",
-            href: contactLinks.youtube,
-          },
-        ],
       },
     },
     footer: {
@@ -254,25 +210,18 @@ export const siteContent = {
         address: "Den Haag, Laan van Roos en Doorn 2514BC",
         phone: "",
         email: contactLinks.email,
-        kicker: "Start een gesprek",
+        kicker: "Contact",
         title: "Neem contact op",
         lead:
-          "Kies de snelste route voor wat je nodig hebt: directe support, productfeedback of een kort gesprek met de community.",
-        actionsAria: "Belangrijkste contactacties",
+          "Vragen, support of feature-ideeen? Stuur een e-mail of kom op Discord voor snelle community-updates.",
+        actionsAria: "Contactopties",
         cards: [
           {
             eyebrow: "Support",
-            title: "Hulp nodig bij een project?",
+            title: "Mail Photo Book Noir",
             body: "Vraag naar de app, de exportworkflow of iets dat je volgende fotoboek tegenhoudt.",
             href: `mailto:${contactLinks.email}`,
             cta: "Mail support",
-          },
-          {
-            eyebrow: "Feedback",
-            title: "Heb je een idee dat gebouwd moet worden?",
-            body: "Stuur functieverzoeken, ruwe concepten of frictiepunten die je als volgende verbeterd wilt zien.",
-            href: `mailto:${contactLinks.email}?subject=Feature%20Suggestion`,
-            cta: "Deel een feature-idee",
           },
           {
             eyebrow: "Community",
@@ -283,45 +232,12 @@ export const siteContent = {
             external: true,
           },
         ],
-        noteLabel: "Beste voor langere vragen",
-        noteBody:
-          "E-mail is het juiste kanaal voor supportgesprekken, uitgebreide bugmeldingen of verzoeken waarbij screenshots en context nodig zijn.",
-        directDetailsKicker: "Directe gegevens",
-        directDetailsTitle: "Neem direct contact op met Photo Book Noir",
+        directDetailsTitle: "Contactgegevens",
         details: {
           address: "Gevestigd in",
           phone: "Telefoon",
           email: "E-mail",
         },
-        responseTitle: "Reactieritme",
-        responseBody:
-          "Berichten worden regelmatig bekeken. Discord is het best voor snelle check-ins en e-mail voor diepere opvolging.",
-        elsewhereKicker: "Elders",
-        elsewhereIntro:
-          "Vind Photo Book Noir op de kanalen die het best werken voor snelle updates, diepere uitleg en notities achter de schermen.",
-        socialLinksAria: "Sociale links",
-        socialLinks: [
-          {
-            name: "LinkedIn",
-            note: "Productupdates en professionele context",
-            href: contactLinks.linkedin,
-          },
-          {
-            name: "Bluesky",
-            note: "Snelle notities, previews en experimenten",
-            href: contactLinks.bluesky,
-          },
-          {
-            name: "TikTok",
-            note: "Korte procesclips en walkthroughs",
-            href: contactLinks.tiktok,
-          },
-          {
-            name: "YouTube",
-            note: "Langere demo's, handleidingen en producttours",
-            href: contactLinks.youtube,
-          },
-        ],
       },
     },
     footer: {
@@ -418,25 +334,18 @@ export const siteContent = {
         address: "La Haye, Laan van Roos en Doorn 2514BC",
         phone: "",
         email: contactLinks.email,
-        kicker: "Lancer la conversation",
+        kicker: "Contact",
         title: "Entrer en contact",
         lead:
-          "Choisissez le chemin le plus rapide selon votre besoin : support direct, retour produit ou echange rapide avec la communaute.",
-        actionsAria: "Actions principales de contact",
+          "Questions, support ou idees de fonctionnalites ? Envoyez un e-mail ou rejoignez Discord pour les nouvelles de la communaute.",
+        actionsAria: "Options de contact",
         cards: [
           {
             eyebrow: "Support",
-            title: "Besoin d'aide sur un projet ?",
+            title: "Ecrire a Photo Book Noir",
             body: "Posez vos questions sur l'application, le flux d'export ou tout blocage sur votre prochain livre photo.",
             href: `mailto:${contactLinks.email}`,
             cta: "Contacter le support",
-          },
-          {
-            eyebrow: "Feedback",
-            title: "Une idee qui merite d'etre construite ?",
-            body: "Envoyez vos demandes de fonctionnalites, concepts bruts ou points de friction a ameliorer ensuite.",
-            href: `mailto:${contactLinks.email}?subject=Feature%20Suggestion`,
-            cta: "Partager une idee",
           },
           {
             eyebrow: "Communaute",
@@ -447,45 +356,12 @@ export const siteContent = {
             external: true,
           },
         ],
-        noteLabel: "Ideal pour les questions detaillees",
-        noteBody:
-          "L'e-mail reste le bon canal pour les demandes de support, les rapports de bug detailles ou les requetes qui exigent des captures et du contexte.",
-        directDetailsKicker: "Coordonnees directes",
-        directDetailsTitle: "Contacter directement Photo Book Noir",
+        directDetailsTitle: "Coordonnees",
         details: {
           address: "Base a",
           phone: "Telephone",
           email: "E-mail",
         },
-        responseTitle: "Rythme de reponse",
-        responseBody:
-          "Les messages sont examines regulierement. Discord convient aux questions rapides, l'e-mail au suivi approfondi.",
-        elsewhereKicker: "Ailleurs",
-        elsewhereIntro:
-          "Retrouvez Photo Book Noir sur les canaux les mieux adaptes aux mises a jour rapides, aux explications detaillees et aux notes en coulisses.",
-        socialLinksAria: "Liens sociaux",
-        socialLinks: [
-          {
-            name: "LinkedIn",
-            note: "Mises a jour produit et contexte professionnel",
-            href: contactLinks.linkedin,
-          },
-          {
-            name: "Bluesky",
-            note: "Notes rapides, apercus et experimentations",
-            href: contactLinks.bluesky,
-          },
-          {
-            name: "TikTok",
-            note: "Clips courts du processus et walkthroughs",
-            href: contactLinks.tiktok,
-          },
-          {
-            name: "YouTube",
-            note: "Demos longues, guides et visites de fonctionnalites",
-            href: contactLinks.youtube,
-          },
-        ],
       },
     },
     footer: {

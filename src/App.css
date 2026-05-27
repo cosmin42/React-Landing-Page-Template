@@ -16,9 +16,10 @@
   align-items: center;
   gap: 6px;
   padding: 4px;
-  border: 1px solid rgba(17, 24, 39, 0.12);
+  border: 1px solid rgba(var(--color-accent-rgb) / 0.14);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.88);
+  box-shadow: var(--shadow-soft);
 }
 
 .language-switcher__button {
@@ -26,7 +27,7 @@
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: #1f2937;
+  color: var(--color-font-secondary);
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
@@ -35,13 +36,13 @@
 }
 
 .language-switcher__button.is-active {
-  background: #111827;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-alt));
   color: #ffffff;
-  box-shadow: 0 10px 20px rgba(17, 24, 39, 0.18);
+  box-shadow: var(--shadow-button);
 }
 
 .floating-language-switcher {
-  position: absolute;
+  position: fixed;
   top: 18px;
   right: 18px;
   display: flex;
@@ -49,16 +50,16 @@
   gap: 10px;
   flex-wrap: wrap;
   padding: 10px 12px;
-  border: 1px solid rgba(17, 24, 39, 0.12);
+  border: 1px solid rgba(var(--color-accent-rgb) / 0.14);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+  box-shadow: var(--shadow-hover);
   backdrop-filter: blur(10px);
-  z-index: 40;
+  z-index: 1000;
 }
 
 .floating-language-switcher__label {
-  color: #4b5563;
+  color: var(--color-dialog-text);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -68,13 +69,31 @@
 @media screen and (max-width: 767px) {
   .language-switcher {
     justify-content: center;
+    gap: 4px;
+    padding: 3px;
+  }
+
+  .language-switcher__button {
+    min-width: 34px;
+    padding: 7px 9px;
   }
 
   .floating-language-switcher {
-    top: 12px;
-    right: 12px;
-    left: 12px;
-    justify-content: space-between;
-    border-radius: 18px;
+    top: 10px;
+    right: 10px;
+    left: auto;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 6px;
+    border-radius: 999px;
+  }
+
+  .floating-language-switcher__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }
