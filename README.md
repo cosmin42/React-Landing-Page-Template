@@ -52,6 +52,15 @@ The template creates or updates a secure storage account, creates the `Newslette
 
 If you enable Turnstile, set `turnstileSecret` in the ARM deployment and set the public `REACT_APP_TURNSTILE_SITE_KEY` as a GitHub Actions repository variable. The workflow passes that public value into the React build.
 
+To test the deployed endpoint directly, send a JSON body and an allowed origin header:
+
+```sh
+curl -i 'https://photobook-noir.com/api/subscribe' \
+  -H 'Origin: https://photobook-noir.com' \
+  -H 'Content-Type: application/json' \
+  --data '{"email":"you@example.com","consent":true,"source":"manual-test"}'
+```
+
 ## Like this project?
 <a href="https://www.buymeacoffee.com/issaaf">Buy my a coffee ☕️</a>
 
