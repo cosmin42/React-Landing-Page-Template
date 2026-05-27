@@ -1,8 +1,11 @@
 import React from "react";
+import { Subscribe } from "./subscribe";
 
 export const Header = (props) => {
   const data = props.data || {};
   const demo = props.demo || {};
+  const subscribe = props.subscribe || {};
+  const language = props.language || "en";
   const demoTitle = demo.title || "Watch the app demo";
   const demoParagraph = demo.paragraph;
   const videoSrc = demo.videoSrc || "/video/demo.mp4";
@@ -61,6 +64,7 @@ export const Header = (props) => {
                   />
                 </div>
               </div>
+              <Subscribe data={subscribe} language={language} embedded />
             </div>
           </div>
         </div>

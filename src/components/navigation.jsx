@@ -68,6 +68,9 @@ export const Navigation = (props) => {
                   <a href="#about" className="page-scroll" onClick={closeMobileMenu}>{navigation.about}</a>
                 </li>
                 <li>
+                  <a href="#subscribe" className="page-scroll" onClick={closeMobileMenu}>{navigation.subscribe || 'Subscribe'}</a>
+                </li>
+                <li>
                   <a href="#contact" className="page-scroll" onClick={closeMobileMenu}>{navigation.contact}</a>
                 </li>
               </>

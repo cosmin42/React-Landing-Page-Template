@@ -1,0 +1,176 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "staticWebAppName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the existing Azure Static Web App that hosts Photo Book Noir."
+      }
+    },
+    "storageAccountName": {
+      "type": "string",
+      "defaultValue": "",
+      "maxLength": 24,
+      "metadata": {
+        "description": "Optional storage account name for newsletter tables. Leave empty to create a deterministic name in this resource group."
+      }
+    },
+    "storageSkuName": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS"
+      ],
+      "metadata": {
+        "description": "Replication SKU for the newsletter storage account."
+      }
+    },
+    "allowedOrigins": {
+      "type": "string",
+      "defaultValue": "https://photobook-noir.com,https://www.photobook-noir.com",
+      "metadata": {
+        "description": "Comma-separated origins allowed to call /api/subscribe."
+      }
+    },
+    "subscribeHashSecret": {
+      "type": "secureString",
+      "minLength": 32,
+      "metadata": {
+        "description": "Random secret used by the API to hash email, IP, and user-agent identifiers."
+      }
+    },
+    "turnstileSecret": {
+      "type": "secureString",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Optional Cloudflare Turnstile secret. Leave empty to disable Turnstile enforcement."
+      }
+    },
+    "subscriberTableName": {
+      "type": "string",
+      "defaultValue": "NewsletterSubscribers",
+      "metadata": {
+        "description": "Azure Table name for subscriber records."
+      }
+    },
+    "rateLimitTableName": {
+      "type": "string",
+      "defaultValue": "NewsletterRateLimits",
+      "metadata": {
+        "description": "Azure Table name for hashed rate-limit counters."
+      }
+    },
+    "maxIpAttemptsPerHour": {
+      "type": "int",
+      "defaultValue": 12,
+      "minValue": 1,
+      "metadata": {
+        "description": "Maximum subscribe attempts per hashed IP per hour."
+      }
+    },
+    "maxEmailAttemptsPerDay": {
+      "type": "int",
+      "defaultValue": 3,
+      "minValue": 1,
+      "metadata": {
+        "description": "Maximum subscribe attempts per hashed email per day."
+      }
+    },
+    "additionalAppSettings": {
+      "type": "object",
+      "defaultValue": {},
+      "metadata": {
+        "description": "Additional Static Web Apps app settings to manage with this template. Subscribe settings take precedence on key conflicts."
+      }
+    }
+  },
+  "variables": {
+    "resolvedStorageAccountName": "[if(empty(parameters('storageAccountName')), toLower(take(format('pbswa{0}', uniqueString(resourceGroup().id, parameters('staticWebAppName'))), 24)), toLower(parameters('storageAccountName')))]",
+    "storageConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('resolvedStorageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('resolvedStorageAccountName')), '2023-05-01').keys[0].value, ';EndpointSuffix=', environment().suffixes.storage)]",
+    "subscribeAppSettings": {
+      "SUBSCRIBE_STORAGE_CONNECTION_STRING": "[variables('storageConnectionString')]",
+      "SUBSCRIBE_HASH_SECRET": "[parameters('subscribeHashSecret')]",
+      "SUBSCRIBE_ALLOWED_ORIGINS": "[parameters('allowedOrigins')]",
+      "SUBSCRIBE_TURNSTILE_SECRET": "[parameters('turnstileSecret')]",
+      "SUBSCRIBE_TABLE_NAME": "[parameters('subscriberTableName')]",
+      "SUBSCRIBE_RATE_LIMIT_TABLE_NAME": "[parameters('rateLimitTableName')]",
+      "SUBSCRIBE_MAX_IP_ATTEMPTS_PER_HOUR": "[string(parameters('maxIpAttemptsPerHour'))]",
+      "SUBSCRIBE_MAX_EMAIL_ATTEMPTS_PER_DAY": "[string(parameters('maxEmailAttemptsPerDay'))]"
+    },
+    "staticWebAppSettings": "[union(parameters('additionalAppSettings'), variables('subscribeAppSettings'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2023-05-01",
+      "name": "[variables('resolvedStorageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "[parameters('storageSkuName')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "allowBlobPublicAccess": false,
+        "allowCrossTenantReplication": false,
+        "allowSharedKeyAccess": true,
+        "defaultToOAuthAuthentication": false,
+        "minimumTlsVersion": "TLS1_2",
+        "networkAcls": {
+          "bypass": "AzureServices",
+          "defaultAction": "Allow"
+        },
+        "supportsHttpsTrafficOnly": true
+      }
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/tableServices/tables",
+      "apiVersion": "2023-05-01",
+      "name": "[format('{0}/default/{1}', variables('resolvedStorageAccountName'), parameters('subscriberTableName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('resolvedStorageAccountName'))]"
+      ],
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/tableServices/tables",
+      "apiVersion": "2023-05-01",
+      "name": "[format('{0}/default/{1}', variables('resolvedStorageAccountName'), parameters('rateLimitTableName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts', variables('resolvedStorageAccountName'))]"
+      ],
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Web/staticSites/config",
+      "apiVersion": "2022-09-01",
+      "name": "[format('{0}/appsettings', parameters('staticWebAppName'))]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', variables('resolvedStorageAccountName'), 'default', parameters('subscriberTableName'))]",
+        "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', variables('resolvedStorageAccountName'), 'default', parameters('rateLimitTableName'))]"
+      ],
+      "properties": "[variables('staticWebAppSettings')]"
+    }
+  ],
+  "outputs": {
+    "staticWebAppName": {
+      "type": "string",
+      "value": "[parameters('staticWebAppName')]"
+    },
+    "storageAccountName": {
+      "type": "string",
+      "value": "[variables('resolvedStorageAccountName')]"
+    },
+    "subscriberTableName": {
+      "type": "string",
+      "value": "[parameters('subscriberTableName')]"
+    },
+    "rateLimitTableName": {
+      "type": "string",
+      "value": "[parameters('rateLimitTableName')]"
+    }
+  }
+}

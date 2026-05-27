@@ -5,6 +5,7 @@
       "/static/*",
       "/css/*",
       "/js/*",
+      "/api/*",
       "/img/*",
       "/fonts/*",
       "/favicon.ico",

@@ -19,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <Header data={content.home.header} demo={content.home.demo} />
+      <Header data={content.home.header} demo={content.home.demo} subscribe={content.home.subscribe} language={language} />
       <About data={content.home.about} />
       <Contact data={content.home.contact} />
       <Footer />

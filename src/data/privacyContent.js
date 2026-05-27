@@ -2,7 +2,7 @@ const privacyPage = {
   en: {
     title: "Privacy Policy",
     effectiveDateLabel: "Effective Date",
-    effectiveDate: "1 March 2025",
+    effectiveDate: "27 May 2026",
     intro:
       "Photobook Noir respects your privacy and is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your information when you use our mobile and desktop application and website, in accordance with the General Data Protection Regulation (GDPR) and the California Consumer Privacy Act (CCPA).",
     backHome: "Back Home",
@@ -13,7 +13,7 @@ const privacyPage = {
   nl: {
     title: "Privacybeleid",
     effectiveDateLabel: "Ingangsdatum",
-    effectiveDate: "1 maart 2025",
+    effectiveDate: "27 mei 2026",
     intro:
       "Photobook Noir respecteert je privacy en zet zich in om je persoonsgegevens te beschermen. Dit privacybeleid legt uit hoe we je informatie verzamelen, gebruiken en beschermen wanneer je onze mobiele en desktopapplicatie en website gebruikt, in overeenstemming met de General Data Protection Regulation (GDPR) en de California Consumer Privacy Act (CCPA).",
     backHome: "Terug naar home",
@@ -24,7 +24,7 @@ const privacyPage = {
   fr: {
     title: "Politique de confidentialite",
     effectiveDateLabel: "Date d'effet",
-    effectiveDate: "1 mars 2025",
+    effectiveDate: "27 mai 2026",
     intro:
       "Photobook Noir respecte votre vie privee et s'engage a proteger vos donnees personnelles. Cette politique de confidentialite explique comment nous collectons, utilisons et protegons vos informations lorsque vous utilisez notre application mobile, notre application desktop et notre site web, conformement au RGPD et au California Consumer Privacy Act (CCPA).",
     backHome: "Retour a l'accueil",
@@ -71,6 +71,10 @@ const privacySections = [
           label: "Device information",
           items: ["Device type and operating system version used for app compatibility"],
         },
+        {
+          label: "Newsletter subscription",
+          items: ["Email address and consent timestamp when you subscribe to website updates"],
+        },
       ],
       nl: [
         {
@@ -85,6 +89,10 @@ const privacySections = [
           label: "Apparaatgegevens",
           items: ["Type apparaat en besturingssysteemversie voor compatibiliteit van de app"],
         },
+        {
+          label: "Nieuwsbriefaanmelding",
+          items: ["E-mailadres en toestemmingstijdstip wanneer je je aanmeldt voor website-updates"],
+        },
       ],
       fr: [
         {
@@ -98,6 +106,10 @@ const privacySections = [
         {
           label: "Informations sur l'appareil",
           items: ["Type d'appareil et version du systeme d'exploitation pour la compatibilite de l'application"],
+        },
+        {
+          label: "Inscription aux nouvelles",
+          items: ["Adresse e-mail et horodatage du consentement lorsque vous vous inscrivez aux nouvelles du site"],
         },
       ],
     },
@@ -134,18 +146,21 @@ const privacySections = [
         "Create and manage your account",
         "Provide access to app features",
         "Respond to support requests",
+        "Send optional product updates when you subscribe",
         "Comply with legal obligations when applicable",
       ],
       nl: [
         "Je account aanmaken en beheren",
         "Toegang geven tot appfuncties",
         "Reageren op supportverzoeken",
+        "Optionele productupdates sturen wanneer je je aanmeldt",
         "Voldoen aan wettelijke verplichtingen indien van toepassing",
       ],
       fr: [
         "Creer et gerer votre compte",
         "Fournir l'acces aux fonctionnalites de l'application",
         "Repondre aux demandes de support",
+        "Envoyer des nouvelles produit optionnelles lorsque vous vous inscrivez",
         "Respecter les obligations legales si necessaire",
       ],
     },
@@ -265,12 +280,15 @@ const privacySections = [
     paragraphs: {
       en: [
         "We retain your personal information only as long as necessary to provide our services or comply with legal requirements. You can request data deletion at any time.",
+        "Newsletter subscriber emails are retained until you unsubscribe or request deletion.",
       ],
       nl: [
         "We bewaren je persoonsgegevens alleen zolang als nodig is om onze diensten te leveren of aan wettelijke verplichtingen te voldoen. Je kunt op elk moment om verwijdering van gegevens vragen.",
+        "E-mailadressen voor de nieuwsbrief bewaren we totdat je je afmeldt of om verwijdering vraagt.",
       ],
       fr: [
         "Nous conservons vos informations personnelles uniquement pendant la duree necessaire a la fourniture de nos services ou au respect de nos obligations legales. Vous pouvez demander la suppression de vos donnees a tout moment.",
+        "Les e-mails d'inscription aux nouvelles sont conserves jusqu'a votre desinscription ou votre demande de suppression.",
       ],
     },
   },

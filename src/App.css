@@ -1,6 +1,7 @@
 @media screen and (max-width: 400px) {
   /* Avoid forcing sections wider than the viewport which caused horizontal scroll */
   #about,
+  #subscribe,
   #contact,
   #footer,
   #portfolio {
@@ -42,7 +43,7 @@
 }
 
 .floating-language-switcher {
-  position: fixed;
+  position: absolute;
   top: 18px;
   right: 18px;
   display: flex;
@@ -79,7 +80,7 @@
   }
 
   .floating-language-switcher {
-    position: sticky;
+    position: relative;
     top: 10px;
     right: auto;
     left: auto;
