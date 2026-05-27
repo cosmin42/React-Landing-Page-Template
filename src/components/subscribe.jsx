@@ -24,6 +24,12 @@ const defaultCopy = {
   captchaMissing: "Complete the security check before subscribing.",
 };
 
+const apiMessageMap = {
+  "Enter a valid email address.": "validationEmail",
+  "Consent is required.": "validationConsent",
+  "Security check failed.": "captchaMissing",
+};
+
 export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
   const copy = { ...defaultCopy, ...data };
   const [email, setEmail] = useState("");
@@ -134,9 +140,10 @@ export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
           turnstileToken: turnstileToken || undefined,
         }),
       });
+      const result = await getSubscriptionResult(response);
 
-      if (!response.ok) {
-        throw new Error("Subscription request failed");
+      if (!response.ok || result?.ok === false) {
+        throw new Error(getDisplayMessage(result?.message, copy));
       }
 
       setEmail("");
@@ -147,7 +154,7 @@ export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
       resetTurnstile();
     } catch (error) {
       setStatus("error");
-      setMessage(copy.errorMessage);
+      setMessage(error.message || copy.errorMessage);
       resetTurnstile();
     }
   };
@@ -241,3 +248,26 @@ export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
 };
 
 export default Subscribe;
+
+async function getSubscriptionResult(response) {
+  const contentType = response.headers.get("content-type") || "";
+
+  if (!contentType.includes("application/json")) {
+    return null;
+  }
+
+  try {
+    return await response.json();
+  } catch (error) {
+    return null;
+  }
+}
+
+function getDisplayMessage(apiMessage, copy) {
+  if (!apiMessage) {
+    return copy.errorMessage;
+  }
+
+  const copyKey = apiMessageMap[apiMessage];
+  return copyKey ? copy[copyKey] : copy.errorMessage;
+}

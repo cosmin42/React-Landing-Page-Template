@@ -89,19 +89,7 @@
     }
   },
   "variables": {
-    "resolvedStorageAccountName": "[if(empty(parameters('storageAccountName')), toLower(take(format('pbswa{0}', uniqueString(resourceGroup().id, parameters('staticWebAppName'))), 24)), toLower(parameters('storageAccountName')))]",
-    "storageConnectionString": "[concat('DefaultEndpointsProtocol=https;AccountName=', variables('resolvedStorageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('resolvedStorageAccountName')), '2023-05-01').keys[0].value, ';EndpointSuffix=', environment().suffixes.storage)]",
-    "subscribeAppSettings": {
-      "SUBSCRIBE_STORAGE_CONNECTION_STRING": "[variables('storageConnectionString')]",
-      "SUBSCRIBE_HASH_SECRET": "[parameters('subscribeHashSecret')]",
-      "SUBSCRIBE_ALLOWED_ORIGINS": "[parameters('allowedOrigins')]",
-      "SUBSCRIBE_TURNSTILE_SECRET": "[parameters('turnstileSecret')]",
-      "SUBSCRIBE_TABLE_NAME": "[parameters('subscriberTableName')]",
-      "SUBSCRIBE_RATE_LIMIT_TABLE_NAME": "[parameters('rateLimitTableName')]",
-      "SUBSCRIBE_MAX_IP_ATTEMPTS_PER_HOUR": "[string(parameters('maxIpAttemptsPerHour'))]",
-      "SUBSCRIBE_MAX_EMAIL_ATTEMPTS_PER_DAY": "[string(parameters('maxEmailAttemptsPerDay'))]"
-    },
-    "staticWebAppSettings": "[union(parameters('additionalAppSettings'), variables('subscribeAppSettings'))]"
+    "resolvedStorageAccountName": "[if(empty(parameters('storageAccountName')), toLower(take(format('pbswa{0}', uniqueString(resourceGroup().id, parameters('staticWebAppName'))), 24)), toLower(parameters('storageAccountName')))]"
   },
   "resources": [
     {
@@ -152,7 +140,7 @@
         "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', variables('resolvedStorageAccountName'), 'default', parameters('subscriberTableName'))]",
         "[resourceId('Microsoft.Storage/storageAccounts/tableServices/tables', variables('resolvedStorageAccountName'), 'default', parameters('rateLimitTableName'))]"
       ],
-      "properties": "[variables('staticWebAppSettings')]"
+      "properties": "[union(parameters('additionalAppSettings'), createObject('SUBSCRIBE_STORAGE_CONNECTION_STRING', concat('DefaultEndpointsProtocol=https;AccountName=', variables('resolvedStorageAccountName'), ';AccountKey=', listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('resolvedStorageAccountName')), '2023-05-01').keys[0].value, ';EndpointSuffix=', environment().suffixes.storage), 'SUBSCRIBE_HASH_SECRET', parameters('subscribeHashSecret'), 'SUBSCRIBE_ALLOWED_ORIGINS', parameters('allowedOrigins'), 'SUBSCRIBE_TURNSTILE_SECRET', parameters('turnstileSecret'), 'SUBSCRIBE_TABLE_NAME', parameters('subscriberTableName'), 'SUBSCRIBE_RATE_LIMIT_TABLE_NAME', parameters('rateLimitTableName'), 'SUBSCRIBE_MAX_IP_ATTEMPTS_PER_HOUR', string(parameters('maxIpAttemptsPerHour')), 'SUBSCRIBE_MAX_EMAIL_ATTEMPTS_PER_DAY', string(parameters('maxEmailAttemptsPerDay'))))]"
     }
   ],
   "outputs": {

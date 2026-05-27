@@ -203,6 +203,14 @@ function getRawBody(req) {
     return req.rawBody.toString("utf8");
   }
 
+  if (typeof req.body === "string") {
+    return req.body;
+  }
+
+  if (Buffer.isBuffer(req.body)) {
+    return req.body.toString("utf8");
+  }
+
   return JSON.stringify(req.body || {});
 }
 
@@ -212,8 +220,18 @@ function getBody(req, rawBody) {
   }
 
   try {
-    return JSON.parse(rawBody || "{}");
+    const body = JSON.parse(rawBody || "{}");
+
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      throw new PublicRequestError(400, "Request body must be a JSON object.");
+    }
+
+    return body;
   } catch (error) {
+    if (error instanceof PublicRequestError) {
+      throw error;
+    }
+
     throw new PublicRequestError(400, "Request body must be valid JSON.");
   }
 }
