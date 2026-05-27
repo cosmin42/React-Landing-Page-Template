@@ -7,7 +7,7 @@ const turnstileSiteKey = process.env.REACT_APP_TURNSTILE_SITE_KEY;
 
 const defaultCopy = {
   kicker: "Updates",
-  title: "Stay close to Photo Book Noir",
+  title: "Stay close",
   lead: "Get concise product updates, beta notes, and release news.",
   bullets: [],
   emailLabel: "Email address",

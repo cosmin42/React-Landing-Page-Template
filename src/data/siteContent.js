@@ -85,7 +85,7 @@ export const siteContent = {
       },
       subscribe: {
         kicker: "Updates",
-        title: "Stay close to Photo Book Noir",
+        title: "Stay close",
         lead:
           "Get concise product updates, TestFlight notes, and release news. No tracking pixels, no spam.",
         bullets: [
