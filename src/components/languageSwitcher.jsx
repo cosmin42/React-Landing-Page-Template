@@ -7,8 +7,8 @@ export const LanguageSwitcher = () => {
   const label = getSiteContent(language).footer.languageLabel;
 
   return (
-    <div className="floating-language-switcher" aria-label={label}>
-      <span className="floating-language-switcher__label">{label}</span>
+    <div className="footer-language-switcher" aria-label={label}>
+      <span className="footer-language-switcher__label">{label}</span>
       <div className="language-switcher" role="group" aria-label={label}>
         {languageOptions.map((option) => (
           <button

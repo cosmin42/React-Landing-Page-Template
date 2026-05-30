@@ -7,14 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import CreditsPage from './pages/CreditsPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CookieBanner from './components/cookieBanner';
-import LanguageSwitcher from './components/languageSwitcher';
 import { LanguageProvider } from './i18n/LanguageContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <LanguageProvider>
-        <LanguageSwitcher />
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/credits" element={<CreditsPage />} />

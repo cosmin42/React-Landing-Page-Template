@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { getSiteContent } from "../data/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
+import LanguageSwitcher from "./languageSwitcher";
 
 export const Footer = () => {
   const { language } = useLanguage();
@@ -20,6 +21,7 @@ export const Footer = () => {
           <Link to="/credits">{footer.credits}</Link>
           <Link to="/privacy">{footer.privacy}</Link>
         </div>
+        <LanguageSwitcher />
       </div>
     </div>
   );
