@@ -131,7 +131,7 @@ const baseLocale = {
       captchaMissing: "Complete the security check before subscribing.",
     },
     contact: {
-      address: "Den Haag, Laan van Roos en Doorn 2514BC",
+      address: "Den Haag, Laan van Roos en Doorn",
       phone: "",
       email: contactLinks.email,
       kicker: "Contact",
@@ -387,7 +387,7 @@ export const siteContent = {
         captchaMissing: "Terminez le controle de securite avant de vous inscrire.",
       },
       contact: {
-        address: "La Haye, Laan van Roos en Doorn 2514BC",
+        address: "La Haye, Laan van Roos en Doorn",
         title: "Entrer en contact",
         lead:
           "Questions, support ou idees de fonctionnalites ? Envoyez un e-mail ou rejoignez Discord pour les nouvelles de la communaute.",
