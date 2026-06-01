@@ -27,7 +27,7 @@ export const siteContent = {
       header: {
         title: "Photo Book Noir",
         paragraph:
-          "Create minimalist photo books, photo albums, and collage layouts on macOS and iPad with captions, LUT filters, and export-ready files.",
+          "Design clean photo albums and collage layouts with captions, LUT filters, and export-ready files.",
         appStoreAlt: "View on the App Store",
         appStoreHref:
           "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB",
@@ -62,13 +62,13 @@ export const siteContent = {
           { src: "/img/screenshots/screenshot03.avif", title: "Export for Print or Sharing" },
           { src: "/img/screenshots/screenshot04.avif", title: "Caption and Text Styling" },
           { src: "/img/screenshots/screenshot05.avif", title: "LUT Filter Presets" },
-          { src: "/img/screenshots/screenshot06.avif", title: "Minimalist Scrapbook Workflow" },
+          { src: "/img/screenshots/screenshot06.avif", title: "Scrapbook Design" },
         ],
       },
       about: {
         title: "About the App",
         paragraph:
-          "Photo Book Noir is a photo book app built for designing photo albums and collage layouts without a complicated workflow. Organize memories, add text, and prepare clean export files for print or sharing.",
+          "Photo Book Noir is a photo book app for designing albums and collage layouts. Organize memories, add text, and prepare clean export files for print or sharing.",
         philosophy:
           "App addiction has become more and more of a problem - many apps today are built to keep us hooked rather than to help us. I built this app with the belief that technology should enrich life, not consume it.",
         goalsTitle: "What are the goals?",
@@ -76,11 +76,11 @@ export const siteContent = {
           "Large photo books and albums",
           "Multiple export formats",
           "LUT filters and creative looks",
-          "Fast photo import workflow",
+          "Fast photo import",
         ],
         secondaryGoals: [
           "Add captions, text, and visual storytelling",
-          "Minimalist scrapbook and collage design",
+          "Scrapbook and collage design",
         ],
       },
       subscribe: {
@@ -120,7 +120,7 @@ export const siteContent = {
           {
             eyebrow: "Support",
             title: "Email Photo Book Noir",
-            body: "Ask about the app, export workflow, or anything blocking your next photo book.",
+            body: "Ask about the app, exporting, or anything blocking your next photo book.",
             href: `mailto:${contactLinks.email}`,
             cta: "Email support",
           },

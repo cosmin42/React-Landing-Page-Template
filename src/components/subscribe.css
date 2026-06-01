@@ -96,7 +96,36 @@
 
 #subscribe.subscribe-section--embedded .subscribe-form {
   height: 100%;
-  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255 255 255 / 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(var(--color-accent-rgb) / 0.18), transparent 42%),
+    linear-gradient(145deg, rgba(8 16 14 / 0.98), rgba(15 23 42 / 0.95));
+  box-shadow: 0 22px 48px -18px rgba(0 0 0 / 0.42), var(--shadow-soft);
+  color: var(--color-primary-bg);
+}
+
+#subscribe.subscribe-section--embedded input[type="email"] {
+  border-color: rgba(255 255 255 / 0.12);
+  background: rgba(255 255 255 / 0.06);
+  color: var(--color-primary-bg);
+}
+
+#subscribe.subscribe-section--embedded input[type="email"]::placeholder {
+  color: rgba(255 255 255 / 0.5);
+}
+
+#subscribe.subscribe-section--embedded input[type="email"]:focus {
+  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb) / 0.18);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-consent,
+#subscribe.subscribe-section--embedded .subscribe-privacy,
+#subscribe.subscribe-section--embedded .subscribe-status {
+  color: rgba(255 255 255 / 0.78);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-privacy a {
+  color: var(--color-primary-bg);
 }
 
 #subscribe .subscribe-input-row {

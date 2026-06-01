@@ -531,10 +531,12 @@ header .intro-text {
   position: relative;
   min-width: 0;
   padding: clamp(18px, 3vw, 28px);
-  border: 1px solid rgba(var(--color-accent-rgb) / 0.14);
+    border: 1px solid rgba(255 255 255 / 0.08);
   border-radius: var(--radius-panel);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: var(--shadow-hover);
+    background:
+      radial-gradient(circle at top left, rgba(var(--color-accent-rgb) / 0.18), transparent 42%),
+      linear-gradient(145deg, rgba(8 16 14 / 0.98), rgba(15 23 42 / 0.95));
+    box-shadow: 0 22px 48px -18px rgba(0 0 0 / 0.55), var(--shadow-hover);
   transform: perspective(1800px) rotateX(2deg) rotateY(-4deg);
   transition: transform 0.24s ease, box-shadow 0.24s ease;
 }
@@ -557,8 +559,8 @@ header .intro-text {
   justify-self: start;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(var(--color-accent-rgb) / 0.1);
-  color: var(--color-accent-text);
+    background: rgba(var(--color-accent-rgb) / 0.18);
+    color: rgba(255 255 255 / 0.92);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -567,7 +569,7 @@ header .intro-text {
 
 .intro-demo h2 {
   margin: 0;
-  color: var(--color-font-main);
+    color: var(--color-primary-bg);
   font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.12;
   font-weight: 800;
@@ -576,16 +578,18 @@ header .intro-text {
 .intro-demo p {
   margin: 0;
   max-width: 42rem;
-  color: var(--color-dialog-text);
+    color: rgba(255 255 255 / 0.72);
   font-size: 15px;
   line-height: 1.6;
 }
 
 .intro-demo-frame {
   overflow: hidden;
-  border: 1px solid rgba(var(--color-accent-rgb) / 0.12);
+    border: 1px solid rgba(255 255 255 / 0.12);
   border-radius: var(--radius-card);
-  background: linear-gradient(135deg, rgba(var(--color-accent-rgb) / 0.08), rgba(var(--color-accent-alt-rgb) / 0.08));
+    background:
+      linear-gradient(135deg, rgba(var(--color-accent-rgb) / 0.08), rgba(var(--color-accent-alt-rgb) / 0.12)),
+      linear-gradient(180deg, rgba(0 0 0 / 0.18), rgba(0 0 0 / 0.45));
   box-shadow: var(--shadow-soft);
 }
 
