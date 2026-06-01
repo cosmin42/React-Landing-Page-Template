@@ -58,7 +58,7 @@ const baseLocale = {
       downloadLabel: "Download DMG",
     },
     demo: {
-      title: "Watch the app demo",
+      title: "Demo",
       paragraph: "A demo of the Auto Staging feature",
       videoLabel: "Photo Book Noir demo video",
     },

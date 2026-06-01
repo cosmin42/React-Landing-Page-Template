@@ -24,8 +24,9 @@ export const Header = (props) => {
   const subscribe = props.subscribe || {};
   const language = props.language || "en";
   const appStoreBadgeSrc = `${process.env.PUBLIC_URL}${appStoreBadgeByLanguage[language] || appStoreBadgeByLanguage.en}`;
+  const demoTitle = demo.title || "Demo";
   const videoSrc = demo.videoSrc || "/video/demo.mp4";
-  const videoLabel = demo.videoLabel || demo.title || "Photo Book Noir demo video";
+  const videoLabel = demo.videoLabel || demoTitle || "Photo Book Noir demo video";
 
   return (
     <header id="header">
@@ -64,6 +65,9 @@ export const Header = (props) => {
                 </a>{" "}
               </div>
               <div className="intro-demo" aria-label={videoLabel}>
+                <div className="intro-demo-copy">
+                  <h2>{demoTitle}</h2>
+                </div>
                 <div className="intro-demo-frame">
                   <video
                     aria-label={videoLabel}
