@@ -1,11 +1,18 @@
 import React from "react";
 import { Subscribe } from "./subscribe";
 
+const appStoreBadgeByLanguage = {
+  en: "/app-store-icons/US/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg",
+  nl: "/app-store-icons/NL/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_NL_RGB_wht_101217.svg",
+  fr: "/app-store-icons/FR/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_FR_RGB_wht_100217.svg",
+};
+
 export const Header = (props) => {
   const data = props.data || {};
   const demo = props.demo || {};
   const subscribe = props.subscribe || {};
   const language = props.language || "en";
+  const appStoreBadgeSrc = `${process.env.PUBLIC_URL}${appStoreBadgeByLanguage[language] || appStoreBadgeByLanguage.en}`;
   const videoSrc = demo.videoSrc || "/video/demo.mp4";
   const videoLabel = demo.videoLabel || demo.title || "Photo Book Noir demo video";
 
@@ -21,6 +28,22 @@ export const Header = (props) => {
                   <span></span>
                 </h1>
                 <p>{data.paragraph}</p>
+                {data.appStoreHref ? (
+                  <div className="appstore-link-wrap">
+                    <a
+                      href={data.appStoreHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="appstore-link"
+                    >
+                      <img
+                        src={appStoreBadgeSrc}
+                        alt={data.appStoreAlt}
+                        className="appstore-badge"
+                      />
+                    </a>
+                  </div>
+                ) : null}
                 <a
                   href={`${process.env.PUBLIC_URL}/PhotoBook.dmg`}
                   download="PhotoBook.dmg"
