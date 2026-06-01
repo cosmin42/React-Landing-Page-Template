@@ -1,26 +1,25 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { DEFAULT_LANGUAGE, RTL_LANGUAGES, SUPPORTED_LANGUAGES } from "./localeConfig";
 
 const LANGUAGE_STORAGE_KEY = "photobook-site-language";
 
-export const SUPPORTED_LANGUAGES = ["en", "nl", "fr"];
-
 const LanguageContext = createContext({
-  language: "en",
+  language: DEFAULT_LANGUAGE,
   setLanguage: () => {},
 });
 
 const getBrowserLanguage = () => {
   if (typeof navigator === "undefined") {
-    return "en";
+    return DEFAULT_LANGUAGE;
   }
 
   const browserLanguage = navigator.language?.slice(0, 2).toLowerCase();
-  return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : "en";
+  return SUPPORTED_LANGUAGES.includes(browserLanguage) ? browserLanguage : DEFAULT_LANGUAGE;
 };
 
 const getInitialLanguage = () => {
   if (typeof window === "undefined") {
-    return "en";
+    return DEFAULT_LANGUAGE;
   }
 
   const storedLanguage = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
@@ -37,6 +36,7 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     window.localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
     document.documentElement.lang = language;
+    document.documentElement.dir = RTL_LANGUAGES.includes(language) ? "rtl" : "ltr";
   }, [language]);
 
   const value = useMemo(

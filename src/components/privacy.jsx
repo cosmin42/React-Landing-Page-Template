@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { getPrivacyContent } from "../data/privacyContent";
+import { getPrivacyContent } from "../i18n/translations/privacyContent";
 import { useLanguage } from "../i18n/LanguageContext";
 import "./privacy.css";
 

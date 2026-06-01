@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getSiteContent } from "../data/siteContent";
+import { getSiteContent } from "../i18n/translations/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
 
 const CONSENT_COOKIE_NAME = "photobook_cookie_consent";

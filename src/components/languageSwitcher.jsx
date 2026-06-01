@@ -1,5 +1,5 @@
 import React from "react";
-import { getSiteContent, languageOptions } from "../data/siteContent";
+import { getSiteContent, languageOptions } from "../i18n/translations/siteContent";
 import { useLanguage } from "../i18n/LanguageContext";
 
 export const LanguageSwitcher = () => {

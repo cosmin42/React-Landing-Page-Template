@@ -3,7 +3,7 @@ import { Header } from "./components/header";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
 import { Footer } from "./components/footer";
-import { getSiteContent } from "./data/siteContent";
+import { getSiteContent } from "./i18n/translations/siteContent";
 import SmoothScroll from "smooth-scroll";
 import { useLanguage } from "./i18n/LanguageContext";
 import "./App.css";

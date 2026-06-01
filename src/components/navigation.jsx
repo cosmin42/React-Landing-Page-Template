@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { Link, useLocation } from 'react-router-dom';
-import { languageOptions, getSiteContent } from '../data/siteContent';
+import { languageOptions, getSiteContent } from '../i18n/translations/siteContent';
 import { useLanguage } from '../i18n/LanguageContext';
 
 export const Navigation = (props) => {
