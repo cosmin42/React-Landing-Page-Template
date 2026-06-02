@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,12 +38,12 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   />
-  <title>Photo Book Noir — Photo Book App for macOS &amp; iPad</title>
+  <title>Memory Book App &amp; Photo Organization Software | Photo Book Noir</title>
   <meta
     name="description"
-    content="Create photo books, photo albums, and collage layouts on macOS and iPad. Add captions, apply LUT filters, and export high-quality files for print or sharing."
+    content="Photo Book Noir is a memory book app, digital scrapbook app, and photo organization software for family history questions and grandparent interview questions."
   />
-  <meta name="keywords" content="photo book app, photobook maker, photo album app, photo collage maker, scrapbook app, captions, LUT filters, print export, macOS, iPad" />
+  <meta name="keywords" content="family history questions, photo organization software, memory book app, grandparent interview questions, digital scrapbook app, photo book app, photobook maker, macOS, iPad" />
   <meta name="author" content="Photo Book Noir" />
   <link rel="canonical" href="https://photobook-noir.com/" />
   <link rel="me" href="https://bsky.app/profile/cosmin42.bsky.social" />
@@ -50,12 +52,12 @@
   <!-- Open Graph -->
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Photo Book Noir — Photo Book App for macOS & iPad" />
-  <meta property="og:description" content="Create photo books, photo albums, and collage layouts with captions, LUT filters, and export-ready files." />
+  <meta property="og:title" content="Memory Book App & Photo Organization Software | Photo Book Noir" />
+  <meta property="og:description" content="A memory book app and digital scrapbook app for organizing photos, preserving family history questions, and building interview-led albums." />
   <meta property="og:url" content="https://photobook-noir.com/" />
   <meta property="og:site_name" content="Photo Book Noir" />
   <meta property="og:image" content="https://photobook-noir.com/img/intro-bg.jpg" />
-  <meta property="og:image:alt" content="Sample Photo Book" />
+  <meta property="og:image:alt" content="Photo Book Noir memory book and digital scrapbook layout" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
@@ -65,20 +67,21 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Photo Book Noir — Photo Book App for macOS & iPad" />
-  <meta name="twitter:description" content="Create photo books, photo albums, and collage layouts with captions, LUT filters, and export-ready files." />
+  <meta name="twitter:title" content="Memory Book App & Photo Organization Software | Photo Book Noir" />
+  <meta name="twitter:description" content="A memory book app and digital scrapbook app for organizing photos, preserving family history questions, and building interview-led albums." />
   <meta name="twitter:image" content="https://photobook-noir.com/img/intro-bg.jpg" />
+  <meta name="twitter:image:alt" content="Photo Book Noir memory book and digital scrapbook layout" />
   <meta name="msapplication-TileImage" content="/img/logo.svg" />
   <link rel="preload" as="image" href="/img/logo.svg" />
 
-  <!-- JSON-LD structured data (Organization + WebSite + MobileApplication) -->
+  <!-- JSON-LD structured data (Organization + WebSite + WebPage + MobileApplication + FAQPage) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "#organization",
+        "@id": "https://photobook-noir.com/#organization",
         "name": "Photo Book Noir",
         "url": "https://photobook-noir.com/",
         "logo": "https://photobook-noir.com/img/logo.svg",
@@ -89,32 +92,97 @@
       },
       {
         "@type": "WebSite",
-        "@id": "#website",
+        "@id": "https://photobook-noir.com/#website",
         "url": "https://photobook-noir.com/",
         "name": "Photo Book Noir",
+        "description": "Photo Book Noir is a memory book app, digital scrapbook app, and photo organization software for family history questions and grandparent interview questions.",
+        "inLanguage": "en-US",
         "publisher": {
-          "@id": "#organization"
+          "@id": "https://photobook-noir.com/#organization"
         }
       },
       {
-        "@type": "MobileApplication",
-        "@id": "#app",
+        "@type": "WebPage",
+        "@id": "https://photobook-noir.com/#webpage",
+        "url": "https://photobook-noir.com/",
+        "name": "Memory Book App & Photo Organization Software | Photo Book Noir",
+        "description": "Photo Book Noir is a memory book app, digital scrapbook app, and photo organization software for family history questions and grandparent interview questions.",
+        "keywords": [
+          "family history questions",
+          "photo organization software",
+          "memory book app",
+          "grandparent interview questions",
+          "digital scrapbook app"
+        ],
+        "isPartOf": {
+          "@id": "https://photobook-noir.com/#website"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://photobook-noir.com/img/intro-bg.jpg"
+        },
+        "about": {
+          "@id": "https://photobook-noir.com/#app"
+        }
+      },
+      {
+        "@type": ["SoftwareApplication", "MobileApplication"],
+        "@id": "https://photobook-noir.com/#app",
         "name": "Photo Book Noir",
-        "description": "Photo book app for macOS and iPad with collage layouts, captions, LUT filters, and export-ready files.",
-        "operatingSystem": "iOS",
+        "description": "A memory book app, digital scrapbook app, and photo organization software for turning family history questions and grandparent interview questions into export-ready albums.",
+        "operatingSystem": "iOS, iPadOS, macOS",
         "applicationCategory": "PhotographyApplication",
         "featureList": [
-          "Create photo books and photo albums",
-          "Build photo collage layouts",
-          "Add captions and text",
+          "Create memory books, photo books, and photo albums",
+          "Organize selected photos into album projects",
+          "Build digital scrapbook and collage layouts",
+          "Add captions, story text, and interview notes",
           "Apply LUT filters",
           "Export files for print or sharing"
         ],
         "url": "https://photobook-noir.com/",
         "downloadUrl": "https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB",
         "publisher": {
-          "@id": "#organization"
+          "@id": "https://photobook-noir.com/#organization"
         }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://photobook-noir.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I use Photo Book Noir for family history questions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Photo Book Noir lets you pair photos with captions and story text, so answers to family history questions can become organized keepsake pages."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I make pages from grandparent interview questions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can place grandparent interview questions and answers alongside portraits, family recipes, childhood homes, holidays, and archival photos."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Photo Book Noir photo organization software?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Photo Book Noir helps organize selected photos into album projects before you arrange them into memory books, photo books, or digital scrapbook layouts."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Photo Book Noir a memory book app or digital scrapbook app?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is designed for memory book and digital scrapbook projects, with collage layouts, captions, text, LUT filters, and export-ready files for print or sharing."
+            }
+          }
+        ]
       }
     ]
   }
@@ -147,3 +215,4 @@
   <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
   <script type="text/javascript" src="js/bootstrap.js"></script>
 </body>
+</html>

@@ -223,7 +223,56 @@ const createLocale = (storeLanguage, overrides = {}) => {
 };
 
 export const siteContent = {
-  en: createLocale("en-GB"),
+  en: createLocale("en-GB", {
+    home: {
+      header: {
+        paragraph:
+          "A memory book app and digital scrapbook app for organizing photos, preserving family history questions, and exporting elegant albums on macOS and iPad.",
+      },
+      about: {
+        title: "Photo Organization Software for Memory Books",
+        imageAlt: "Photo Book Noir memory book app and digital scrapbook layout preview",
+        paragraph:
+          "Photo Book Noir is photo organization software for families who want more than a camera roll. Use this memory book app to collect images, captions, and answers to family history questions, then design a printable album or digital scrapbook.",
+        goalsTitle: "What can you make?",
+        primaryGoals: [
+          "Organize large photo books and family albums",
+          "Memory book app projects for milestones and legacy stories",
+          "Digital scrapbook layouts with captions, text, and archival photos",
+          "Export-ready files for print or sharing",
+        ],
+        secondaryGoals: [
+          "Grandparent interview questions paired with portraits, recipes, and places",
+          "Family history questions organized beside the photos they explain",
+        ],
+        storyPromptsTitle: "Family History Questions and Interview Pages",
+        storyPromptsParagraph:
+          "Build pages around interviews, old family photos, dates, places, and small details that usually disappear from a camera roll. Photo Book Noir keeps the work focused on memory, layout, and export instead of social feeds.",
+        storyPrompts: [
+          {
+            term: "Family history questions",
+            detail: "Turn names, places, dates, traditions, and photo captions into keepsake pages.",
+          },
+          {
+            term: "Grandparent interview questions",
+            detail: "Pair answers with portraits, recipes, childhood homes, holidays, and archival photos.",
+          },
+          {
+            term: "Photo organization software",
+            detail: "Gather selected images into albums before shaping them into a finished book.",
+          },
+          {
+            term: "Memory book app",
+            detail: "Create family legacy books, milestone albums, and personal history projects.",
+          },
+          {
+            term: "Digital scrapbook app",
+            detail: "Combine collage layouts, captions, and visual storytelling for print or sharing.",
+          },
+        ],
+      },
+    },
+  }),
   nl: createLocale("nl-NL", {
     navigation: {
       toggleLabel: "Navigatie openen",

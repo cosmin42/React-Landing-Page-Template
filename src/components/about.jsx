@@ -2,6 +2,7 @@ import React from "react";
 
 export const About = (props) => {
   const data = props.data || {};
+  const hasStoryPrompts = data.storyPromptsTitle || data.storyPromptsParagraph || data.storyPrompts?.length;
 
   return (
     <div id="about">
@@ -9,7 +10,7 @@ export const About = (props) => {
         <div className="row">
           <div className="col-xs-12 col-md-6">
             {" "}
-            <img src="img/about.jpg" className="img-responsive" alt="" />{" "}
+            <img src="img/about.jpg" className="img-responsive" alt={data.imageAlt || "Photo Book Noir app preview"} />{" "}
           </div>
           <div className="col-xs-12 col-md-6">
             <div className="about-text">
@@ -37,6 +38,24 @@ export const About = (props) => {
             </div>
           </div>
         </div>
+        {hasStoryPrompts ? (
+          <div className="about-story-prompts">
+            {data.storyPromptsTitle ? <h3>{data.storyPromptsTitle}</h3> : null}
+            {data.storyPromptsParagraph ? <p>{data.storyPromptsParagraph}</p> : null}
+            {data.storyPrompts?.length ? (
+              <ul className="about-story-list">
+                {data.storyPrompts.map((prompt, index) => (
+                  <li key={`${prompt.term}-${index}`}>
+                    <span className="about-story-item-copy">
+                      <strong>{prompt.term}</strong>
+                      <span>{prompt.detail}</span>
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </div>
   );
