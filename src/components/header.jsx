@@ -1,4 +1,5 @@
 import React from "react";
+import { installerInfo } from "../data/installerInfo";
 import { Subscribe } from "./subscribe";
 
 const appStoreBadgeByLanguage = {
@@ -57,11 +58,11 @@ export const Header = (props) => {
                   </div>
                 ) : null}
                 <a
-                  href={`${process.env.PUBLIC_URL}/PhotoBook.dmg`}
-                  download="PhotoBook.dmg"
+                  href={`${process.env.PUBLIC_URL}/${installerInfo.fileName}`}
+                  download={installerInfo.fileName}
                   className="btn btn-custom btn-lg page-scroll"
                 >
-                  {data.downloadLabel}
+                  {data.downloadLabel} v{installerInfo.version}
                 </a>{" "}
               </div>
               <div className="intro-demo" aria-label={videoLabel}>
