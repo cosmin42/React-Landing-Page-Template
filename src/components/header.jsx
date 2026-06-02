@@ -60,9 +60,14 @@ export const Header = (props) => {
                 <a
                   href={`${process.env.PUBLIC_URL}/${installerInfo.fileName}`}
                   download={installerInfo.fileName}
-                  className="btn btn-custom btn-lg page-scroll"
+                  className="btn btn-custom btn-lg page-scroll download-button"
                 >
-                  {data.downloadLabel} v{installerInfo.version}
+                  <span className="download-button-label">
+                    {data.downloadLabel} v{installerInfo.version}
+                  </span>
+                  <span className="download-button-meta">
+                    {installerInfo.sizeLabel} - Created {installerInfo.createdLabel}
+                  </span>
                 </a>{" "}
               </div>
               <div className="intro-demo" aria-label={videoLabel}>

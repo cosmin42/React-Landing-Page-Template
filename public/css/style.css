@@ -388,6 +388,27 @@ hr {
   box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
 }
+
+.download-button {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 230px;
+  line-height: 1.2;
+  white-space: normal;
+}
+
+.download-button-label,
+.download-button-meta {
+  display: block;
+}
+
+.download-button-meta {
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.86;
+}
 .btn:active,
 .btn.active {
   background-image: none;
