@@ -20,6 +20,7 @@ const appStoreBadgeByLanguage = {
 };
 
 export const Header = (props) => {
+  const [isDemoPlaying, setIsDemoPlaying] = React.useState(false);
   const data = props.data || {};
   const demo = props.demo || {};
   const subscribe = props.subscribe || {};
@@ -35,7 +36,7 @@ export const Header = (props) => {
         <div className="overlay">
           <div className="container">
             <div className="intro-layout">
-              <div className="intro-stage">
+              <div className={`intro-stage${isDemoPlaying ? " intro-stage--video-playing" : ""}`}>
                 <div className="intro-text intro-copy">
                   <h1>
                     {data.title}
@@ -73,7 +74,7 @@ export const Header = (props) => {
                     </a>
                   </div>
                 </div>
-                <div className="intro-demo" aria-label={videoLabel}>
+                <div className={`intro-demo${isDemoPlaying ? " intro-demo--playing" : ""}`} aria-label={videoLabel}>
                   <div className="intro-demo-copy">
                     <h2>{demoTitle}</h2>
                   </div>
@@ -86,6 +87,9 @@ export const Header = (props) => {
                       loop
                       playsInline
                       preload="metadata"
+                      onPlay={() => setIsDemoPlaying(true)}
+                      onPause={() => setIsDemoPlaying(false)}
+                      onEnded={() => setIsDemoPlaying(false)}
                     />
                   </div>
                 </div>
