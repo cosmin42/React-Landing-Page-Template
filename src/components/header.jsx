@@ -35,55 +35,59 @@ export const Header = (props) => {
         <div className="overlay">
           <div className="container">
             <div className="intro-layout">
-              <div className="intro-text intro-copy">
-                <h1>
-                  {data.title}
-                  <span></span>
-                </h1>
-                <p>{data.paragraph}</p>
-                {data.appStoreHref ? (
-                  <div className="appstore-link-wrap">
+              <div className="intro-stage">
+                <div className="intro-text intro-copy">
+                  <h1>
+                    {data.title}
+                    <span></span>
+                  </h1>
+                  <p>{data.paragraph}</p>
+                  <div className="intro-actions">
+                    {data.appStoreHref ? (
+                      <div className="appstore-link-wrap">
+                        <a
+                          href={data.appStoreHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="appstore-link"
+                        >
+                          <img
+                            src={appStoreBadgeSrc}
+                            alt={data.appStoreAlt}
+                            className="appstore-badge"
+                          />
+                        </a>
+                      </div>
+                    ) : null}
                     <a
-                      href={data.appStoreHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="appstore-link"
+                      href={`${process.env.PUBLIC_URL}/${installerInfo.fileName}`}
+                      download={installerInfo.fileName}
+                      className="btn btn-custom btn-lg page-scroll download-button"
                     >
-                      <img
-                        src={appStoreBadgeSrc}
-                        alt={data.appStoreAlt}
-                        className="appstore-badge"
-                      />
+                      <span className="download-button-label">
+                        {data.downloadLabel} v{installerInfo.version}
+                      </span>
+                      <span className="download-button-meta">
+                        {installerInfo.sizeLabel} - Created {installerInfo.createdLabel}
+                      </span>
                     </a>
                   </div>
-                ) : null}
-                <a
-                  href={`${process.env.PUBLIC_URL}/${installerInfo.fileName}`}
-                  download={installerInfo.fileName}
-                  className="btn btn-custom btn-lg page-scroll download-button"
-                >
-                  <span className="download-button-label">
-                    {data.downloadLabel} v{installerInfo.version}
-                  </span>
-                  <span className="download-button-meta">
-                    {installerInfo.sizeLabel} - Created {installerInfo.createdLabel}
-                  </span>
-                </a>{" "}
-              </div>
-              <div className="intro-demo" aria-label={videoLabel}>
-                <div className="intro-demo-copy">
-                  <h2>{demoTitle}</h2>
                 </div>
-                <div className="intro-demo-frame">
-                  <video
-                    aria-label={videoLabel}
-                    className="intro-demo-video"
-                    src={videoSrc}
-                    controls
-                    loop
-                    playsInline
-                    preload="metadata"
-                  />
+                <div className="intro-demo" aria-label={videoLabel}>
+                  <div className="intro-demo-copy">
+                    <h2>{demoTitle}</h2>
+                  </div>
+                  <div className="intro-demo-frame">
+                    <video
+                      aria-label={videoLabel}
+                      className="intro-demo-video"
+                      src={videoSrc}
+                      controls
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  </div>
                 </div>
               </div>
               <Subscribe data={subscribe} language={language} embedded />

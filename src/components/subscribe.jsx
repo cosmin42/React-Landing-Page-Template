@@ -165,22 +165,15 @@ export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
 
   const subscribeContent = (
     <div className="row subscribe-layout">
-      <div className="col-xs-12 col-md-5">
+      <div className="col-xs-12 col-md-5 subscribe-copy-column">
         <div className="subscribe-copy">
           {copy.kicker ? <p className="subscribe-kicker">{copy.kicker}</p> : null}
           <h2 id="subscribe-title">{copy.title}</h2>
           {copy.lead ? <p className="subscribe-lead">{copy.lead}</p> : null}
-          {copy.bullets?.length ? (
-            <ul className="subscribe-benefits">
-              {copy.bullets.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          ) : null}
         </div>
       </div>
 
-      <div className="col-xs-12 col-md-7">
+      <div className="col-xs-12 col-md-7 subscribe-form-column">
         <form className="subscribe-form" onSubmit={handleSubmit} noValidate>
           <div className="subscribe-input-row">
             <label className="sr-only" htmlFor="subscribe-email">
@@ -237,6 +230,16 @@ export const Subscribe = ({ data = {}, language = "en", embedded = false }) => {
           </p>
         </form>
       </div>
+
+      {copy.bullets?.length ? (
+        <div className="col-xs-12 subscribe-benefits-panel">
+          <ul className="subscribe-benefits">
+            {copy.bullets.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </div>
   );
 

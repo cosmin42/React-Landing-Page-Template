@@ -7,14 +7,54 @@
 #subscribe.subscribe-section--embedded {
   grid-column: 1 / -1;
   width: 100%;
-  padding: 0 0 clamp(48px, 7vh, 76px);
+  padding: 0;
   background: transparent;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  grid-template-areas:
+    "copy form"
+    "benefits form";
+  gap: clamp(16px, 2vw, 24px) clamp(22px, 3vw, 42px);
+  align-items: start;
+  margin-left: 0;
+  margin-right: 0;
+  padding: clamp(18px, 2.6vw, 30px);
+  border: 1px solid rgba(255, 248, 240, 0.16);
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(66, 208, 178, 0.16), transparent 30%),
+    linear-gradient(135deg, rgba(7, 30, 26, 0.9), rgba(13, 45, 39, 0.72));
+  box-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-layout > [class*="col-"] {
+  display: flex;
+  float: none;
+  width: auto;
+  min-width: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-copy-column {
+  grid-area: copy;
+  align-items: flex-start;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-form-column {
+  grid-area: form;
+  align-self: stretch;
   align-items: stretch;
-  padding: clamp(22px, 3vw, 32px) 0 0;
-  border-top: 1px solid rgba(var(--color-accent-rgb) / 0.14);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-benefits-panel {
+  grid-area: benefits;
+  align-self: end;
 }
 
 #subscribe .subscribe-layout {
@@ -26,6 +66,12 @@
 
 #subscribe .subscribe-copy {
   max-width: 520px;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-copy {
+  max-width: 640px;
+  width: 100%;
+  padding: clamp(8px, 1.6vw, 18px) 0 0;
 }
 
 #subscribe .subscribe-kicker {
@@ -96,36 +142,146 @@
 
 #subscribe.subscribe-section--embedded .subscribe-form {
   height: 100%;
-  border-color: rgba(255 255 255 / 0.08);
-  background:
-    radial-gradient(circle at top left, rgba(var(--color-accent-rgb) / 0.18), transparent 42%),
-    linear-gradient(145deg, rgba(8 16 14 / 0.98), rgba(15 23 42 / 0.95));
-  box-shadow: 0 22px 48px -18px rgba(0 0 0 / 0.42), var(--shadow-soft);
-  color: var(--color-primary-bg);
+  align-content: start;
+  gap: 14px;
+  padding: clamp(20px, 2.6vw, 34px);
+  border: 1px solid rgba(255, 248, 240, 0.72);
+  border-radius: 24px;
+  background: rgba(255, 248, 240, 0.96);
+  box-shadow: 0 24px 58px -34px rgba(0, 0, 0, 0.7);
+  color: var(--color-font-main);
+}
+
+#subscribe.subscribe-section--embedded h2 {
+  color: var(--color-bg-alt);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  margin-bottom: 14px;
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 248, 240, 0.18);
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.08);
+  color: rgba(255, 248, 240, 0.78);
+  line-height: 1;
+}
+
+#subscribe.subscribe-section--embedded h2 {
+  margin-bottom: 12px;
+  font-size: clamp(34px, 4.5vw, 62px);
+  font-weight: 500;
+  line-height: 0.96;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-lead,
+#subscribe.subscribe-section--embedded .subscribe-benefits {
+  color: rgba(255, 248, 240, 0.72);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-lead {
+  max-width: 46ch;
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.58;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-benefits li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 8px 13px 8px 34px;
+  border: 1px solid rgba(255, 248, 240, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 248, 240, 0.08);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-benefits li::before {
+  top: 50%;
+  left: 13px;
+  transform: translateY(-50%);
+  color: var(--color-bg-alt);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-input-row {
+  grid-template-columns: minmax(0, 1fr) minmax(136px, auto);
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid rgba(23, 58, 52, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
 }
 
 #subscribe.subscribe-section--embedded input[type="email"] {
-  border-color: rgba(255 255 255 / 0.12);
-  background: rgba(255 255 255 / 0.06);
-  color: var(--color-primary-bg);
+  min-height: 52px;
+  padding: 0 18px;
+  border-color: transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-font-main);
 }
 
 #subscribe.subscribe-section--embedded input[type="email"]::placeholder {
-  color: rgba(255 255 255 / 0.5);
+  color: rgba(23, 58, 52, 0.46);
 }
 
 #subscribe.subscribe-section--embedded input[type="email"]:focus {
-  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb) / 0.18);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-submit {
+  min-height: 52px;
+  padding: 0 22px;
+  color: var(--color-bg-alt);
+  background: var(--color-confirm);
+  border-color: var(--color-confirm);
+  border-radius: 999px;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-submit:hover,
+#subscribe.subscribe-section--embedded .subscribe-submit:focus {
+  color: var(--color-bg-alt);
+  background: #102B26;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-consent,
 #subscribe.subscribe-section--embedded .subscribe-privacy,
 #subscribe.subscribe-section--embedded .subscribe-status {
-  color: rgba(255 255 255 / 0.78);
+  color: rgba(23, 58, 52, 0.68);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-consent {
+  float: none;
+  max-width: 56ch;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-consent input {
+  accent-color: var(--color-confirm);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-privacy a {
-  color: var(--color-primary-bg);
+  color: var(--color-confirm);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-status--success {
+  color: #0F6B4F;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-status--error {
+  color: var(--color-danger);
 }
 
 #subscribe .subscribe-input-row {
@@ -221,17 +377,81 @@
   color: var(--color-danger);
 }
 
+@media (max-width: 991px) {
+  #subscribe.subscribe-section--embedded .subscribe-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.9fr);
+    grid-template-areas:
+      "copy form"
+      "benefits form";
+    gap: 18px 20px;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-copy {
+    padding: 8px 0 0;
+  }
+
+  #subscribe.subscribe-section--embedded h2 {
+    font-size: clamp(32px, 5.4vw, 48px);
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-form {
+    padding: 20px;
+  }
+}
+
 @media (max-width: 767px) {
   #subscribe {
     padding: 64px 0;
   }
 
   #subscribe.subscribe-section--embedded {
-    padding: 0 0 46px;
+    padding: 0;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "form"
+      "benefits";
+    gap: 16px;
+    padding: 14px;
+    border-radius: 24px;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-copy {
+    padding: 8px 8px 0;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-benefits-panel {
+    align-self: stretch;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-benefits {
+    display: grid;
+    gap: 8px;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-form {
+    padding: 16px;
+    border-radius: 20px;
   }
 
   #subscribe .subscribe-form {
     padding: 22px;
+  }
+
+  #subscribe.subscribe-section--embedded .subscribe-input-row {
+    grid-template-columns: 1fr;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  #subscribe.subscribe-section--embedded input[type="email"] {
+    border-color: rgba(23, 58, 52, 0.12);
+    background: rgba(255, 255, 255, 0.72);
   }
 
   #subscribe .subscribe-input-row {

@@ -17,10 +17,10 @@
   align-items: center;
   gap: 6px;
   padding: 4px;
-  border: 1px solid rgba(var(--color-accent-rgb) / 0.14);
+  border: 1px solid rgba(255, 248, 240, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: var(--shadow-soft);
+  background: rgba(255, 248, 240, 0.08);
+  box-shadow: none;
 }
 
 .language-switcher__button {
@@ -28,7 +28,7 @@
   border: 0;
   border-radius: 999px;
   background: transparent;
-  color: var(--color-font-secondary);
+  color: rgba(255, 248, 240, 0.72);
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
@@ -37,9 +37,26 @@
 }
 
 .language-switcher__button.is-active {
-  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-alt));
-  color: #ffffff;
-  box-shadow: var(--shadow-button);
+  background: var(--color-bg-alt);
+  color: var(--color-confirm);
+  box-shadow: none;
+}
+
+#menu.navbar-scrolled .language-switcher,
+#footer .language-switcher {
+  border-color: rgba(23, 58, 52, 0.14);
+  background: rgba(23, 58, 52, 0.07);
+}
+
+#menu.navbar-scrolled .language-switcher__button,
+#footer .language-switcher__button {
+  color: var(--color-font-secondary);
+}
+
+#menu.navbar-scrolled .language-switcher__button.is-active,
+#footer .language-switcher__button.is-active {
+  background: var(--color-confirm);
+  color: var(--color-bg-alt);
 }
 
 .footer-language-switcher {
@@ -52,7 +69,7 @@
 }
 
 .footer-language-switcher__label {
-  color: var(--color-font-secondary);
+  color: rgba(255, 248, 240, 0.72);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
