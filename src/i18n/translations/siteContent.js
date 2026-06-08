@@ -60,6 +60,8 @@ const baseLocale = {
     demo: {
       title: "Demo",
       paragraph: "A demo of the Auto Staging feature",
+      imageSrc: "/img/main-image.png",
+      imageAlt: "Photo Book Noir main preview",
       videoLabel: "Photo Book Noir demo video",
     },
     screenshots: {

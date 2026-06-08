@@ -27,8 +27,11 @@ export const Header = (props) => {
   const language = props.language || "en";
   const appStoreBadgeSrc = `${process.env.PUBLIC_URL}${appStoreBadgeByLanguage[language] || appStoreBadgeByLanguage.en}`;
   const demoTitle = demo.title || "Demo";
+  const imageSrc = demo.imageSrc;
+  const hasDemoImage = Boolean(imageSrc);
+  const imageAlt = demo.imageAlt || demoTitle || "Photo Book Noir preview";
   const videoSrc = demo.videoSrc || "/video/demo.mp4";
-  const videoLabel = demo.videoLabel || demoTitle || "Photo Book Noir demo video";
+  const mediaLabel = demo.videoLabel || imageAlt || demoTitle || "Photo Book Noir preview";
 
   return (
     <header id="header">
@@ -74,23 +77,36 @@ export const Header = (props) => {
                     </a>
                   </div>
                 </div>
-                <div className={`intro-demo${isDemoPlaying ? " intro-demo--playing" : ""}`} aria-label={videoLabel}>
-                  <div className="intro-demo-copy">
-                    <h2>{demoTitle}</h2>
-                  </div>
-                  <div className="intro-demo-frame">
-                    <video
-                      aria-label={videoLabel}
-                      className="intro-demo-video"
-                      src={videoSrc}
-                      controls
-                      loop
-                      playsInline
-                      preload="metadata"
-                      onPlay={() => setIsDemoPlaying(true)}
-                      onPause={() => setIsDemoPlaying(false)}
-                      onEnded={() => setIsDemoPlaying(false)}
-                    />
+                <div
+                  className={`intro-demo${isDemoPlaying ? " intro-demo--playing" : ""}${hasDemoImage ? " intro-demo--image" : ""}`}
+                  aria-label={mediaLabel}
+                >
+                  {hasDemoImage ? null : (
+                    <div className="intro-demo-copy">
+                      <h2>{demoTitle}</h2>
+                    </div>
+                  )}
+                  <div className={`intro-demo-frame${hasDemoImage ? " intro-demo-frame--image" : ""}`}>
+                    {imageSrc ? (
+                      <img
+                        alt={imageAlt}
+                        className="intro-demo-video intro-demo-image"
+                        src={imageSrc}
+                      />
+                    ) : (
+                      <video
+                        aria-label={mediaLabel}
+                        className="intro-demo-video"
+                        src={videoSrc}
+                        controls
+                        loop
+                        playsInline
+                        preload="metadata"
+                        onPlay={() => setIsDemoPlaying(true)}
+                        onPause={() => setIsDemoPlaying(false)}
+                        onEnded={() => setIsDemoPlaying(false)}
+                      />
+                    )}
                   </div>
                 </div>
               </div>

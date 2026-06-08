@@ -3,6 +3,6 @@ export const installerInfo = {
   "version": "1.3.4",
   "sizeBytes": 62326415,
   "sizeLabel": "59.4 MB",
-  "createdAt": "2026-06-02T15:00:52.275Z",
-  "createdLabel": "Jun 2, 2026"
+  "createdAt": "2026-06-03T08:18:41.984Z",
+  "createdLabel": "Jun 3, 2026"
 };
