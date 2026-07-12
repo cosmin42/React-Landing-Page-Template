@@ -9,6 +9,9 @@ html,
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  /* Prevent stray wide elements from enabling sideways swipe on mobile */
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html::-webkit-scrollbar,

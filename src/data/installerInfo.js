@@ -1,8 +1,8 @@
 export const installerInfo = {
-  "fileName": "PhotoBook-1.3.4.dmg",
-  "version": "1.3.4",
-  "sizeBytes": 62326415,
-  "sizeLabel": "59.4 MB",
-  "createdAt": "2026-06-03T08:18:41.984Z",
-  "createdLabel": "Jun 3, 2026"
+  "fileName": "PhotoBook-1.4.5.dmg",
+  "version": "1.4.5",
+  "sizeBytes": 64505952,
+  "sizeLabel": "61.5 MB",
+  "createdAt": "2026-07-12T18:29:27.709Z",
+  "createdLabel": "Jul 12, 2026"
 };
