@@ -88,11 +88,24 @@ export const Header = (props) => {
                   )}
                   <div className={`intro-demo-frame${hasDemoImage ? " intro-demo-frame--image" : ""}`}>
                     {imageSrc ? (
-                      <img
-                        alt={imageAlt}
-                        className="intro-demo-video intro-demo-image"
-                        src={imageSrc}
-                      />
+                      <picture>
+                        {demo.imageSrcSet ? (
+                          <source
+                            type="image/webp"
+                            srcSet={demo.imageSrcSet}
+                            sizes={demo.imageSizes}
+                          />
+                        ) : null}
+                        <img
+                          alt={imageAlt}
+                          className="intro-demo-video intro-demo-image"
+                          src={imageSrc}
+                          width={demo.imageWidth}
+                          height={demo.imageHeight}
+                          decoding="async"
+                          fetchpriority="high"
+                        />
+                      </picture>
                     ) : (
                       <video
                         aria-label={mediaLabel}
