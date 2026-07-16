@@ -1403,7 +1403,8 @@ label {
 /* Corporate Trust full-site system */
 @media (min-width: 1200px) {
   .container {
-    width: 1180px;
+    /* fluid on wide screens, capped so ultra-wide monitors don't overstretch */
+    width: min(94%, 1680px);
   }
 }
 
