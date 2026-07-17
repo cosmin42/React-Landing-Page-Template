@@ -96,20 +96,21 @@ const baseLocale = {
     },
     about: {
       title: "About the App",
-      paragraph:
-        "Photo Book Noir is a photo book app for designing albums and collage layouts. Organize memories, add text, and prepare clean export files for print or sharing.",
-      philosophy:
-        "App addiction has become more and more of a problem - many apps today are built to keep us hooked rather than to help us. I built this app with the belief that technology should enrich life, not consume it.",
-      goalsTitle: "What are the goals?",
-      primaryGoals: [
-        "Large photo books and albums",
-        "Multiple export formats",
-        "LUT filters and creative looks",
-        "Fast photo import",
+      forYouTitle: "This is for you if...",
+      forYouItems: [
+        "You're a parent preserving family memories",
+        "You're a traveler documenting your adventures",
+        "You're a photographer curating your best shots",
+        "You're a friend crafting a heartfelt gift",
+        "You're a genealogy enthusiast tracing family history",
+        "You're a scrapbook hobbyist",
       ],
-      secondaryGoals: [
-        "Add captions, text, and visual storytelling",
-        "Scrapbook and collage design",
+      whatYouGetTitle: "What you get",
+      whatYouGetItems: [
+        "Easy sequencing with an intuitive UI",
+        "AI planning while keeping your images private",
+        "Print-ready images",
+        "Filters, collages, and consistent layouts",
       ],
     },
     subscribe: {
@@ -257,20 +258,21 @@ export const siteContent = {
       },
       about: {
         title: "Over de app",
-        paragraph:
-          "Photo Book Noir is een fotoboekapp voor het ontwerpen van fotoalbums en collage-layouts zonder een ingewikkelde workflow. Orden herinneringen, voeg tekst toe en maak nette exportbestanden voor print of delen.",
-        philosophy:
-          "Appverslaving wordt steeds meer een probleem - veel apps zijn vandaag gebouwd om ons vast te houden in plaats van ons echt te helpen. Ik heb deze app gemaakt vanuit het idee dat technologie het leven moet verrijken, niet opslokken.",
-        goalsTitle: "Wat zijn de doelen?",
-        primaryGoals: [
-          "Grote fotoboeken en albums",
-          "Meerdere exportformaten",
-          "LUT-filters en creatieve looks",
-          "Snelle workflow voor het importeren van foto's",
+        forYouTitle: "Dit is voor jou als...",
+        forYouItems: [
+          "Je een ouder bent die familieherinneringen bewaart",
+          "Je een reiziger bent die avonturen vastlegt",
+          "Je een fotograaf bent die de beste foto's samenbrengt",
+          "Je een vriend een persoonlijk cadeau wilt geven",
+          "Je gepassioneerd bent door genealogie en familiegeschiedenis",
+          "Je een scrapbook-hobbyist bent",
         ],
-        secondaryGoals: [
-          "Bijschriften, tekst en visuele storytelling toevoegen",
-          "Minimalistisch scrapbook- en collagedesign",
+        whatYouGetTitle: "Wat je krijgt",
+        whatYouGetItems: [
+          "Moeiteloos foto's ordenen met een intuitieve interface",
+          "AI-planning terwijl je afbeeldingen prive blijven",
+          "Printklare afbeeldingen",
+          "Filters, collages en consistente lay-outs",
         ],
       },
       subscribe: {
@@ -360,20 +362,21 @@ export const siteContent = {
       },
       about: {
         title: "A propos de l'application",
-        paragraph:
-          "Photo Book Noir est une application de livre photo concue pour creer des albums photo et des mises en page de collage sans flux de travail complique. Organisez vos souvenirs, ajoutez du texte et preparez des fichiers propres pour l'impression ou le partage.",
-        philosophy:
-          "L'addiction aux applications devient un probleme de plus en plus present - beaucoup d'apps sont aujourd'hui construites pour nous retenir plutot que pour nous aider. J'ai cree cette application avec l'idee que la technologie doit enrichir la vie, pas la devorer.",
-        goalsTitle: "Quels sont les objectifs ?",
-        primaryGoals: [
-          "Grands livres photo et albums",
-          "Plusieurs formats d'export",
-          "Filtres LUT et rendus creatifs",
-          "Importation rapide des photos",
+        forYouTitle: "C'est pour vous si...",
+        forYouItems: [
+          "Vous etes un parent qui preserve les souvenirs de famille",
+          "Vous etes un voyageur qui documente ses aventures",
+          "Vous etes un photographe qui organise ses meilleures images",
+          "Vous voulez offrir un cadeau personnel a un ami",
+          "Vous etes passionne de genealogie et d'histoire familiale",
+          "Vous etes amateur de scrapbooking",
         ],
-        secondaryGoals: [
-          "Ajouter des legendes, du texte et une narration visuelle",
-          "Design de scrapbook et de collage minimaliste",
+        whatYouGetTitle: "Ce que vous obtenez",
+        whatYouGetItems: [
+          "Un sequencage facile avec une interface intuitive",
+          "Une planification par IA qui garde vos images privees",
+          "Des images pretes a imprimer",
+          "Des filtres, des collages et des mises en page coherentes",
         ],
       },
       subscribe: {
@@ -463,13 +466,22 @@ export const siteContent = {
       },
       about: {
         title: "关于应用",
-        paragraph:
-          "Photo Book Noir 是一款用于设计相册和拼贴版式的照片书应用。整理回忆、添加文字，并准备适合打印或分享的整洁导出文件。",
-        philosophy:
-          "应用成瘾正变得越来越严重，如今很多应用的目标是让人停留更久，而不是真正提供帮助。我开发这款应用，是因为我相信技术应该丰富生活，而不是吞噬生活。",
-        goalsTitle: "目标是什么？",
-        primaryGoals: ["大型照片书和相册", "多种导出格式", "LUT 滤镜和创意风格", "快速导入照片"],
-        secondaryGoals: ["添加说明文字、正文和视觉叙事", "剪贴簿与拼贴设计"],
+        forYouTitle: "适合你，如果你是……",
+        forYouItems: [
+          "想留住家庭回忆的父母",
+          "记录旅途见闻的旅行者",
+          "整理得意之作的摄影师",
+          "想送朋友一份用心礼物的人",
+          "追寻家族历史的家谱爱好者",
+          "热爱手账拼贴的玩家",
+        ],
+        whatYouGetTitle: "你将获得",
+        whatYouGetItems: [
+          "直观的界面，轻松编排照片顺序",
+          "AI 帮你规划版面，图片始终保持私密",
+          "可直接打印的成品图像",
+          "滤镜、拼贴和统一的版式",
+        ],
       },
       subscribe: {
         kicker: "更新",
@@ -552,13 +564,22 @@ export const siteContent = {
       },
       about: {
         title: "アプリについて",
-        paragraph:
-          "Photo Book Noir は、アルバムやコラージュレイアウトを作るためのフォトブックアプリです。思い出を整理し、テキストを加え、印刷や共有に向けたきれいな書き出しファイルを準備できます。",
-        philosophy:
-          "アプリ依存はますます大きな問題になっており、多くのアプリは本当に役立つためではなく、使い続けさせるために作られています。私は、テクノロジーは人生を消費するのではなく豊かにするべきだという考えでこのアプリを作りました。",
-        goalsTitle: "目標は？",
-        primaryGoals: ["大きなフォトブックとアルバム", "複数の書き出し形式", "LUT フィルターと創造的な表現", "写真の高速取り込み"],
-        secondaryGoals: ["キャプション、テキスト、ビジュアルストーリーを追加", "スクラップブックとコラージュのデザイン"],
+        forYouTitle: "こんな方におすすめ",
+        forYouItems: [
+          "家族の思い出を残したい親御さん",
+          "旅の記録をまとめたい旅行好きの方",
+          "ベストショットを整理したいフォトグラファー",
+          "友人へ心のこもった贈り物を作りたい方",
+          "家系の歴史をたどる系譜愛好家",
+          "スクラップブックが趣味の方",
+        ],
+        whatYouGetTitle: "得られるもの",
+        whatYouGetItems: [
+          "直感的な UI でかんたんに写真を並べ替え",
+          "画像をプライベートに保ったまま AI がレイアウトを提案",
+          "印刷にそのまま使える画像",
+          "フィルター、コラージュ、統一感のあるレイアウト",
+        ],
       },
       subscribe: {
         kicker: "更新情報",
@@ -640,13 +661,22 @@ export const siteContent = {
       },
       about: {
         title: "Despre aplicatie",
-        paragraph:
-          "Photo Book Noir este o aplicatie de albume foto pentru proiectarea albumelor si a machetelor de colaj. Organizeaza amintiri, adauga text si pregateste fisiere curate pentru tipar sau distribuire.",
-        philosophy:
-          "Dependenta de aplicatii a devenit o problema tot mai mare - multe aplicatii de astazi sunt construite ca sa ne tina captivi, nu ca sa ne ajute. Am creat aceasta aplicatie pornind de la convingerea ca tehnologia ar trebui sa imbogateasca viata, nu sa o consume.",
-        goalsTitle: "Care sunt obiectivele?",
-        primaryGoals: ["Albume foto mari", "Mai multe formate de export", "Filtre LUT si stiluri creative", "Import rapid de fotografii"],
-        secondaryGoals: ["Adauga legende, text si povestire vizuala", "Design de scrapbook si colaj"],
+        forYouTitle: "Este pentru tine daca...",
+        forYouItems: [
+          "Esti un parinte care pastreaza amintirile familiei",
+          "Esti un calator care isi documenteaza aventurile",
+          "Esti un fotograf care isi organizeaza cele mai bune cadre",
+          "Vrei sa faci un cadou din suflet unui prieten",
+          "Esti pasionat de genealogie si istorie de familie",
+          "Esti pasionat de scrapbook",
+        ],
+        whatYouGetTitle: "Ce primesti",
+        whatYouGetItems: [
+          "Ordonare usoara cu o interfata intuitiva",
+          "Planificare cu AI, in timp ce imaginile raman private",
+          "Imagini gata de tipar",
+          "Filtre, colaje si machete consecvente",
+        ],
       },
       subscribe: {
         kicker: "Noutati",
@@ -726,13 +756,22 @@ export const siteContent = {
       },
       about: {
         title: "Uber die App",
-        paragraph:
-          "Photo Book Noir ist eine Fotobuch-App zum Gestalten von Alben und Collage-Layouts. Ordne Erinnerungen, fuge Text hinzu und bereite saubere Exportdateien fur Druck oder Teilen vor.",
-        philosophy:
-          "App-Abhangigkeit wird immer mehr zum Problem - viele Apps sind heute darauf ausgelegt, uns festzuhalten, statt uns zu helfen. Ich habe diese App mit der Uberzeugung gebaut, dass Technologie das Leben bereichern und nicht aufzehren sollte.",
-        goalsTitle: "Was sind die Ziele?",
-        primaryGoals: ["Grosse Fotobucher und Alben", "Mehrere Exportformate", "LUT-Filter und kreative Looks", "Schneller Fotoimport"],
-        secondaryGoals: ["Bildunterschriften, Text und visuelles Storytelling hinzufugen", "Scrapbook- und Collage-Design"],
+        forYouTitle: "Das ist fur dich, wenn...",
+        forYouItems: [
+          "Du als Elternteil Familienerinnerungen bewahrst",
+          "Du als Reisender deine Abenteuer dokumentierst",
+          "Du als Fotograf deine besten Aufnahmen kuratierst",
+          "Du einem Freund ein personliches Geschenk machen willst",
+          "Du dich fur Genealogie und Familiengeschichte begeisterst",
+          "Du Scrapbooks als Hobby gestaltest",
+        ],
+        whatYouGetTitle: "Was du bekommst",
+        whatYouGetItems: [
+          "Einfaches Anordnen mit einer intuitiven Oberflache",
+          "KI-Planung, wahrend deine Bilder privat bleiben",
+          "Druckfertige Bilder",
+          "Filter, Collagen und einheitliche Layouts",
+        ],
       },
       subscribe: {
         title: "Bleib informiert",
@@ -811,13 +850,22 @@ export const siteContent = {
       },
       about: {
         title: "앱 소개",
-        paragraph:
-          "Photo Book Noir는 앨범과 콜라주 레이아웃을 디자인하기 위한 포토북 앱입니다. 추억을 정리하고 텍스트를 추가하며 인쇄나 공유를 위한 깔끔한 내보내기 파일을 준비하세요.",
-        philosophy:
-          "앱 중독은 점점 더 큰 문제가 되고 있습니다. 오늘날 많은 앱은 우리를 돕기보다 붙잡아 두기 위해 만들어집니다. 저는 기술이 삶을 소모하는 것이 아니라 풍요롭게 해야 한다는 믿음으로 이 앱을 만들었습니다.",
-        goalsTitle: "목표는 무엇인가요?",
-        primaryGoals: ["대형 포토북과 앨범", "다양한 내보내기 형식", "LUT 필터와 창의적인 룩", "빠른 사진 가져오기"],
-        secondaryGoals: ["캡션, 텍스트, 시각적 스토리텔링 추가", "스크랩북 및 콜라주 디자인"],
+        forYouTitle: "이런 분께 추천합니다",
+        forYouItems: [
+          "가족의 추억을 간직하고 싶은 부모님",
+          "여행을 기록하는 여행자",
+          "베스트 컷을 정리하는 사진가",
+          "친구에게 마음이 담긴 선물을 만들고 싶은 분",
+          "가족의 역사를 따라가는 족보 애호가",
+          "스크랩북을 즐기는 취미가",
+        ],
+        whatYouGetTitle: "제공되는 것",
+        whatYouGetItems: [
+          "직관적인 UI로 손쉬운 사진 배치",
+          "이미지를 비공개로 유지하면서 AI가 구성 제안",
+          "인쇄에 바로 쓸 수 있는 이미지",
+          "필터, 콜라주, 일관된 레이아웃",
+        ],
       },
       subscribe: {
         title: "계속 소식 받기",
@@ -897,13 +945,22 @@ export const siteContent = {
       },
       about: {
         title: "حول التطبيق",
-        paragraph:
-          "Photo Book Noir هو تطبيق لكتب الصور لتصميم الألبومات وتخطيطات الكولاج. نظّم الذكريات وأضف النصوص وجهّز ملفات تصدير نظيفة للطباعة أو المشاركة.",
-        philosophy:
-          "أصبح إدمان التطبيقات مشكلة متزايدة، فالكثير من التطبيقات اليوم تُبنى لإبقائنا متعلقين بها بدلاً من مساعدتنا. أنشأت هذا التطبيق لأنني أؤمن بأن التقنية يجب أن تثري الحياة لا أن تستهلكها.",
-        goalsTitle: "ما الأهداف؟",
-        primaryGoals: ["كتب صور وألبومات كبيرة", "تنسيقات تصدير متعددة", "فلاتر LUT ولمسات إبداعية", "استيراد سريع للصور"],
-        secondaryGoals: ["إضافة التسميات والنصوص والسرد البصري", "تصميم القصاصات والكولاج"],
+        forYouTitle: "هذا التطبيق لك إذا كنت...",
+        forYouItems: [
+          "أبًا أو أمًا تحفظ ذكريات العائلة",
+          "مسافرًا يوثق مغامراته",
+          "مصورًا ينسق أفضل لقطاته",
+          "صديقًا يصنع هدية من القلب",
+          "مهتمًا بعلم الأنساب وتاريخ العائلة",
+          "هاويًا لدفاتر القصاصات",
+        ],
+        whatYouGetTitle: "ما الذي تحصل عليه",
+        whatYouGetItems: [
+          "ترتيب سهل للصور بواجهة بديهية",
+          "تخطيط بالذكاء الاصطناعي مع بقاء صورك خاصة",
+          "صور جاهزة للطباعة",
+          "فلاتر وكولاج وتخطيطات متناسقة",
+        ],
       },
       subscribe: {
         kicker: "التحديثات",
@@ -984,13 +1041,22 @@ export const siteContent = {
       },
       about: {
         title: "ऐप के बारे में",
-        paragraph:
-          "Photo Book Noir एल्बम और कोलाज लेआउट डिज़ाइन करने के लिए एक फोटो बुक ऐप है। यादों को व्यवस्थित करें, टेक्स्ट जोड़ें और प्रिंट या शेयर करने के लिए साफ़ एक्सपोर्ट फ़ाइलें तैयार करें।",
-        philosophy:
-          "ऐप की लत एक बढ़ती हुई समस्या बन गई है। आज कई ऐप हमारी मदद करने के बजाय हमें बांधे रखने के लिए बनाए जाते हैं। मैंने यह ऐप इस विश्वास के साथ बनाया है कि तकनीक जीवन को समृद्ध करे, उसे निगले नहीं।",
-        goalsTitle: "लक्ष्य क्या हैं?",
-        primaryGoals: ["बड़े फोटो बुक और एल्बम", "कई एक्सपोर्ट फ़ॉर्मेट", "LUT फ़िल्टर और रचनात्मक लुक", "तेज़ फोटो इम्पोर्ट"],
-        secondaryGoals: ["कैप्शन, टेक्स्ट और विज़ुअल स्टोरीटेलिंग जोड़ें", "स्क्रैपबुक और कोलाज डिज़ाइन"],
+        forYouTitle: "यह आपके लिए है अगर...",
+        forYouItems: [
+          "आप परिवार की यादें संजोने वाले माता-पिता हैं",
+          "आप अपनी यात्राएँ दर्ज करने वाले यात्री हैं",
+          "आप अपनी बेहतरीन तस्वीरें सहेजने वाले फोटोग्राफर हैं",
+          "आप किसी दोस्त के लिए दिल से कोई तोहफ़ा बनाना चाहते हैं",
+          "आप वंशावली और पारिवारिक इतिहास में रुचि रखते हैं",
+          "आप स्क्रैपबुक के शौकीन हैं",
+        ],
+        whatYouGetTitle: "आपको क्या मिलता है",
+        whatYouGetItems: [
+          "सहज UI के साथ आसान क्रम-निर्धारण",
+          "AI प्लानिंग, जबकि आपकी तस्वीरें निजी रहती हैं",
+          "प्रिंट के लिए तैयार इमेज",
+          "फ़िल्टर, कोलाज और एकरूप लेआउट",
+        ],
       },
       subscribe: {
         kicker: "अपडेट",
@@ -1071,13 +1137,22 @@ export const siteContent = {
       },
       about: {
         title: "Sobre o app",
-        paragraph:
-          "Photo Book Noir e um app de fotolivros para criar albuns e layouts de colagem. Organize memorias, adicione texto e prepare arquivos limpos para imprimir ou compartilhar.",
-        philosophy:
-          "O vicio em aplicativos se tornou um problema cada vez maior - muitos apps hoje sao feitos para nos prender, em vez de nos ajudar. Criei este app com a conviccao de que a tecnologia deve enriquecer a vida, nao consumi-la.",
-        goalsTitle: "Quais sao os objetivos?",
-        primaryGoals: ["Fotolivros e albuns grandes", "Multiplos formatos de exportacao", "Filtros LUT e visuais criativos", "Importacao rapida de fotos"],
-        secondaryGoals: ["Adicionar legendas, texto e narrativa visual", "Design de scrapbook e colagem"],
+        forYouTitle: "E para voce se...",
+        forYouItems: [
+          "Voce e um pai ou mae guardando memorias da familia",
+          "Voce e um viajante documentando aventuras",
+          "Voce e um fotografo organizando seus melhores cliques",
+          "Voce quer criar um presente especial para um amigo",
+          "Voce e um entusiasta de genealogia e historia da familia",
+          "Voce e um hobbista de scrapbook",
+        ],
+        whatYouGetTitle: "O que voce recebe",
+        whatYouGetItems: [
+          "Sequenciamento facil com uma interface intuitiva",
+          "Planejamento com IA mantendo suas imagens privadas",
+          "Imagens prontas para impressao",
+          "Filtros, colagens e layouts consistentes",
+        ],
       },
       subscribe: {
         kicker: "Atualizacoes",
@@ -1157,13 +1232,22 @@ export const siteContent = {
       },
       about: {
         title: "О приложении",
-        paragraph:
-          "Photo Book Noir - это приложение для фотокниг, в котором можно создавать альбомы и коллажные макеты. Организуйте воспоминания, добавляйте текст и готовьте аккуратные файлы для печати или обмена.",
-        philosophy:
-          "Зависимость от приложений становится все более серьезной проблемой - многие приложения сегодня создаются для того, чтобы удерживать нас, а не помогать. Я сделал это приложение, исходя из убеждения, что технологии должны обогащать жизнь, а не поглощать ее.",
-        goalsTitle: "Какие цели?",
-        primaryGoals: ["Большие фотокниги и альбомы", "Несколько форматов экспорта", "LUT-фильтры и творческие стили", "Быстрый импорт фотографий"],
-        secondaryGoals: ["Добавление подписей, текста и визуального повествования", "Дизайн скрапбуков и коллажей"],
+        forYouTitle: "Это приложение для вас, если вы...",
+        forYouItems: [
+          "Родитель, который сохраняет семейные воспоминания",
+          "Путешественник, который документирует свои поездки",
+          "Фотограф, который собирает лучшие кадры",
+          "Друг, который готовит душевный подарок",
+          "Энтузиаст генеалогии и семейной истории",
+          "Любитель скрапбукинга",
+        ],
+        whatYouGetTitle: "Что вы получаете",
+        whatYouGetItems: [
+          "Простая расстановка фотографий в интуитивном интерфейсе",
+          "Планирование с ИИ - ваши изображения остаются приватными",
+          "Изображения, готовые к печати",
+          "Фильтры, коллажи и единообразные макеты",
+        ],
       },
       subscribe: {
         title: "Будьте рядом",
@@ -1242,13 +1326,22 @@ export const siteContent = {
       },
       about: {
         title: "Acerca de la app",
-        paragraph:
-          "Photo Book Noir es una app de fotolibros para disenar albumes y composiciones de collage. Organiza recuerdos, anade texto y prepara archivos limpios para imprimir o compartir.",
-        philosophy:
-          "La adiccion a las apps se ha convertido en un problema cada vez mayor. Muchas aplicaciones actuales estan hechas para engancharnos en lugar de ayudarnos. Cree esta app con la idea de que la tecnologia debe enriquecer la vida, no consumirla.",
-        goalsTitle: "Cuales son los objetivos?",
-        primaryGoals: ["Fotolibros y albumes grandes", "Multiples formatos de exportacion", "Filtros LUT y estilos creativos", "Importacion rapida de fotos"],
-        secondaryGoals: ["Anadir leyendas, texto y narrativa visual", "Diseno de scrapbook y collage"],
+        forYouTitle: "Es para ti si...",
+        forYouItems: [
+          "Eres un padre o una madre que guarda recuerdos familiares",
+          "Eres un viajero que documenta sus aventuras",
+          "Eres un fotografo que organiza sus mejores tomas",
+          "Quieres crear un regalo especial para un amigo",
+          "Eres un entusiasta de la genealogia y la historia familiar",
+          "Eres aficionado al scrapbook",
+        ],
+        whatYouGetTitle: "Lo que obtienes",
+        whatYouGetItems: [
+          "Secuenciacion facil con una interfaz intuitiva",
+          "Planificacion con IA manteniendo tus imagenes privadas",
+          "Imagenes listas para imprimir",
+          "Filtros, collages y disenos consistentes",
+        ],
       },
       subscribe: {
         title: "Mantente cerca",
@@ -1327,13 +1420,22 @@ export const siteContent = {
       },
       about: {
         title: "Informazioni sull'app",
-        paragraph:
-          "Photo Book Noir e un'app per fotolibri pensata per creare album fotografici e layout di collage. Organizza i ricordi, aggiungi testo e prepara file ordinati per la stampa o la condivisione.",
-        philosophy:
-          "La dipendenza dalle app sta diventando un problema sempre piu serio. Molte app oggi sono progettate per tenerci agganciati invece di aiutarci davvero. Ho creato questa app partendo dall'idea che la tecnologia debba arricchire la vita, non consumarla.",
-        goalsTitle: "Quali sono gli obiettivi?",
-        primaryGoals: ["Fotolibri e album di grandi dimensioni", "Formati di esportazione multipli", "Filtri LUT e look creativi", "Importazione rapida delle foto"],
-        secondaryGoals: ["Aggiungere didascalie, testo e narrazione visiva", "Design scrapbook e collage"],
+        forYouTitle: "E per te se...",
+        forYouItems: [
+          "Sei un genitore che conserva i ricordi di famiglia",
+          "Sei un viaggiatore che documenta le sue avventure",
+          "Sei un fotografo che cura i suoi scatti migliori",
+          "Vuoi creare un regalo speciale per un amico",
+          "Sei un appassionato di genealogia e storia di famiglia",
+          "Sei un appassionato di scrapbook",
+        ],
+        whatYouGetTitle: "Cosa ottieni",
+        whatYouGetItems: [
+          "Sequenze facili con un'interfaccia intuitiva",
+          "Pianificazione con IA mantenendo private le tue immagini",
+          "Immagini pronte per la stampa",
+          "Filtri, collage e layout coerenti",
+        ],
       },
       subscribe: {
         title: "Resta vicino",
@@ -1412,13 +1514,22 @@ export const siteContent = {
       },
       about: {
         title: "Uygulama hakkinda",
-        paragraph:
-          "Photo Book Noir, albumler ve kolaj duzenleri tasarlamak icin bir fotokitap uygulamasidir. Anilari duzenleyin, metin ekleyin ve baski veya paylasim icin temiz disa aktarma dosyalari hazirlayin.",
-        philosophy:
-          "Uygulama bagimliligi giderek buyuyen bir sorun haline geldi. Bugun bircok uygulama bize yardim etmek yerine bizi icinde tutmak icin tasarlaniyor. Bu uygulamayi, teknolojinin hayati tuketmek yerine zenginlestirmesi gerektigine inanarak yaptim.",
-        goalsTitle: "Hedefler neler?",
-        primaryGoals: ["Buyuk fotokitaplar ve albumler", "Birden fazla disa aktarma formati", "LUT filtreleri ve yaratici gorunumler", "Hizli fotograf ice aktarma"],
-        secondaryGoals: ["Aciklamalar, metin ve gorsel hikaye anlatimi ekleyin", "Scrapbook ve kolaj tasarimi"],
+        forYouTitle: "Bu uygulama tam size gore, eger...",
+        forYouItems: [
+          "Aile anilarini saklayan bir ebeveynseniz",
+          "Maceralarini kaydeden bir gezginseniz",
+          "En iyi karelerini derleyen bir fotografciysaniz",
+          "Bir arkadasiniza icten bir hediye hazirliyorsaniz",
+          "Soy agaci ve aile tarihi meraklisiysaniz",
+          "Scrapbook sizin hobinizse",
+        ],
+        whatYouGetTitle: "Neler elde edersiniz",
+        whatYouGetItems: [
+          "Sezgisel arayuzle kolay siralama",
+          "Gorselleriniz gizli kalirken yapay zeka ile planlama",
+          "Baskiya hazir goruntuler",
+          "Filtreler, kolajlar ve tutarli duzenler",
+        ],
       },
       subscribe: {
         title: "Yakin kalin",
