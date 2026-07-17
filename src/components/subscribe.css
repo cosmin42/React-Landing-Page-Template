@@ -7,29 +7,40 @@
 #subscribe.subscribe-section--embedded {
   grid-column: 1 / -1;
   width: 100%;
+  margin-top: clamp(12px, 3vw, 40px);
   padding: 0;
   background: transparent;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-layout {
+  position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
   grid-template-areas:
     "copy form"
     "benefits form";
-  gap: clamp(16px, 2vw, 24px) clamp(22px, 3vw, 42px);
-  align-items: start;
+  gap: 8px clamp(32px, 4.5vw, 72px);
+  align-items: center;
   margin-left: 0;
   margin-right: 0;
-  padding: clamp(18px, 2.6vw, 30px);
-  border: 1px solid rgba(255, 248, 240, 0.16);
-  border-radius: 30px;
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid rgba(255, 248, 240, 0.12);
+  border-radius: 28px;
   background:
-    radial-gradient(circle at 14% 18%, rgba(66, 208, 178, 0.16), transparent 30%),
-    linear-gradient(135deg, rgba(7, 30, 26, 0.9), rgba(13, 45, 39, 0.72));
-  box-shadow: 0 24px 70px -42px rgba(0, 0, 0, 0.76);
-  backdrop-filter: blur(16px);
+    radial-gradient(120% 170% at 100% 0%, rgba(66, 208, 178, 0.14), transparent 46%),
+    linear-gradient(160deg, #0D2823 0%, #123129 56%, #0B211D 100%);
+  box-shadow: 0 30px 80px -48px rgba(11, 33, 29, 0.9);
   overflow: hidden;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-layout::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-accent), rgba(66, 208, 178, 0));
 }
 
 #subscribe.subscribe-section--embedded .subscribe-layout > [class*="col-"] {
@@ -44,17 +55,18 @@
 #subscribe.subscribe-section--embedded .subscribe-copy-column {
   grid-area: copy;
   align-items: flex-start;
+  align-self: end;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-form-column {
   grid-area: form;
-  align-self: stretch;
+  align-self: center;
   align-items: stretch;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-benefits-panel {
   grid-area: benefits;
-  align-self: end;
+  align-self: start;
 }
 
 #subscribe .subscribe-layout {
@@ -71,7 +83,7 @@
 #subscribe.subscribe-section--embedded .subscribe-copy {
   max-width: 640px;
   width: 100%;
-  padding: clamp(8px, 1.6vw, 18px) 0 0;
+  padding: 0;
 }
 
 #subscribe .subscribe-kicker {
@@ -141,98 +153,108 @@
 }
 
 #subscribe.subscribe-section--embedded .subscribe-form {
-  height: 100%;
-  align-content: start;
-  gap: 14px;
-  padding: clamp(20px, 2.6vw, 34px);
-  border: 1px solid rgba(255, 248, 240, 0.72);
-  border-radius: 24px;
-  background: rgba(255, 248, 240, 0.96);
-  box-shadow: 0 24px 58px -34px rgba(0, 0, 0, 0.7);
-  color: var(--color-font-main);
-}
-
-#subscribe.subscribe-section--embedded h2 {
+  height: auto;
+  align-content: center;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   color: var(--color-bg-alt);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-kicker {
   display: inline-flex;
   align-items: center;
-  min-height: 28px;
-  margin-bottom: 14px;
-  padding: 6px 11px;
-  border: 1px solid rgba(255, 248, 240, 0.18);
-  border-radius: 999px;
-  background: rgba(255, 248, 240, 0.08);
-  color: rgba(255, 248, 240, 0.78);
+  gap: 12px;
+  margin-bottom: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--color-accent);
+  letter-spacing: 0.2em;
   line-height: 1;
 }
 
-#subscribe.subscribe-section--embedded h2 {
-  margin-bottom: 12px;
-  font-size: clamp(34px, 4.5vw, 62px);
-  font-weight: 500;
-  line-height: 0.96;
+#subscribe.subscribe-section--embedded .subscribe-kicker::before {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent);
 }
 
-#subscribe.subscribe-section--embedded .subscribe-lead,
-#subscribe.subscribe-section--embedded .subscribe-benefits {
-  color: rgba(255, 248, 240, 0.72);
+#subscribe.subscribe-section--embedded h2 {
+  margin-bottom: 14px;
+  color: var(--color-bg-alt);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4.2vw, 56px);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.01em;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-lead {
-  max-width: 46ch;
-  font-size: clamp(16px, 1.7vw, 19px);
-  line-height: 1.58;
+  max-width: 48ch;
+  color: rgba(255, 248, 240, 0.72);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.65;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-benefits {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  gap: 10px;
   margin-top: 22px;
+  color: rgba(255, 248, 240, 0.64);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-benefits li {
-  display: inline-flex;
-  align-items: center;
-  min-height: 36px;
-  padding: 8px 13px 8px 34px;
-  border: 1px solid rgba(255, 248, 240, 0.14);
-  border-radius: 999px;
-  background: rgba(255, 248, 240, 0.08);
-  font-size: 13px;
-  line-height: 1.25;
+  display: block;
+  min-height: 0;
+  padding: 0 0 0 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  font-size: 14px;
+  line-height: 1.55;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-benefits li::before {
-  top: 50%;
-  left: 13px;
-  transform: translateY(-50%);
-  color: var(--color-bg-alt);
+  top: 0.2em;
+  left: 0;
+  transform: none;
+  color: var(--color-accent);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-input-row {
-  grid-template-columns: minmax(0, 1fr) minmax(136px, auto);
-  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
   padding: 6px;
-  border: 1px solid rgba(23, 58, 52, 0.12);
+  border: 1px solid rgba(255, 248, 240, 0.18);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 248, 240, 0.06);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+#subscribe.subscribe-section--embedded .subscribe-input-row:focus-within {
+  border-color: rgba(var(--color-accent-rgb) / 0.6);
+  background: rgba(255, 248, 240, 0.09);
+  box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb) / 0.14);
 }
 
 #subscribe.subscribe-section--embedded input[type="email"] {
-  min-height: 52px;
-  padding: 0 18px;
+  min-height: 50px;
+  padding: 0 20px;
   border-color: transparent;
   border-radius: 999px;
   background: transparent;
-  color: var(--color-font-main);
+  color: var(--color-bg-alt);
+  font-weight: 500;
 }
 
 #subscribe.subscribe-section--embedded input[type="email"]::placeholder {
-  color: rgba(23, 58, 52, 0.46);
+  color: rgba(255, 248, 240, 0.42);
 }
 
 #subscribe.subscribe-section--embedded input[type="email"]:focus {
@@ -241,47 +263,57 @@
 }
 
 #subscribe.subscribe-section--embedded .subscribe-submit {
-  min-height: 52px;
-  padding: 0 22px;
-  color: var(--color-bg-alt);
-  background: var(--color-confirm);
-  border-color: var(--color-confirm);
+  min-height: 50px;
+  padding: 0 26px;
+  color: #0B211D;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   border-radius: 999px;
+  font-weight: 700;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-submit:hover,
 #subscribe.subscribe-section--embedded .subscribe-submit:focus {
-  color: var(--color-bg-alt);
-  background: #102B26;
+  color: #0B211D;
+  background: var(--color-bg-alt);
+  border-color: var(--color-bg-alt);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-consent,
-#subscribe.subscribe-section--embedded .subscribe-privacy,
+#subscribe.subscribe-section--embedded .subscribe-privacy {
+  color: rgba(255, 248, 240, 0.6);
+}
+
 #subscribe.subscribe-section--embedded .subscribe-status {
-  color: rgba(23, 58, 52, 0.68);
+  color: rgba(255, 248, 240, 0.72);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-consent {
   float: none;
   max-width: 56ch;
   font-size: 13px;
-  line-height: 1.45;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-consent input {
-  accent-color: var(--color-confirm);
+  accent-color: var(--color-accent);
+}
+
+#subscribe.subscribe-section--embedded .subscribe-privacy {
+  font-size: 12.5px;
 }
 
 #subscribe.subscribe-section--embedded .subscribe-privacy a {
-  color: var(--color-confirm);
+  color: var(--color-accent);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-status--success {
-  color: #0F6B4F;
+  color: var(--color-accent);
 }
 
 #subscribe.subscribe-section--embedded .subscribe-status--error {
-  color: var(--color-danger);
+  color: #F1978C;
 }
 
 #subscribe .subscribe-input-row {
@@ -379,23 +411,26 @@
 
 @media (max-width: 991px) {
   #subscribe.subscribe-section--embedded .subscribe-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(310px, 0.9fr);
+    grid-template-columns: 1fr;
     grid-template-areas:
-      "copy form"
-      "benefits form";
-    gap: 18px 20px;
+      "copy"
+      "form"
+      "benefits";
+    gap: 22px;
+    padding: clamp(24px, 5vw, 40px);
   }
 
-  #subscribe.subscribe-section--embedded .subscribe-copy {
-    padding: 8px 0 0;
+  #subscribe.subscribe-section--embedded .subscribe-copy-column,
+  #subscribe.subscribe-section--embedded .subscribe-benefits-panel {
+    align-self: auto;
   }
 
   #subscribe.subscribe-section--embedded h2 {
-    font-size: clamp(32px, 5.4vw, 48px);
+    font-size: clamp(32px, 5.4vw, 44px);
   }
 
-  #subscribe.subscribe-section--embedded .subscribe-form {
-    padding: 20px;
+  #subscribe.subscribe-section--embedded .subscribe-benefits {
+    margin-top: 0;
   }
 }
 
@@ -409,32 +444,9 @@
   }
 
   #subscribe.subscribe-section--embedded .subscribe-layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "copy"
-      "form"
-      "benefits";
-    gap: 16px;
-    padding: 14px;
+    gap: 18px;
+    padding: 22px 18px;
     border-radius: 24px;
-  }
-
-  #subscribe.subscribe-section--embedded .subscribe-copy {
-    padding: 8px 8px 0;
-  }
-
-  #subscribe.subscribe-section--embedded .subscribe-benefits-panel {
-    align-self: stretch;
-  }
-
-  #subscribe.subscribe-section--embedded .subscribe-benefits {
-    display: grid;
-    gap: 8px;
-  }
-
-  #subscribe.subscribe-section--embedded .subscribe-form {
-    padding: 16px;
-    border-radius: 20px;
   }
 
   #subscribe .subscribe-form {
@@ -443,15 +455,26 @@
 
   #subscribe.subscribe-section--embedded .subscribe-input-row {
     grid-template-columns: 1fr;
+    gap: 10px;
     padding: 0;
     border: 0;
     border-radius: 0;
     background: transparent;
   }
 
+  #subscribe.subscribe-section--embedded .subscribe-input-row:focus-within {
+    background: transparent;
+    box-shadow: none;
+  }
+
   #subscribe.subscribe-section--embedded input[type="email"] {
-    border-color: rgba(23, 58, 52, 0.12);
-    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid rgba(255, 248, 240, 0.18);
+    background: rgba(255, 248, 240, 0.06);
+  }
+
+  #subscribe.subscribe-section--embedded input[type="email"]:focus {
+    border-color: rgba(var(--color-accent-rgb) / 0.6);
+    box-shadow: 0 0 0 4px rgba(var(--color-accent-rgb) / 0.14);
   }
 
   #subscribe .subscribe-input-row {
