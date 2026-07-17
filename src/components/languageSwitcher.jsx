@@ -6,6 +6,10 @@ export const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
   const label = getSiteContent(language).footer.languageLabel;
 
+  if (languageOptions.length <= 1) {
+    return null;
+  }
+
   return (
     <div className="footer-language-switcher" aria-label={label}>
       <span className="footer-language-switcher__label">{label}</span>

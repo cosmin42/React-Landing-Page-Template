@@ -96,24 +96,26 @@ export const Navigation = (props) => {
                 </li>
               </ul>
             </li>
-            <li className="navbar-language-item" aria-label={navigation.languageLabel}>
-              <div className="language-switcher" role="group" aria-label={navigation.languageLabel}>
-                {languageOptions.map((option) => (
-                  <button
-                    key={option.code}
-                    type="button"
-                    className={`language-switcher__button${language === option.code ? ' is-active' : ''}`}
-                    aria-pressed={language === option.code}
-                    onClick={() => {
-                      setLanguage(option.code);
-                      closeMobileMenu();
-                    }}
-                  >
-                    {option.shortLabel}
-                  </button>
-                ))}
-              </div>
-            </li>
+            {languageOptions.length > 1 && (
+              <li className="navbar-language-item" aria-label={navigation.languageLabel}>
+                <div className="language-switcher" role="group" aria-label={navigation.languageLabel}>
+                  {languageOptions.map((option) => (
+                    <button
+                      key={option.code}
+                      type="button"
+                      className={`language-switcher__button${language === option.code ? ' is-active' : ''}`}
+                      aria-pressed={language === option.code}
+                      onClick={() => {
+                        setLanguage(option.code);
+                        closeMobileMenu();
+                      }}
+                    >
+                      {option.shortLabel}
+                    </button>
+                  ))}
+                </div>
+              </li>
+            )}
           </ul>
         </div>
       </div>
