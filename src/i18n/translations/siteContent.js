@@ -234,7 +234,7 @@ export const siteContent = {
     home: {
       header: {
         paragraph:
-          "A memory book app and digital scrapbook app for organizing photos, preserving family history questions, and exporting elegant albums on macOS and iPad.",
+          "We value where we come from and the challenges we’ve overcome. Photo Book Noir acts as a bridge between generations, organizing massive volumes of photos into elegant, sequential layouts. It allows families, friends, and communities to easily glance back into the past, fostering a deep sense of connection, understanding, and pride in our collective journey.",
       },
     },
   }),
