@@ -12,6 +12,15 @@
   background: transparent;
 }
 
+/* The card sits between #about and #contact, on the page background. */
+.subscribe-standalone {
+  padding: 88px 0;
+}
+
+.subscribe-standalone #subscribe.subscribe-section--embedded {
+  margin-top: 0;
+}
+
 #subscribe.subscribe-section--embedded .subscribe-layout {
   position: relative;
   display: grid;
@@ -436,6 +445,10 @@
 
 @media (max-width: 767px) {
   #subscribe {
+    padding: 64px 0;
+  }
+
+  .subscribe-standalone {
     padding: 64px 0;
   }
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Header } from "./components/header";
 import { About } from "./components/about";
 import { Contact } from "./components/contact";
+import { Subscribe } from "./components/subscribe";
 import { Footer } from "./components/footer";
 import { getSiteContent } from "./i18n/translations/siteContent";
 import SmoothScroll from "smooth-scroll";
@@ -19,8 +20,13 @@ const App = () => {
 
   return (
     <div>
-      <Header data={content.home.header} demo={content.home.demo} subscribe={content.home.subscribe} language={language} />
+      <Header data={content.home.header} demo={content.home.demo} language={language} />
       <About data={content.home.about} />
+      <div className="subscribe-standalone">
+        <div className="container">
+          <Subscribe data={content.home.subscribe} language={language} embedded />
+        </div>
+      </div>
       <Contact data={content.home.contact} />
       <Footer />
     </div>

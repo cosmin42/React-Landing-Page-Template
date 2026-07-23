@@ -1,5 +1,4 @@
 import React from "react";
-import { Subscribe } from "./subscribe";
 
 const appStoreBadgeByLanguage = {
   en: "/app-store-icons/US/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg",
@@ -22,7 +21,6 @@ export const Header = (props) => {
   const [isDemoPlaying, setIsDemoPlaying] = React.useState(false);
   const data = props.data || {};
   const demo = props.demo || {};
-  const subscribe = props.subscribe || {};
   const language = props.language || "en";
   const appStoreBadgeSrc = `${process.env.PUBLIC_URL}${appStoreBadgeByLanguage[language] || appStoreBadgeByLanguage.en}`;
   const demoTitle = demo.title || "Demo";
@@ -110,7 +108,6 @@ export const Header = (props) => {
                   </div>
                 </div>
               </div>
-              <Subscribe data={subscribe} language={language} embedded />
             </div>
           </div>
         </div>
