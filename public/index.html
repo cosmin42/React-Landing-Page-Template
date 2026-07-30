@@ -13,10 +13,16 @@
     content="app-id=6749212233, app-argument=https://apps.apple.com/nl/app/photo-book-noir/id6749212233?l=en-GB"
   />
 
-  <!-- Use the existing PNG as favicon (filename contains a space, so URL-encode it) -->
-  <link rel="icon" href="/img/pb-noir256%201.png" type="image/png" />
-  <link rel="shortcut icon" href="/img/pb-noir256%201.png" />
-  <link rel="apple-touch-icon" href="/img/pb-noir256%201.png" />
+  <!--
+    Favicons. Google Search needs a root /favicon.ico (its crawler falls back to that
+    path) plus square PNGs in multiples of 48px; URLs must be plain and stable.
+  -->
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/img/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192x192.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,7 +77,7 @@
   <meta name="twitter:description" content="Sequence thousands of photos into consistent, print-ready album and collage layouts. Offline AI planning keeps your images private." />
   <meta name="twitter:image" content="https://photobook-noir.com/img/intro-bg.jpg" />
   <meta name="twitter:image:alt" content="Photo Book Noir sequencing photos into consistent print-ready layouts" />
-  <meta name="msapplication-TileImage" content="/img/logo.svg" />
+  <meta name="msapplication-TileImage" content="/img/favicon-192x192.png" />
   <link rel="preload" as="image" href="/img/logo.svg" />
   <!-- Preload the hero image so it downloads in parallel with the JS bundle (must match the <picture> srcset/sizes in header.jsx) -->
   <link
