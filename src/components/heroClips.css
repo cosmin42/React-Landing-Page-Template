@@ -60,6 +60,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Applies to the poster frame as well, so a clip looks the same before and
+     after it starts playing. */
+  filter: saturate(1.35);
 }
 
 /* Keeps the title legible over whatever frame the clip happens to be on. */
