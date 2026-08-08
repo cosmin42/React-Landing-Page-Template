@@ -1,0 +1,152 @@
+.hero-clips {
+  margin: clamp(24px, 3vw, 36px) 0 0;
+}
+
+/* Three up, so the clips stay big enough to read inside the hero's copy
+   column; the remaining two wrap onto a second row. */
+.hero-clips-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(10px, 1.2vw, 16px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero-clip {
+  margin: 0;
+  min-width: 0;
+}
+
+.hero-clip-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  overflow: hidden;
+  background: rgba(255 248 240 / 0.07);
+  border: 1px solid rgba(255 248 240 / 0.18);
+  border-radius: 18px;
+  box-shadow: 0 18px 38px -24px rgba(0 0 0 / 0.78);
+  cursor: pointer;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.hero-clip-button:hover,
+.hero-clip-button:focus-visible,
+.hero-clip-button.is-playing {
+  transform: translateY(-6px);
+  border-color: rgba(255 248 240 / 0.42);
+  box-shadow: 0 26px 52px -26px rgba(0 0 0 / 0.86);
+}
+
+.hero-clip-button:focus-visible {
+  outline: 2px solid rgba(255 248 240 / 0.72);
+  outline-offset: 3px;
+}
+
+.hero-clip-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Keeps the title legible over whatever frame the clip happens to be on. */
+.hero-clip-button::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(8 24 21 / 0) 0%, rgba(8 24 21 / 0.82) 100%);
+}
+
+.hero-clip-glyph {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 11px;
+  line-height: 1;
+  color: #173a34;
+  background: rgba(255 248 240 / 0.9);
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity 0.24s ease;
+}
+
+.hero-clip-button:hover .hero-clip-glyph,
+.hero-clip-button:focus-visible .hero-clip-glyph,
+.hero-clip-button.is-playing .hero-clip-glyph {
+  opacity: 1;
+}
+
+.hero-clip-title {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 12px;
+  z-index: 1;
+  display: block;
+  color: rgba(255 248 240 / 0.94);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0 0 0 / 0.5);
+}
+
+/* The hero collapses to a single column here, so cap the strip before the
+   clips balloon to the full container width. */
+@media (max-width: 991px) {
+  .hero-clips-strip {
+    max-width: 760px;
+  }
+}
+
+/* Below the two-column breakpoint the strip scrolls instead of shrinking the
+   clips into unreadable slivers. */
+@media (max-width: 767px) {
+  .hero-clips-strip {
+    grid-auto-flow: column;
+    grid-auto-columns: 168px;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+
+  .hero-clips-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hero-clip {
+    scroll-snap-align: start;
+  }
+
+  .hero-clip-glyph,
+  .hero-clip-title {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-clip-button,
+  .hero-clip-glyph {
+    transition: none;
+  }
+
+  .hero-clip-button:hover,
+  .hero-clip-button:focus-visible,
+  .hero-clip-button.is-playing {
+    transform: none;
+  }
+}

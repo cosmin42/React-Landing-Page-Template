@@ -11,6 +11,9 @@
 # production
 /build
 
+# raw footage (135MB of stock video); run scripts/optimize-videos.sh to rebuild public/video/clips
+/media-src
+
 # misc
 .DS_Store
 .env.local

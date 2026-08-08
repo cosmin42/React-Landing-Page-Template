@@ -20,7 +20,12 @@ const App = () => {
 
   return (
     <div>
-      <Header data={content.home.header} demo={content.home.demo} language={language} />
+      <Header
+        data={content.home.header}
+        demo={content.home.demo}
+        stories={content.home.stories}
+        language={language}
+      />
       <About data={content.home.about} />
       <div className="subscribe-standalone">
         <div className="container">

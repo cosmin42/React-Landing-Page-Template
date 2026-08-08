@@ -94,6 +94,60 @@ const baseLocale = {
         { src: "/img/screenshots/screenshot06.avif", title: "Scrapbook Design" },
       ],
     },
+    stories: {
+      kicker: "In motion",
+      title: "Stories worth keeping",
+      playLabel: "Play",
+      pauseLabel: "Pause",
+      note: "Clips are muted and load only when you play them.",
+      clips: [
+        {
+          slug: "vintage-photos",
+          title: "Boxes of old prints",
+          caption: "Decades of loose photographs, waiting to become a book.",
+          duration: "0:05",
+          mp4: "/video/clips/vintage-photos.mp4",
+          webm: "/video/clips/vintage-photos.webm",
+          poster: "/video/clips/vintage-photos.jpg",
+        },
+        {
+          slug: "generations",
+          title: "Across generations",
+          caption: "The stories that travel from grandparents to grandchildren.",
+          duration: "0:35",
+          mp4: "/video/clips/generations.mp4",
+          webm: "/video/clips/generations.webm",
+          poster: "/video/clips/generations.jpg",
+        },
+        {
+          slug: "family-walk",
+          title: "Everyday together",
+          caption: "Ordinary afternoons that look priceless years later.",
+          duration: "0:09",
+          mp4: "/video/clips/family-walk.mp4",
+          webm: "/video/clips/family-walk.webm",
+          poster: "/video/clips/family-walk.jpg",
+        },
+        {
+          slug: "photographer",
+          title: "Behind the lens",
+          caption: "For photographers curating a body of work, not a folder.",
+          duration: "0:15",
+          mp4: "/video/clips/photographer.mp4",
+          webm: "/video/clips/photographer.webm",
+          poster: "/video/clips/photographer.jpg",
+        },
+        {
+          slug: "everyday-moments",
+          title: "Small moments",
+          caption: "The candid frames that fill the pages in between.",
+          duration: "0:12",
+          mp4: "/video/clips/everyday-moments.mp4",
+          webm: "/video/clips/everyday-moments.webm",
+          poster: "/video/clips/everyday-moments.jpg",
+        },
+      ],
+    },
     about: {
       title: "About the App",
       forYouTitle: "This is for you if...",
@@ -230,14 +284,7 @@ const createLocale = (storeLanguage, overrides = {}) => {
 };
 
 export const siteContent = {
-  en: createLocale("en-GB", {
-    home: {
-      header: {
-        paragraph:
-          "We value where we come from and the challenges we’ve overcome. Photo Book Noir acts as a bridge between generations, organizing massive volumes of photos into elegant, sequential layouts. It allows families, friends, and communities to easily glance back into the past, fostering a deep sense of connection, understanding, and pride in our collective journey.",
-      },
-    },
-  }),
+  en: createLocale("en-GB"),
   nl: createLocale("nl-NL", {
     navigation: {
       toggleLabel: "Navigatie openen",
