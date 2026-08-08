@@ -36,9 +36,18 @@
 .hero-clip-button:hover,
 .hero-clip-button:focus-visible,
 .hero-clip-button.is-playing {
-  transform: translateY(-6px);
   border-color: rgba(255 248 240 / 0.42);
   box-shadow: 0 26px 52px -26px rgba(0 0 0 / 0.86);
+}
+
+/* The lift is a pointer affordance only. On touch the strip scrolls, which
+   clips its own overflow, so a raised card loses its top edge. */
+@media (hover: hover) and (pointer: fine) {
+  .hero-clip-button:hover,
+  .hero-clip-button:focus-visible,
+  .hero-clip-button.is-playing {
+    transform: translateY(-6px);
+  }
 }
 
 .hero-clip-button:focus-visible {
@@ -164,7 +173,9 @@
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 6px;
+    /* Scrolling makes this box clip on both axes, so leave room for the card
+       shadow and focus ring rather than letting them get cut off. */
+    padding: 6px 0 10px;
     scrollbar-width: none;
   }
 
