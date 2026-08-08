@@ -115,8 +115,19 @@ export const HeroClips = (props) => {
                 <span className="hero-clip-glyph" aria-hidden="true">
                   {isPlaying ? "❙❙" : "▶"}
                 </span>
-                <span className="hero-clip-title" aria-hidden="true">
-                  {clip.title}
+                <span className="hero-clip-meta">
+                  <span className="hero-clip-title" aria-hidden="true">
+                    {clip.title}
+                  </span>
+                  {/* Anchored to the bottom of the card, so revealing this on
+                      hover grows the block upwards instead of clipping it. */}
+                  <span className="hero-clip-detail">
+                    {clip.caption ? (
+                      <span className="hero-clip-caption" id={captionId}>
+                        {clip.caption}
+                      </span>
+                    ) : null}
+                  </span>
                 </span>
               </button>
             </li>

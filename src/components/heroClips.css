@@ -61,6 +61,15 @@
   height: 58%;
   pointer-events: none;
   background: linear-gradient(180deg, rgba(8 24 21 / 0) 0%, rgba(8 24 21 / 0.82) 100%);
+  transition: height 0.3s ease, background 0.3s ease;
+}
+
+/* The scrim grows with the revealed details so the caption stays readable. */
+.hero-clip-button:hover::after,
+.hero-clip-button:focus-visible::after,
+.hero-clip-button.is-playing::after {
+  height: 100%;
+  background: linear-gradient(180deg, rgba(8 24 21 / 0.12) 0%, rgba(8 24 21 / 0.72) 46%, rgba(8 24 21 / 0.92) 100%);
 }
 
 .hero-clip-glyph {
@@ -88,19 +97,54 @@
   opacity: 1;
 }
 
-.hero-clip-title {
+.hero-clip-meta {
   position: absolute;
   left: 14px;
   right: 14px;
   bottom: 12px;
   z-index: 1;
   display: block;
+  text-align: left;
+  text-shadow: 0 1px 6px rgba(0 0 0 / 0.5);
+}
+
+.hero-clip-title {
+  display: block;
   color: rgba(255 248 240 / 0.94);
   font-size: 14px;
   font-weight: 400;
   line-height: 1.3;
-  text-align: left;
-  text-shadow: 0 1px 6px rgba(0 0 0 / 0.5);
+}
+
+.hero-clip-detail {
+  display: block;
+  max-height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s ease, margin-top 0.3s ease, opacity 0.22s ease;
+}
+
+.hero-clip-caption {
+  color: rgba(255 248 240 / 0.78);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-clip-button:hover .hero-clip-detail,
+  .hero-clip-button:focus-visible .hero-clip-detail {
+    max-height: 9em;
+    margin-top: 7px;
+    opacity: 1;
+  }
+}
+
+/* Touch has no hover, so the details ride along with playback instead. */
+.hero-clip-button.is-playing .hero-clip-detail {
+  max-height: 9em;
+  margin-top: 7px;
+  opacity: 1;
 }
 
 /* The hero collapses to a single column here, so cap the strip before the
@@ -140,7 +184,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-clip-button,
-  .hero-clip-glyph {
+  .hero-clip-button::after,
+  .hero-clip-glyph,
+  .hero-clip-detail {
     transition: none;
   }
 
