@@ -44,7 +44,6 @@ export const Header = (props) => {
                     {data.title}
                     <span></span>
                   </h1>
-                  <HeroClips data={stories} />
                   <div className="intro-actions">
                     {data.appStoreHref ? (
                       <div className="appstore-link-wrap">
@@ -63,6 +62,7 @@ export const Header = (props) => {
                       </div>
                     ) : null}
                   </div>
+                  <HeroClips data={stories} />
                 </div>
                 <div
                   className={`intro-demo${isDemoPlaying ? " intro-demo--playing" : ""}${hasDemoImage ? " intro-demo--image" : ""}`}
@@ -110,6 +110,9 @@ export const Header = (props) => {
                   </div>
                 </div>
               </div>
+              {data.paragraph ? (
+                <p className="intro-lede">{data.paragraph}</p>
+              ) : null}
             </div>
           </div>
         </div>

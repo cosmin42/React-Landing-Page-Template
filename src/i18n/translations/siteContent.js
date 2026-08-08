@@ -284,7 +284,14 @@ const createLocale = (storeLanguage, overrides = {}) => {
 };
 
 export const siteContent = {
-  en: createLocale("en-GB"),
+  en: createLocale("en-GB", {
+    home: {
+      header: {
+        paragraph:
+          "We value where we come from and the challenges we’ve overcome. Photo Book Noir acts as a bridge between generations, organizing massive volumes of photos into elegant, sequential layouts. It allows families, friends, and communities to easily glance back into the past, fostering a deep sense of connection, understanding, and pride in our collective journey.",
+      },
+    },
+  }),
   nl: createLocale("nl-NL", {
     navigation: {
       toggleLabel: "Navigatie openen",

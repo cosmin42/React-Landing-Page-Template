@@ -75,6 +75,9 @@ export const HeroClips = (props) => {
           const label = isPlaying
             ? `${data.pauseLabel || "Pause"}: ${clip.title}`
             : `${data.playLabel || "Play"}: ${clip.title}`;
+          const captionId = clip.caption
+            ? `hero-clip-caption-${clip.slug || index}`
+            : undefined;
 
           return (
             <li className="hero-clip" key={clip.slug || index}>
@@ -82,6 +85,7 @@ export const HeroClips = (props) => {
                 type="button"
                 className={`hero-clip-button${isPlaying ? " is-playing" : ""}`}
                 aria-label={label}
+                aria-describedby={captionId}
                 aria-pressed={isPlaying}
                 onClick={() => toggle(index)}
                 onMouseEnter={() => hoverPlay(index)}

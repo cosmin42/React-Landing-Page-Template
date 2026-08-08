@@ -1924,6 +1924,7 @@ a {
   max-width: 720px;
   position: relative;
   z-index: 1;
+  container-type: inline-size;
 }
 
 .intro h1 {
@@ -1932,9 +1933,21 @@ a {
   background: none;
   -webkit-background-clip: initial;
   background-clip: initial;
-  font-size: clamp(62px, 8vw, 116px);
+  /* Viewport-based fallback sized so the wordmark still fits the copy column
+     on one line where container queries are unavailable. */
+  font-size: clamp(34px, 4.6vw, 96px);
   font-weight: 500;
   line-height: 0.96;
+  white-space: nowrap;
+}
+
+/* Keeps the wordmark on a single line: 12% of the copy column per em is the
+   widest "Photo Book Noir" can be set and still fit, including the Georgia
+   fallback. Browsers without container queries keep the clamp above. */
+@supports (font-size: 1cqi) {
+  .intro h1 {
+    font-size: min(12cqi, 116px);
+  }
 }
 
 .intro p {
@@ -1951,6 +1964,16 @@ a {
   flex-wrap: wrap;
   gap: 14px 16px;
   margin-top: 30px;
+}
+
+/* Supporting copy below the whole stage: full container width, and quieter
+   and smaller than the headline scale .intro p sets. */
+.intro p.intro-lede {
+  max-width: none;
+  margin: 0;
+  color: rgba(255 248 240 / 0.66);
+  font-size: clamp(15px, 1.2vw, 17px);
+  line-height: 1.62;
 }
 
 .intro-actions .appstore-link-wrap {
@@ -2206,13 +2229,25 @@ a {
   }
 
   .intro h1 {
-    font-size: clamp(56px, 17vw, 82px);
+    font-size: clamp(30px, 11.5vw, 60px);
+  }
+
+  @supports (font-size: 1cqi) {
+    .intro h1 {
+      font-size: min(12cqi, 82px);
+    }
   }
 
   .intro p {
     margin: 0 0 26px;
     font-size: clamp(20px, 6vw, 28px);
     line-height: 1.36;
+  }
+
+  .intro p.intro-lede {
+    margin: 24px 0 0;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   .intro-actions {
