@@ -82,12 +82,14 @@
   transition: height 0.3s ease, background 0.3s ease;
 }
 
-/* The scrim grows with the revealed details so the caption stays readable. */
+/* The scrim grows with the revealed details so the caption stays readable. It
+   stops short of the top and starts fully transparent, so the frame itself
+   stays as vibrant as it looks at rest instead of picking up an overall wash. */
 .hero-clip-button:hover::after,
 .hero-clip-button:focus-visible::after,
 .hero-clip-button.is-playing::after {
-  height: 100%;
-  background: linear-gradient(180deg, rgba(8 24 21 / 0.12) 0%, rgba(8 24 21 / 0.72) 46%, rgba(8 24 21 / 0.92) 100%);
+  height: 80%;
+  background: linear-gradient(180deg, rgba(8 24 21 / 0) 0%, rgba(8 24 21 / 0.34) 40%, rgba(8 24 21 / 0.9) 100%);
 }
 
 .hero-clip-glyph {
