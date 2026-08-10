@@ -172,7 +172,9 @@
 @media (max-width: 767px) {
   .hero-clips-strip {
     grid-auto-flow: column;
-    grid-auto-columns: 168px;
+    /* Wide enough that a 16:9 card still reads at a glance; the fraction of
+       the viewport keeps a sliver of the next clip visible as a scroll hint. */
+    grid-auto-columns: min(72vw, 300px);
     grid-template-columns: none;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -188,6 +190,18 @@
 
   .hero-clip {
     scroll-snap-align: start;
+  }
+
+  /* The clips are 16:9. A portrait card would cover-crop more than half of
+     each frame away, so match the footage here and lose nothing. */
+  .hero-clip-button {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* A short card leaves little room under the title, so keep the caption to
+     the two lines that fit rather than letting it push past the card. */
+  .hero-clip-button.is-playing .hero-clip-detail {
+    max-height: 3.2em;
   }
 
   .hero-clip-glyph,
