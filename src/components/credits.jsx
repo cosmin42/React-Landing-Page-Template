@@ -44,13 +44,15 @@ const CreditsComponentItem = ({ item, versionLabel, licenseLabel }) => {
 const CreditsPeopleItem = ({ item }) => {
   return (
     <li className="credits-item">
+      {item.name}
+      {/* Footage entries name the filmmaker between the title and its source. */}
+      {item.author ? <> — {item.author}</> : null}
       {item.url ? (
         <>
-          {item.name} — <ExternalLink href={item.url}>{item.url}</ExternalLink>
+          {" "}
+          — <ExternalLink href={item.url}>{item.url}</ExternalLink>
         </>
-      ) : (
-        item.name
-      )}
+      ) : null}
       {item.note ? <span className="credits-meta"> ({item.note})</span> : null}
     </li>
   );
@@ -100,11 +102,22 @@ export const Credits = () => {
                 )}
 
                 {section.type === "people" && (
-                  <ul className="small">
-                    {section.items.map((item) => (
-                      <CreditsPeopleItem key={`${item.name}-${item.url || ""}`} item={item} />
-                    ))}
-                  </ul>
+                  <>
+                    <ul className="small">
+                      {section.items.map((item) => (
+                        <CreditsPeopleItem key={`${item.name}-${item.url || ""}`} item={item} />
+                      ))}
+                    </ul>
+                    {section.links?.length ? (
+                      <p className="small">
+                        {section.links.map((link) => (
+                          <ExternalLink key={link.url} href={link.url}>
+                            {link.label}
+                          </ExternalLink>
+                        ))}
+                      </p>
+                    ) : null}
+                  </>
                 )}
 
                 {section.type === "text" && (

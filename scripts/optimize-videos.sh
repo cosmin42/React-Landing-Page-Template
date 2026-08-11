@@ -6,7 +6,7 @@
 #   <slug>.webm  VP9 960x540, no audio (smaller, served first where supported)
 #   <slug>.jpg   poster frame, so nothing downloads until the user asks for it
 #
-# Usage: ./scripts/optimize-videos.sh
+# Usage: ./scripts/optimize-videos.sh [slug ...]   (no slugs = rebuild everything)
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
@@ -23,7 +23,24 @@ CLIPS=(
   "family-walk|4267809-uhd_3840_2160_30fps.mp4|2"
   "photographer|15840023_3840_2160_50fps.mp4|2"
   "everyday-moments|15634348_1920_1080_30fps.mp4|2"
+  "holiday-tree|5895288-uhd_3840_2160_30fps.mp4|5"
+  "birthday|6666640-uhd_4096_2160_25fps.mp4|5"
+  "pets|7802455-uhd_4096_2160_25fps.mp4|5"
+  "kitchen|7818021-hd_1920_1080_24fps.mp4|5"
+  "painting|13251449_1920_1080_50fps.mp4|4"
 )
+
+# Re-encoding all of the above takes minutes, so allow rebuilding just the
+# slugs named on the command line.
+wanted() {
+  [ "$#" -eq 0 ] && return 0
+  local slug="$1"
+  shift
+  for arg in "$@"; do
+    [ "$arg" = "$slug" ] && return 0
+  done
+  return 1
+}
 
 # Centre-crop to 16:9 so every card in the grid has the same shape, then downscale.
 FILTER="crop=ih*16/9:ih,scale=${WIDTH}:${HEIGHT}:flags=lanczos,fps=30"
@@ -33,6 +50,8 @@ mkdir -p "$OUT_DIR"
 for entry in "${CLIPS[@]}"; do
   IFS='|' read -r slug src poster_at <<<"$entry"
   in="$SRC_DIR/$src"
+
+  wanted "$slug" "$@" || continue
 
   if [ ! -f "$in" ]; then
     echo "skip $slug (missing $in)"

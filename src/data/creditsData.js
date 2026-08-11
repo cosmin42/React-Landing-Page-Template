@@ -295,6 +295,22 @@ const peopleItems = [
   },
 ];
 
+// Stock clips used on the site, in the order they appear in the stories grid.
+// The id in each URL is the Pexels video id, which is also the prefix of the
+// raw filename in media-src/video. Add `author:` per entry once the name is
+// confirmed on the linked source page; the UI renders it when present.
+const footageItems = [
+  { name: "Boxes of old prints", url: "https://www.pexels.com/video/5674557/" },
+  { name: "Across generations", url: "https://www.pexels.com/video/7118244/" },
+  { name: "Everyday together", url: "https://www.pexels.com/video/4267809/" },
+  { name: "Behind the lens", url: "https://www.pexels.com/video/15840023/" },
+  { name: "Made by hand", url: "https://www.pexels.com/video/13251449/" },
+  { name: "Every December", url: "https://www.pexels.com/video/5895288/" },
+  { name: "Candles and paper", url: "https://www.pexels.com/video/6666640/" },
+  { name: "The other family", url: "https://www.pexels.com/video/7802455/" },
+  { name: "Around the table", url: "https://www.pexels.com/video/7818021/" },
+];
+
 const creditsLabels = {
   en: {
     intro: {
@@ -319,6 +335,9 @@ const creditsLabels = {
         "No warranty is provided for these LUTs; they are supplied as is under the CC BY-SA 2.0 license terms.",
       ],
       authorsTitle: "Color Preset / HaldCLUT Authors",
+      footageTitle: "Video Footage",
+      footageHint:
+        "The short clips on this site are stock footage from Pexels, used under the Pexels License. Each title links to its source page, where the filmmaker is credited.",
       trademarksTitle: "Trademark Disclaimer",
       trademarksParagraphs: [
         "Any trademarked film or product names that may appear in LUT filenames are referenced solely for descriptive purposes; they remain the property of their respective owners.",
@@ -352,6 +371,9 @@ const creditsLabels = {
         "Voor deze LUT's wordt geen garantie gegeven; ze worden geleverd in de staat waarin ze zich bevinden onder de voorwaarden van CC BY-SA 2.0.",
       ],
       authorsTitle: "Auteurs van kleurpresets / HaldCLUT's",
+      footageTitle: "Videobeelden",
+      footageHint:
+        "De korte clips op deze site zijn stockbeelden van Pexels, gebruikt onder de Pexels-licentie. Elke titel linkt naar de bronpagina, waar de maker wordt vermeld.",
       trademarksTitle: "Handelsmerkverklaring",
       trademarksParagraphs: [
         "Eventuele handelsnamen van film- of productnamen in LUT-bestandsnamen worden uitsluitend ter beschrijving gebruikt en blijven eigendom van hun respectieve rechthebbenden.",
@@ -385,6 +407,9 @@ const creditsLabels = {
         "Aucune garantie n'est fournie pour ces LUT ; elles sont proposees telles quelles selon les termes de la licence CC BY-SA 2.0.",
       ],
       authorsTitle: "Auteurs des presets couleur / HaldCLUT",
+      footageTitle: "Sequences video",
+      footageHint:
+        "Les clips courts de ce site sont des sequences de stock issues de Pexels, utilisees sous licence Pexels. Chaque titre renvoie a sa page source, ou l'auteur est credite.",
       trademarksTitle: "Avertissement sur les marques",
       trademarksParagraphs: [
         "Tout nom de film ou de produit protege par une marque qui apparaitrait dans un nom de fichier LUT est utilise uniquement a des fins descriptives et reste la propriete de son detenteur respectif.",
@@ -439,6 +464,19 @@ const buildCreditsData = (language) => {
         title: labels.sections.authorsTitle,
         type: "people",
         items: localizeItems(peopleItems, language),
+      },
+      {
+        id: "footage",
+        title: labels.sections.footageTitle,
+        hint: labels.sections.footageHint,
+        type: "people",
+        items: localizeItems(footageItems, language),
+        links: [
+          {
+            label: "https://www.pexels.com/license/",
+            url: "https://www.pexels.com/license/",
+          },
+        ],
       },
       {
         id: "trademarks",
