@@ -1,5 +1,4 @@
 import React from "react";
-import { HeroClips } from "./heroClips";
 
 const appStoreBadgeByLanguage = {
   en: "/app-store-icons/US/Download_on_App_Store/White_lockup/SVG/Download_on_the_App_Store_Badge_US-UK_RGB_wht_092917.svg",
@@ -19,18 +18,34 @@ const appStoreBadgeByLanguage = {
 };
 
 export const Header = (props) => {
-  const [isDemoPlaying, setIsDemoPlaying] = React.useState(false);
+  const videoRef = React.useRef(null);
   const data = props.data || {};
   const demo = props.demo || {};
-  const stories = props.stories || {};
   const language = props.language || "en";
   const appStoreBadgeSrc = `${process.env.PUBLIC_URL}${appStoreBadgeByLanguage[language] || appStoreBadgeByLanguage.en}`;
   const demoTitle = demo.title || "Demo";
-  const imageSrc = demo.imageSrc;
-  const hasDemoImage = Boolean(imageSrc);
-  const imageAlt = demo.imageAlt || demoTitle || "Photo Book Noir preview";
-  const videoSrc = demo.videoSrc || "/video/demo.mp4";
-  const mediaLabel = demo.videoLabel || imageAlt || demoTitle || "Photo Book Noir preview";
+  const videoSrc = demo.videoSrc || "/video/main-video.mp4";
+  const videoWebm = demo.videoWebm;
+  const poster = demo.videoPoster;
+  const mediaLabel = demo.videoLabel || demoTitle || "Photo Book Noir preview";
+
+  // The loop is decorative, so honour a reduced-motion preference by holding the
+  // poster frame instead of autoplaying. `autoplay` still ships in the markup so
+  // the video starts without waiting for React to hydrate.
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return undefined;
+    if (
+      typeof window.matchMedia !== "function" ||
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return undefined;
+    }
+
+    video.pause();
+    video.currentTime = 0;
+    return undefined;
+  }, []);
 
   return (
     <header id="header">
@@ -38,7 +53,7 @@ export const Header = (props) => {
         <div className="overlay">
           <div className="container">
             <div className="intro-layout">
-              <div className={`intro-stage${isDemoPlaying ? " intro-stage--video-playing" : ""}`}>
+              <div className="intro-stage">
                 <div className="intro-text intro-copy">
                   <h1>
                     {data.title}
@@ -62,51 +77,25 @@ export const Header = (props) => {
                       </div>
                     ) : null}
                   </div>
-                  <HeroClips data={stories} />
                 </div>
-                <div
-                  className={`intro-demo${isDemoPlaying ? " intro-demo--playing" : ""}${hasDemoImage ? " intro-demo--image" : ""}`}
-                  aria-label={mediaLabel}
-                >
-                  {hasDemoImage ? null : (
-                    <div className="intro-demo-copy">
-                      <h2>{demoTitle}</h2>
-                    </div>
-                  )}
-                  <div className={`intro-demo-frame${hasDemoImage ? " intro-demo-frame--image" : ""}`}>
-                    {imageSrc ? (
-                      <picture>
-                        {demo.imageSrcSet ? (
-                          <source
-                            type="image/webp"
-                            srcSet={demo.imageSrcSet}
-                            sizes={demo.imageSizes}
-                          />
-                        ) : null}
-                        <img
-                          alt={imageAlt}
-                          className="intro-demo-video intro-demo-image"
-                          src={imageSrc}
-                          width={demo.imageWidth}
-                          height={demo.imageHeight}
-                          decoding="async"
-                          fetchpriority="high"
-                        />
-                      </picture>
-                    ) : (
-                      <video
-                        aria-label={mediaLabel}
-                        className="intro-demo-video"
-                        src={videoSrc}
-                        controls
-                        loop
-                        playsInline
-                        preload="metadata"
-                        onPlay={() => setIsDemoPlaying(true)}
-                        onPause={() => setIsDemoPlaying(false)}
-                        onEnded={() => setIsDemoPlaying(false)}
-                      />
-                    )}
+                <div className="intro-demo" aria-label={mediaLabel}>
+                  <div className="intro-demo-frame">
+                    <video
+                      ref={videoRef}
+                      aria-label={mediaLabel}
+                      className="intro-demo-video"
+                      poster={poster}
+                      width={1280}
+                      height={720}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    >
+                      {videoWebm ? <source src={videoWebm} type="video/webm" /> : null}
+                      <source src={videoSrc} type="video/mp4" />
+                    </video>
                   </div>
                 </div>
               </div>

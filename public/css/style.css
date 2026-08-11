@@ -589,43 +589,6 @@ header .intro-text {
   transform: perspective(1800px) rotateX(1deg) rotateY(-2deg) translateY(-2px);
 }
 
-.intro-demo-copy {
-  display: grid;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.intro-demo-kicker {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: start;
-  padding: 7px 12px;
-  border-radius: 999px;
-    background: rgba(var(--color-accent-rgb) / 0.18);
-    color: rgba(255 255 255 / 0.92);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.intro-demo h2 {
-  margin: 0;
-    color: var(--color-primary-bg);
-  font-size: clamp(24px, 2.8vw, 36px);
-  line-height: 1.12;
-  font-weight: 700;
-}
-
-.intro-demo p {
-  margin: 0;
-  max-width: 42rem;
-    color: rgba(255 255 255 / 0.72);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
 .intro-demo-frame {
   overflow: hidden;
     border: 1px solid rgba(255 255 255 / 0.12);
@@ -640,7 +603,9 @@ header .intro-text {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 10;
+  /* Matches the transcode in scripts/optimize-videos.sh, so the loop is never
+     cropped and the frame reserves the right height before it loads. */
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
@@ -1666,22 +1631,8 @@ p {
     height: 52px;
   }
 
-  .intro-demo {
-    padding: 18px;
-    border-radius: var(--radius-card);
-    transform: none;
-  }
-
-  .intro-demo:hover {
-    transform: translateY(-1px);
-  }
-
-  .intro-demo-copy {
-    text-align: left;
-  }
-
   .intro-demo-video {
-    aspect-ratio: 16 / 11;
+    aspect-ratio: 16 / 9;
   }
 
   #testflight .testflight-shell {
@@ -1714,9 +1665,8 @@ p {
   }
 
   .intro-demo {
-    max-width: 760px;
+    max-width: 900px;
     margin: 0 auto;
-    transform: none;
   }
 }
 
@@ -1910,14 +1860,11 @@ a {
 
 .intro-stage {
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(420px, 1.02fr);
+  /* Weighted towards the video. The copy column still reaches its own 720px
+     max-width on the widest container, so the wordmark doesn't pay for it. */
+  grid-template-columns: minmax(0, 0.88fr) minmax(460px, 1.12fr);
   gap: clamp(36px, 5vw, 74px);
   align-items: center;
-  transition: grid-template-columns 0.28s ease;
-}
-
-.intro-stage--video-playing {
-  grid-template-columns: minmax(0, 0.74fr) minmax(500px, 1.26fr);
 }
 
 .intro-copy {
@@ -2005,88 +1952,35 @@ a {
   color: rgba(23 58 52 / 0.72);
 }
 
+/* The video carries the hero on its own: no panel, no tilt, and no perspective
+   from the base rule, so it reads as footage rather than a product card. */
 .intro-demo {
   align-self: center;
   justify-self: end;
-  width: min(100%, 620px);
-  padding: 14px;
-  border: 1px solid rgba(255 248 240 / 0.18);
-  border-radius: 28px;
-  background: rgba(255 248 240 / 0.07);
-  box-shadow: 0 30px 70px -34px rgba(0 0 0 / 0.78);
-  backdrop-filter: blur(18px);
-  transform: translateY(10px) rotate(-1deg);
-  transform-origin: center right;
-  transition: width 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
-}
-
-.intro-demo.intro-demo--image {
+  width: min(100%, 900px);
   padding: 0;
   border: 0;
   border-radius: 0;
-  background: transparent;
+  background: none;
   box-shadow: none;
   backdrop-filter: none;
+  transform: none;
 }
 
 .intro-demo:hover {
-  box-shadow: 0 34px 76px -36px rgba(0 0 0 / 0.82);
-  transform: translateY(4px) rotate(-0.5deg);
-}
-
-.intro-demo.intro-demo--image:hover {
   box-shadow: none;
-}
-
-.intro-demo.intro-demo--playing {
-  width: min(100%, 780px);
-  box-shadow: 0 40px 92px -38px rgba(0 0 0 / 0.9);
-  transform: translateY(0) rotate(0deg);
-  z-index: 2;
-}
-
-.intro-demo-copy {
-  margin: 0 0 12px;
-  padding: 0 8px;
-}
-
-.intro-demo h2 {
-  color: rgba(255 248 240 / 0.86);
-  font-family: var(--font-sans);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  transform: none;
 }
 
 .intro-demo-frame {
-  border-color: rgba(255 248 240 / 0.16);
-  border-radius: 24px;
-  background: rgba(12 32 28 / 0.8);
-}
-
-.intro-demo-frame.intro-demo-frame--image {
-  overflow: visible;
   border: 0;
-  border-radius: 0;
-  background: transparent;
+  border-radius: 24px;
+  background: none;
   box-shadow: none;
 }
 
 .intro-demo-video {
   border-radius: 24px;
-}
-
-.intro-demo-image {
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  aspect-ratio: auto;
-  object-fit: contain;
-  border-radius: 0;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0 0 0 / 0.24) 12%, rgba(0 0 0 / 0.92) 26%, #000000 42%);
-  mask-image: linear-gradient(to right, transparent 0%, rgba(0 0 0 / 0.24) 12%, rgba(0 0 0 / 0.92) 26%, #000000 42%);
 }
 
 #about {
@@ -2156,19 +2050,9 @@ a {
 
   .intro-demo {
     justify-self: stretch;
-    max-width: 780px;
+    max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    transform: none;
-  }
-
-  .intro-demo.intro-demo--playing {
-    max-width: 900px;
-    transform: none;
-  }
-
-  .intro-demo:hover {
-    transform: translateY(-1px);
   }
 }
 
@@ -2266,8 +2150,9 @@ a {
     min-width: 0;
   }
 
-  .intro-demo {
-    border-radius: 22px;
+  .intro-demo-video,
+  .intro-demo-frame {
+    border-radius: 18px;
   }
 
 }

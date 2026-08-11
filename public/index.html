@@ -79,14 +79,11 @@
   <meta name="twitter:image:alt" content="Photo Book Noir sequencing photos into consistent print-ready layouts" />
   <meta name="msapplication-TileImage" content="/img/favicon-192x192.png" />
   <link rel="preload" as="image" href="/img/logo.svg" />
-  <!-- Preload the hero image so it downloads in parallel with the JS bundle (must match the <picture> srcset/sizes in header.jsx) -->
+  <!-- Preload the hero video's poster so the frame paints before the video itself arrives (must match the <video poster> in header.jsx) -->
   <link
     rel="preload"
     as="image"
-    type="image/webp"
-    href="/img/main-image.webp"
-    imagesrcset="/img/main-image-960.webp 960w, /img/main-image.webp 1811w"
-    imagesizes="(max-width: 991px) 100vw, 50vw"
+    href="/video/main-video.jpg"
     fetchpriority="high"
   />
 

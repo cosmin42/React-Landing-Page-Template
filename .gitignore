@@ -11,7 +11,7 @@
 # production
 /build
 
-# raw footage (135MB of stock video); run scripts/optimize-videos.sh to rebuild public/video/clips
+# raw footage (stock video + the 32MB hero source); run scripts/optimize-videos.sh to rebuild public/video/main-video.*
 /media-src
 
 # misc

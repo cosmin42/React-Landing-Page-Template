@@ -23,7 +23,6 @@ const App = () => {
       <Header
         data={content.home.header}
         demo={content.home.demo}
-        stories={content.home.stories}
         language={language}
       />
       <About data={content.home.about} />
